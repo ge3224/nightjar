@@ -12,6 +12,9 @@ export default function NavBar(menuItems: NavLinks): HTMLElement {
     const a = document.createElement("a");
     a.setAttribute("href", item.link);
     a.textContent = item.label;
+
+    const classes = clsx("text-black hover:text-black/75 active:text-black/50");
+    a.setAttribute("class", classes);
     nav.appendChild(a);
   });
 
