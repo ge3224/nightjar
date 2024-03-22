@@ -22,3 +22,6 @@ export interface HTMLAnchorElementAttributes extends HTMLElementAttributes {
   target?: HTMLTargetAttribute;
   type?: string;
 }
+
+export interface HTMLParagraphElementAttributes extends HTMLElementAttributes {
+}
