@@ -2,7 +2,10 @@
 
 import { expect, test } from "vitest";
 import Ol from "./ol";
-import { HTMLOListElementAttributes, NumberingTypeAttribute } from "../_definitions/element_attributes";
+import {
+  HTMLOListElementAttributes,
+  NumberingTypeAttribute,
+} from "../_definitions/element_attributes";
 
 test("basic construction", () => {
   const mock = Ol(document.createElement("li"), {});

@@ -8,14 +8,14 @@ export enum HTMLAutocapitalizeAttribute {
 }
 
 /**
- * Attributes common to all HTML elements; they can be used on all elements, though they may have 
+ * Attributes common to all HTML elements; they can be used on all elements, though they may have
  * no effect on some elements.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)
  */
 export interface HTMLElementGlobalAttributes {
   /**
-   * Provides a hint for generating a keyboard shortcut for the current element. This attribute 
+   * Provides a hint for generating a keyboard shortcut for the current element. This attribute
    * consists of a space-separated list of characters.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey)
@@ -35,7 +35,8 @@ export enum HTMLTargetAttribute {
   top = "_top",
 }
 
-export interface HTMLAnchorElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLAnchorElementAttributes
+  extends HTMLElementGlobalAttributes {
   download?: string;
   href?: string;
   hreflang?: string;
@@ -64,7 +65,8 @@ export enum NumberingTypeAttribute {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
  */
-export interface HTMLOListElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLOListElementAttributes
+  extends HTMLElementGlobalAttributes {
   reversed?: boolean;
   start?: number;
   type?: NumberingTypeAttribute;

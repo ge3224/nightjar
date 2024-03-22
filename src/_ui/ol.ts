@@ -17,7 +17,7 @@ export default function Ol(
       ol.reversed = true;
       return;
     } else if (key === "start") {
-      ol.setAttribute(key, value.toString())
+      ol.setAttribute(key, value.toString());
       return;
     }
 
