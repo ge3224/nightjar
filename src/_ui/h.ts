@@ -1,10 +1,10 @@
-import { HTMLElementAttributes } from "../_definitions/element_attributes";
+import { HTMLElementGlobalAttributes } from "../_definitions/element_attributes";
 import appendChildren from "../_lib/append_children";
 
 export default function H(
   level: number,
   children: string | Node | Node[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLHeadingElement {
   if (level < 1 || level > 6) {
     throw new Error("Heading level must be between 1 and 6");

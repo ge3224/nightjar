@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import P from "./p";
-import { HTMLElementAttributes } from "../_definitions/element_attributes";
+import { HTMLElementGlobalAttributes } from "../_definitions/element_attributes";
 
 test("basic construction", () => {
   const mock = P("foo", {});
@@ -29,7 +29,7 @@ test("construction with attributes", () => {
   const mock = P("foo", {
     id: "bar",
     class: "foo bar baz",
-  } as HTMLElementAttributes);
+  } as HTMLElementGlobalAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

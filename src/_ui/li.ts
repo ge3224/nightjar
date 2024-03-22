@@ -1,9 +1,9 @@
-import { HTMLElementAttributes } from "../_definitions/element_attributes";
+import { HTMLElementGlobalAttributes } from "../_definitions/element_attributes";
 import appendChildren from "../_lib/append_children";
 
 export default function Li(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLLIElement {
   const li = document.createElement("li");
   appendChildren(li, children);

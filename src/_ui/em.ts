@@ -1,9 +1,9 @@
-import { HTMLElementAttributes } from "../_definitions/element_attributes";
+import { HTMLElementGlobalAttributes } from "../_definitions/element_attributes";
 import appendChildren from "../_lib/append_children";
 
 export default function Em(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLElement {
   const em = document.createElement("em");
 
