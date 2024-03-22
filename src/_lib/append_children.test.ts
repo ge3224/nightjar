@@ -28,11 +28,7 @@ test("appending a mix of child nodes", () => {
 
   expect(mockParent.childNodes.length).toBe(0);
 
-  appendChildren(mockParent, [
-    "foo",
-    document.createElement("a"),
-    "bar",
-  ]);
+  appendChildren(mockParent, ["foo", document.createElement("a"), "bar"]);
 
   expect(mockParent.childNodes.length).toBe(3);
 });
