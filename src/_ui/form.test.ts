@@ -63,3 +63,9 @@ test("construction with attributes", () => {
     }
   });
 });
+
+test("cannot add <form> as a child", () => {
+  const unallowedChild = document.createElement("form");
+  const mock = Form(["foo", unallowedChild], {});
+  expect(mock.childNodes.length).toBe(1);
+});
