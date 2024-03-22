@@ -4,7 +4,7 @@ import appendChildren from "../_lib/append_children";
 export default function Li(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
-): HTMLElement {
+): HTMLLIElement {
   const li = document.createElement("li");
   appendChildren(li, children);
 
