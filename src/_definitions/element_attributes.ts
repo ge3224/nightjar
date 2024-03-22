@@ -19,7 +19,7 @@ export interface HTMLElementGlobalAttributes {
    * consists of a space-separated list of characters.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey)
-  */
+   */
   accesskey?: string;
   autocapitalize?: HTMLElementGlobalAttributes;
   class?: string;
@@ -44,4 +44,28 @@ export interface HTMLAnchorElementAttributes extends HTMLElementGlobalAttributes
   rel?: string;
   target?: HTMLTargetAttribute;
   type?: string;
+}
+
+/**
+ * Set of numbering types for the 'type' attribute of the Order List HTML element.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol#type)
+ */
+export enum NumberingTypeAttribute {
+  lowercaseLetters = "a",
+  uppercaseLetters = "A",
+  lowercaseRomanNumerals = "i",
+  uppercaseRomanNumerals = "I",
+  numbers = "1",
+}
+
+/**
+ * Attributes specific to the Ordered List HTML element
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
+ */
+export interface HTMLOListElementAttributes extends HTMLElementGlobalAttributes {
+  reversed?: boolean;
+  start?: number;
+  type?: NumberingTypeAttribute;
 }
