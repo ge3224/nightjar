@@ -1,19 +1,16 @@
+import appendChildren from "../_lib/append_children";
 import { HTMLAnchorElementAttributes } from "../_definitions/element_attributes";
 
 /**
  * Constructs an HTMLAnchorElement, <a>.
  */
 export default function A(
-  child: string | Node,
+  children: string | Node | (string | Node)[],
   attributes: HTMLAnchorElementAttributes
 ): HTMLAnchorElement {
   const a = document.createElement("a");
 
-  if (typeof child === "string") {
-    a.appendChild(document.createTextNode(child));
-  } else {
-    a.appendChild(child);
-  }
+  appendChildren(a, children);
 
   Object.entries(attributes).map(([key, value]) => {
     a.setAttribute(key, value);
