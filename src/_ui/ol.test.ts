@@ -2,10 +2,7 @@
 
 import { expect, test } from "vitest";
 import Ol from "./ol";
-import {
-  HTMLOListElementAttributes,
-  NumberingTypeAttribute,
-} from "../_definitions/element_attributes";
+import { HTMLElementAttributes, NumberingTypeAttribute } from "../_definitions/attributes";
 
 test("basic construction", () => {
   const mock = Ol(document.createElement("li"), {});
@@ -41,7 +38,7 @@ test("construction with attributes", () => {
     reversed: true,
     start: 4,
     type: NumberingTypeAttribute.lowercaseLetters,
-  } as HTMLOListElementAttributes);
+  } as HTMLElementAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

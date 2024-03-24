@@ -8,7 +8,7 @@ import {
   ImageAttributeFetchpriority,
   ImageAttributeLoading,
   ImageAttributeReferrerpolicy,
-} from "../_definitions/element_attributes";
+} from "../_definitions/attributes";
 import Img from "./img";
 
 test("basic construction", () => {

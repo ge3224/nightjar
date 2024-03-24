@@ -1,9 +1,9 @@
-import { HTMLElementGlobalAttributes } from "../_definitions/element_attributes";
+import { HTMLElementAttributes } from "../_definitions/attributes";
 import appendChildren from "../_lib/append_children";
 
 export default function Span(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementGlobalAttributes
+  attributes: HTMLElementAttributes
 ): HTMLSpanElement {
   const span = document.createElement("span");
   appendChildren(span, children);

@@ -1,8 +1,8 @@
-import { HTMLFormElementAttributes } from "../_definitions/element_attributes";
+import { HTMLElementAttributes } from "../_definitions/attributes";
 
 export default function Form(
   children: string | Node | (string | Node)[],
-  attributes: HTMLFormElementAttributes
+  attributes: HTMLElementAttributes
 ): HTMLFormElement {
   const form = document.createElement("form");
 

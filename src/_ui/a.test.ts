@@ -3,9 +3,9 @@
 import { expect, test } from "vitest";
 import A from "./a";
 import {
-  HTMLTargetAttribute,
+  HTMLAnchorElementAttributeTarget,
   HTMLAnchorElementAttributes,
-} from "../_definitions/element_attributes";
+} from "../_definitions/attributes";
 
 test("basic construction", () => {
   const mock = A("foo", {});
@@ -32,10 +32,10 @@ test("construction with attributes", () => {
   const mock = A("foo", {
     id: "bar",
     href: "https://baz.com",
-    target: HTMLTargetAttribute.blank,
+    target: HTMLAnchorElementAttributeTarget.blank,
   } as HTMLAnchorElementAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("href")).toBe("https://baz.com");
-  expect(mock.getAttribute("target")).toBe(HTMLTargetAttribute.blank);
+  expect(mock.getAttribute("target")).toBe(HTMLAnchorElementAttributeTarget.blank);
 });

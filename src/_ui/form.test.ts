@@ -6,9 +6,9 @@ import {
   FormAttributeMethod,
   FormAttributesAutocomplete,
   FormAttributesTarget,
-  GlobalAutocapitalizeAttribute,
+  HTMLElementAttributeAutocapitalize,
   HTMLFormElementAttributes,
-} from "../_definitions/element_attributes";
+} from "../_definitions/attributes";
 import Form from "./form";
 
 test("basic construction", () => {
@@ -36,7 +36,7 @@ test("construction with attributes", () => {
   const mockAttributes: HTMLFormElementAttributes = {
     acceptCharset: "UTF-8",
     action: "/mock-submit-form",
-    autocapitalize: GlobalAutocapitalizeAttribute.sentences,
+    autocapitalize: HTMLElementAttributeAutocapitalize.sentences,
     autocomplete: FormAttributesAutocomplete.off,
     class: "foo bar baz",
     enctype: FormAttributeEnctype.text,
