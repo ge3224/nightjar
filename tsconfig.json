@@ -17,7 +17,21 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@/*":[
+        "./src/*"
+      ],
+      "@/ui/*":[
+        "./src/_ui/*"
+      ],
+      "@/definitions/*": [
+        "./src/_definitions/*"
+      ],
+      "@/lib/*":[
+        "./src/_lib/*"
+      ]
+    }
   },
   "include": ["src"]
 }
