@@ -1,14 +1,17 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Ul from "./ul";
-import { HTMLElementAttributes } from "../_definitions/attributes";
+import Ol from "./ol";
+import {
+  HTMLElementAttributes,
+  NumberingTypeAttribute,
+} from "../../_definitions/attributes";
 
 test("basic construction", () => {
-  const mock = Ul(document.createElement("li"), {});
+  const mock = Ol(document.createElement("li"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("UL");
+  expect(mock.tagName).toEqual("OL");
 });
 
 test("construction with multiple child nodes", () => {
@@ -18,7 +21,7 @@ test("construction with multiple child nodes", () => {
     return li;
   });
 
-  const mockParent = Ul(mockChildren, {});
+  const mockParent = Ol(mockChildren, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
   expect(mockParent.firstElementChild?.tagName).toBe("LI");
@@ -26,11 +29,23 @@ test("construction with multiple child nodes", () => {
 });
 
 test("construction with attributes", () => {
-  const mock = Ul(document.createElement("li"), {
+  const mockChildren = ["foo", "bar", "baz"].map((text) => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    return li;
+  });
+
+  const mock = Ol(mockChildren, {
     id: "bar",
     class: "foo bar baz",
+    reversed: true,
+    start: 4,
+    type: NumberingTypeAttribute.lowercaseLetters,
   } as HTMLElementAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");
+  expect(mock.reversed).toBe(true);
+  expect(mock.getAttribute("start")).toBe("4");
+  expect(mock.getAttribute("type")).toBe("a");
 });

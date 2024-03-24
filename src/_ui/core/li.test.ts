@@ -1,14 +1,14 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Strong from "./strong";
-import { HTMLElementAttributes } from "../_definitions/attributes";
+import Li from "./li";
+import { HTMLElementAttributes } from "../../_definitions/attributes";
 
 test("basic construction", () => {
-  const mock = Strong("foo", {});
+  const mock = Li("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("STRONG");
+  expect(mock.tagName).toEqual("LI");
   expect(mock.textContent).toBe("foo");
 });
 
@@ -16,7 +16,7 @@ test("construction with a child node", () => {
   const mockChild = document.createElement("span");
   mockChild.textContent = "foo";
 
-  const mockParent = Strong(mockChild, {});
+  const mockParent = Li(mockChild, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
   expect(mockParent.firstElementChild?.tagName).toBe("SPAN");
@@ -26,7 +26,7 @@ test("construction with a child node", () => {
 });
 
 test("construction with attributes", () => {
-  const mock = Strong("foo", {
+  const mock = Li("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

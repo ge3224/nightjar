@@ -12,14 +12,12 @@ export enum HTMLAnchorElementAttributeTarget {
   top = "_top",
 }
 
-
 /**
  *
  *
  * [MDN Reference]()
  */
-export interface HTMLAnchorElementAttributes
-  extends HTMLElementAttributes {
+export interface HTMLAnchorElementAttributes extends HTMLElementAttributes {
   download?: string;
   href?: string;
   hreflang?: string;
@@ -29,4 +27,3 @@ export interface HTMLAnchorElementAttributes
   target?: HTMLAnchorElementAttributeTarget;
   type?: string;
 }
-

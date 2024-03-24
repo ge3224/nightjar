@@ -1,4 +1,4 @@
-import { HTMLImageElementAttributes } from "../_definitions/attributes";
+import { HTMLImageElementAttributes } from "../../_definitions/attributes";
 
 export default function Img(
   attributes: HTMLImageElementAttributes

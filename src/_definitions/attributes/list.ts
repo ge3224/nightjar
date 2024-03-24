@@ -18,8 +18,7 @@ export enum NumberingTypeAttribute {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
  */
-export interface HTMLOListElementAttributes
-  extends HTMLElementAttributes {
+export interface HTMLOListElementAttributes extends HTMLElementAttributes {
   reversed?: boolean;
   start?: number;
   type?: NumberingTypeAttribute;

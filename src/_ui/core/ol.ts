@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "../_definitions/attributes";
+import { HTMLElementAttributes } from "../../_definitions/attributes";
 
 export default function Ol(
   children: HTMLLIElement | HTMLLIElement[],

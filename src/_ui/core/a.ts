@@ -1,5 +1,5 @@
-import appendChildren from "../_lib/append_children";
-import { HTMLAnchorElementAttributes } from "../_definitions/attributes";
+import appendChildren from "../../_lib/append_children";
+import { HTMLAnchorElementAttributes } from "../../_definitions/attributes";
 
 /**
  * Constructs an HTMLAnchorElement, <a>.

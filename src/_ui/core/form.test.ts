@@ -8,7 +8,7 @@ import {
   FormAttributesTarget,
   HTMLElementAttributeAutocapitalize,
   HTMLFormElementAttributes,
-} from "../_definitions/attributes";
+} from "../../_definitions/attributes";
 import Form from "./form";
 
 test("basic construction", () => {

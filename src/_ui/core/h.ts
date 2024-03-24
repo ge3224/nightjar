@@ -1,5 +1,5 @@
-import { HTMLElementAttributes } from "../_definitions/attributes";
-import appendChildren from "../_lib/append_children";
+import { HTMLElementAttributes } from "../../_definitions/attributes";
+import appendChildren from "../../_lib/append_children";
 
 export default function H(
   level: number,

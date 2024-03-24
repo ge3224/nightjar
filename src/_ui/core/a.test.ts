@@ -1,14 +1,17 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Span from "./span";
-import { HTMLElementAttributes } from "../_definitions/attributes";
+import A from "./a";
+import {
+  HTMLAnchorElementAttributeTarget,
+  HTMLAnchorElementAttributes,
+} from "../../_definitions/attributes";
 
 test("basic construction", () => {
-  const mock = Span("foo", {});
+  const mock = A("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("SPAN");
+  expect(mock.tagName).toEqual("A");
   expect(mock.textContent).toBe("foo");
 });
 
@@ -16,7 +19,7 @@ test("construction with a child node", () => {
   const mockChild = document.createElement("span");
   mockChild.textContent = "foo";
 
-  const mockParent = Span(mockChild, {});
+  const mockParent = A(mockChild, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
   expect(mockParent.firstElementChild?.tagName).toBe("SPAN");
@@ -26,11 +29,15 @@ test("construction with a child node", () => {
 });
 
 test("construction with attributes", () => {
-  const mock = Span("foo", {
+  const mock = A("foo", {
     id: "bar",
-    class: "foo bar baz",
-  } as HTMLElementAttributes);
+    href: "https://baz.com",
+    target: HTMLAnchorElementAttributeTarget.blank,
+  } as HTMLAnchorElementAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
-  expect(mock.getAttribute("class")).toBe("foo bar baz");
+  expect(mock.getAttribute("href")).toBe("https://baz.com");
+  expect(mock.getAttribute("target")).toBe(
+    HTMLAnchorElementAttributeTarget.blank
+  );
 });

@@ -1,5 +1,189 @@
-import { FormAttributeEnctype } from "./form";
+import {
+  FormAttributeEnctype,
+  FormAttributeMethod,
+  FormAttributesTarget,
+} from "./form";
 import { HTMLElementAttributes } from "./global";
+
+/**
+ * Specifies the action to be performed on a popover element being controlled
+ * by a control <input type="button">.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#popovertargetaction)
+ */
+export enum InputAttributePopoverTargetAction {
+  /**
+   * The button will hide a shown popover.
+   */
+  hide = "hide",
+  /**
+   * The button will show a hidden popover.
+   */
+  show = "show",
+  /**
+   * The button will toggle a popover between showing and hidden.
+   */
+  toggle = "toggle",
+}
+
+/**
+ * A string specifying the type of control to render.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types)
+ */
+export enum InputAttributeType {
+  /**
+   * Rendered as simple push buttons that can be programmed to control custom
+   * functionality anywhere on a webpage as required when assigned an event
+   * handler function.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button)
+   */
+  button = "button",
+  /**
+   * A check box allowing single values to be selected/deselected.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
+   */
+  checkbox = "checkbox",
+  /**
+   * A control for specifying a color; opening a color picker when active in
+   * supporting browsers.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color)
+   */
+  color = "color",
+  /**
+   * A control for entering a date (year, month, and day, with no time). Opens
+   * a date picker or numeric wheels for year, month, day when active in
+   * supporting browsers. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
+   */
+  date = "date",
+  /**
+   * A control for entering a date and time, with no time zone. Opens a date
+   * picker or numeric wheels for date- and time-components when active in
+   * supporting browsers. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
+   */
+  datetimeLocal = "datetime-local",
+  /**
+   * A field for editing an email address.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email)
+   */
+  email = "email",
+  /**
+   * A control that lets the user select a file.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file)
+   */
+  file = "file",
+  /**
+   * A control that is not displayed but whose value is submitted to the server. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden)
+   */
+  hidden = "hidden",
+  /**
+   * A graphical submit button. Displays an image defined by the `src` attribute.
+   * The `alt` attribute displays if the image src is missing. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image)
+   */
+  image = "image",
+  /**
+   * A control for entering a month and year, with no time zone.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month)
+   */
+  month = "month",
+  /**
+   * A control for entering a number. Displays a spinner and adds default
+   * validation. Displays a numeric keypad in some devices with dynamic keypads. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number)
+   */
+  number = "number",
+  /**
+   * A single-line text field whose value is obscured. Will alert user if site
+   * is not secure. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password)
+   */
+  password = "password",
+  /**
+   * A radio button, allowing a single value to be selected out of multiple
+   * choices with the same `name` value.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+   */
+  radio = "radio",
+  /**
+   * A control for entering a number whose exact value is not important. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
+   */
+  range = "range",
+  /**
+   * A button that resets the contents of the form to default values. Not recommended.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/reset)
+   */
+  reset = "reset",
+  /**
+   * A single-line text field for entering search strings. Line-breaks are
+   * automatically removed from the input value. May include a delete icon in
+   * supporting browsers that can be used to clear the field. Displays a search
+   * icon instead of enter key on some devices with dynamic keypads. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search)
+   */
+  search = "search",
+  /**
+   * A button that submits the form.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit)
+   */
+  submit = "submit",
+  /**
+   * A control for entering a telephone number. Displays a telephone keypad in
+   * some devices with dynamic keypads. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel)
+   */
+  tel = "tel",
+  /**
+   * The default value. A single-line text field. Line-breaks are automatically
+   * removed from the input value. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text)
+   */
+  text = "text",
+  /**
+   * A control for entering a time value with no time zone.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time)
+   */
+  time = "time",
+  /**
+   * A field for entering a URL. Looks like a text input, but has validation
+   * parameters and relevant keyboard in supporting browsers and devices with
+   * dynamic keyboards. 
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url)
+   */
+  url = "url",
+  /**
+   * A control for entering a date consisting of a week-year number and a week
+   * number with no time zone.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week)
+   */
+  week = "week",
+}
 
 /**
  * Creates interactive controls for web-based forms in order to accept data from the user.
@@ -7,15 +191,15 @@ import { HTMLElementAttributes } from "./global";
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
  */
 export interface HTMLInputElementAttributes extends HTMLElementAttributes {
-  /** 
-   * Valid for the file input type only, the accept attribute defines which file types are 
-   * selectable in a file upload control. 
+  /**
+   * Valid for the file input type only, the accept attribute defines which file types are
+   * selectable in a file upload control.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#accept)
    */
   accept?: string;
   /**
-   * Valid for the image button only, provides alternative text for the image, displaying the value 
+   * Valid for the image button only, provides alternative text for the image, displaying the value
    * of the attribute if the image src is missing or otherwise fails to load.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#alt)
@@ -26,17 +210,17 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/autocomplete)
    */
-  autocomplete?: AutoFill;
+  autoComplete?: AutoFill;
   /**
-   * A Boolean attribute which, if present, indicates that the input should automatically have 
+   * A Boolean attribute which, if present, indicates that the input should automatically have
    * focus when the page has finished loading
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#autofocus)
    */
-  autofocus?: boolean
+  autofocus?: boolean;
   /**
-   * Introduced in the HTML Media Capture specification and valid for the file input type only, the 
-   * capture attribute defines which media—microphone, video, or camera—should be used to capture a 
+   * Introduced in the HTML Media Capture specification and valid for the file input type only, the
+   * capture attribute defines which media—microphone, video, or camera—should be used to capture a
    * new file for upload with file upload control in supporting scenarios.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#capture)
@@ -49,14 +233,14 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    */
   checked?: boolean;
   /**
-   * Valid for hidden, text, search, url, tel, and email input types, the dirname attribute enables 
+   * Valid for hidden, text, search, url, tel, and email input types, the dirname attribute enables
    * the submission of the directionality of the element.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#dirname)
    */
   dirname?: string;
   /**
-   * A Boolean attribute which, if present, indicates that the user should not be able to 
+   * A Boolean attribute which, if present, indicates that the user should not be able to
    * interact with the input.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled)
@@ -67,94 +251,175 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/formAction)
    */
-  formaction?: string;
+  formAction?: string;
   /**
    * Used to override the encoding (formEnctype attribute) specified on the form element.
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/formEnctype)
    */
-  formenctype?: FormAttributeEnctype;
+  formEnctype?: FormAttributeEnctype;
   /**
    * Overrides the submit method attribute previously specified on a form element.
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/formMethod)
    */
-  formmethod?: string;
+  formMethod?: FormAttributeMethod;
   /**
-   * Overrides any validation or required attributes on a form or form elements to allow it to be submitted without validation. This can be used to create a "save draft"-type submit option.
+   * Overrides any validation or required attributes on a form or form elements
+   * to allow it to be submitted without validation. This can be used to create
+   * a "save draft"-type submit option.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/formNoValidate)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formnovalidate)
    */
   formNoValidate?: boolean;
   /**
    * Overrides the target attribute on a form element.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/formTarget)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#formtarget)
    */
-  formTarget?: string;
+  formTarget?: FormAttributesTarget;
   /**
    * Sets or retrieves the height of the object.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/height)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#height)
    */
   height?: number;
-  /** When set, overrides the rendering of checkbox controls so that the current value is not visible. */
-  indeterminate?: boolean;
-  /** Defines the maximum acceptable value for an input element with type="number".When used with the min and step attributes, lets you control the range and increment (such as only even numbers) that the user can enter into an input field. */
+  /**
+   * The value given to the list attribute should be the id of a <datalist>
+   * element located in the same document.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#list)
+   */
+  list?: string;
+  /**
+   * Defines the maximum acceptable value for an input element with
+   * type="number".When used with the min and step attributes, lets you control
+   * the range and increment (such as only even numbers) that the user can
+   * enter into an input field.
+   *
+   * [MDN
+   * Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#max)
+   */
   max?: string;
-  /** Sets or retrieves the maximum number of characters that the user can enter in a text control. */
+  /**
+   * Sets or retrieves the maximum number of characters that the user can enter
+   * in a text control.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#maxlength)
+   */
   maxLength?: number;
-  /** Defines the minimum acceptable value for an input element with type="number". When used with the max and step attributes, lets you control the range and increment (such as even numbers only) that the user can enter into an input field. */
+  /**
+   * Defines the minimum acceptable value for an input element with
+   * type="number". When used with the max and step attributes, lets you
+   * control the range and increment (such as even numbers only) that the user
+   * can enter into an input field.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#min)
+   */
   min?: string;
+  /**
+   * Valid for text, search, url, tel, email, and password, it defines the
+   * minimum string length (measured in UTF-16 code units) that the user can
+   * enter into the entry field.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#minlength)
+   */
   minLength?: number;
   /**
    * Sets or retrieves the Boolean value indicating whether multiple items can be selected from a list.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/multiple)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#multiple)
    */
   multiple?: boolean;
-  /** Sets or retrieves the name of the object. */
+  /**
+   * Sets or retrieves the name of the object.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name)
+   */
   name?: string;
   /**
    * Gets or sets a string containing a regular expression that the user's input must match.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/pattern)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#pattern)
    */
   pattern?: string;
   /**
-   * Gets or sets a text string that is displayed in an input field as a hint or prompt to users as the format or type of information they need to enter.The text appears in an input field until the user puts focus on the field.
+   * Gets or sets a text string that is displayed in an input field as a hint
+   * or prompt to users as the format or type of information they need to
+   * enter.The text appears in an input field until the user puts focus on the field.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/placeholder)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder)
    */
   placeholder?: string;
+  /**
+   * Turns an <input type="button"> element into a popover control button;
+   * takes the ID of the popover element to control as its value.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#popovertarget)
+   */
+  popoverTarget?: string;
+  /**
+   * Specifies the action to be performed on a popover element being controlled
+   * by a control <input type="button">.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#popovertargetaction)
+   */
+  popoverTargetAction?: InputAttributePopoverTargetAction;
+  /**
+   * A Boolean attribute which, if present, indicates that the user should not
+   * be able to edit the value of the input.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#readonly)
+   */
   readOnly?: boolean;
   /**
    * When present, marks an element that can't be submitted without a value.
    *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/required)
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#required)
    */
   required?: boolean;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/selectionDirection) */
-  selectionDirection?: "forward" | "backward" | "none" | null;
-  /** Gets or sets the end position or offset of a text selection. */
-  selectionEnd?: number | null;
-  /** Gets or sets the starting position or offset of a text selection. */
-  selectionStart?: number | null;
+  /**
+   * Valid for email, password, tel, url, and text, the size attribute
+   * specifies how much of the input is shown. Basically creates same result as
+   * setting CSS width property with a few specialities. The actual unit of the
+   * value depends on the input type. For password and text, it is a number of
+   * characters (or em units) with a default value of 20, and for others, it is
+   * pixels (or px units). CSS width takes precedence over the size attribute.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#size)
+   */
   size?: number;
-  /** The address or URL of the a media resource that is to be considered. */
+  /**
+   * The address or URL of the a media resource that is to be considered.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#src)
+   */
   src?: string;
-  /** Defines an increment or jump between values that you want to allow the user to enter. When used with the max and min attributes, lets you control the range and increment (for example, allow only even numbers) that the user can enter into an input field. */
+  /**
+   * Defines an increment or jump between values that you want to allow the
+   * user to enter. When used with the max and min attributes, lets you control
+   * the range and increment (for example, allow only even numbers) that the
+   * user can enter into an input field.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#step)
+   */
   step?: string;
-  /** Returns the content type of the object. */
-  type?: string;
-  /** Returns the value of the data at the cursor's current position. */
+  /**
+   * Specifying the type of control to render.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#type)
+   */
+  type?: InputAttributeType;
+  /**
+   * Returns the value of the data at the cursor's current position.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#value)
+   */
   value?: string;
-  /** Returns a Date object representing the form control's value, if applicable; otherwise, returns null. Can be set, to change the value. Throws an "InvalidStateError" DOMException if the control isn't date- or time-based. */
-  valueAsDate?: Date | null;
-  /** Returns the input field value as a number. */
-  valueAsNumber?: number;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/webkitdirectory) */
-  webkitdirectory?: boolean;
+  /**
+   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/webkitdirectory)
+   */
+  webkitDirectory?: boolean;
   /**
    * Sets or retrieves the width of the object.
    *

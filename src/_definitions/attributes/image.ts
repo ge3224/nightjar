@@ -134,8 +134,7 @@ export enum ImageAttributeReferrerpolicy {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
  */
-export interface HTMLImageElementAttributes
-  extends HTMLElementAttributes {
+export interface HTMLImageElementAttributes extends HTMLElementAttributes {
   /**
    * Defines text that can replace the image in the page.
    *

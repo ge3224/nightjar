@@ -23,7 +23,7 @@ export enum HTMLElementAttributeAutocapitalize {
    */
   sentences = "sentences",
   /**
-   * Automatically capitalize the first character of each sentence (Same as 'sentences'). 
+   * Automatically capitalize the first character of each sentence (Same as 'sentences').
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize#sentences)
    */
