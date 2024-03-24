@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import H from "./h";
-import { HTMLElementAttributes } from "../../_definitions/attributes";
+import { HTMLElementAttributes } from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = H(1, "foo", {});

@@ -4,27 +4,7 @@ import {
   FormAttributesTarget,
 } from "./form";
 import { HTMLElementAttributes } from "./global";
-
-/**
- * Specifies the action to be performed on a popover element being controlled
- * by a control <input type="button">.
- *
- * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#popovertargetaction)
- */
-export enum InputAttributePopoverTargetAction {
-  /**
-   * The button will hide a shown popover.
-   */
-  hide = "hide",
-  /**
-   * The button will show a hidden popover.
-   */
-  show = "show",
-  /**
-   * The button will toggle a popover between showing and hidden.
-   */
-  toggle = "toggle",
-}
+import { PopoverTargetAction } from "./popover";
 
 /**
  * A string specifying the type of control to render.
@@ -364,7 +344,7 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#popovertargetaction)
    */
-  popoverTargetAction?: InputAttributePopoverTargetAction;
+  popoverTargetAction?: PopoverTargetAction;
   /**
    * A Boolean attribute which, if present, indicates that the user should not
    * be able to edit the value of the input.

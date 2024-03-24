@@ -7,9 +7,9 @@ import {
   FormAttributeMethod,
   FormAttributesTarget,
   HTMLInputElementAttributes,
-  InputAttributePopoverTargetAction,
   InputAttributeType,
-} from "../../_definitions/attributes";
+  PopoverTargetAction,
+} from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = Input({});
@@ -43,7 +43,7 @@ test("construction with attributes", () => {
     pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}",
     placeholder: "mock placeholder",
     popoverTarget: "mock-popover-target",
-    popoverTargetAction: InputAttributePopoverTargetAction.toggle,
+    popoverTargetAction: PopoverTargetAction.toggle,
     readOnly: true,
     required: true,
     size: 20,

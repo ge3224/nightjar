@@ -18,18 +18,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    /* aliases */
     "paths": {
       "@/*":[
         "./src/*"
-      ],
-      "@/ui/*":[
-        "./src/_ui/*"
-      ],
-      "@/definitions/*": [
-        "./src/_definitions/*"
-      ],
-      "@/lib/*":[
-        "./src/_lib/*"
       ]
     }
   },

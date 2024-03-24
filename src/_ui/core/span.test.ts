@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import Span from "./span";
-import { HTMLElementAttributes } from "../../_definitions/attributes";
+import { HTMLElementAttributes } from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = Span("foo", {});

@@ -5,7 +5,7 @@ import A from "./a";
 import {
   HTMLAnchorElementAttributeTarget,
   HTMLAnchorElementAttributes,
-} from "../../_definitions/attributes";
+} from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = A("foo", {});

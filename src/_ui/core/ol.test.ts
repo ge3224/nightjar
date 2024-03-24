@@ -5,7 +5,7 @@ import Ol from "./ol";
 import {
   HTMLElementAttributes,
   NumberingTypeAttribute,
-} from "../../_definitions/attributes";
+} from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = Ol(document.createElement("li"), {});
