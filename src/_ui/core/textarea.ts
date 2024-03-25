@@ -1,5 +1,8 @@
 import { HTMLTextAreaElementAttributes } from "@/_definitions/attributes";
 
+/**
+ * Constructor for the HTML <textarea> element.
+ */
 export default function Textarea(
   content: string,
   attributes: HTMLTextAreaElementAttributes
@@ -23,7 +26,10 @@ export default function Textarea(
         textarea.required = value ? true : false;
         return;
       default:
-        textarea.setAttribute(key, value);
+        textarea.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
     }
   });
 

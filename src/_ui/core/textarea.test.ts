@@ -2,7 +2,11 @@
 
 import { expect, test } from "vitest";
 import Textarea from "./textarea";
-import { HTMLTextAreaElementAttributes, TextAreaAttributeSpellcheck, TextAreaAttributeWrap } from "@/_definitions/attributes";
+import {
+  HTMLTextAreaElementAttributes,
+  TextAreaAttributeSpellcheck,
+  TextAreaAttributeWrap,
+} from "@/_definitions/attributes";
 
 test("basic construction", () => {
   const mock = Textarea("foo", {});
