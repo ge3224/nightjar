@@ -1,4 +1,5 @@
 import {
+  FormAttributeAutocomplete,
   FormAttributeEnctype,
   FormAttributeMethod,
   FormAttributesTarget,
@@ -190,7 +191,7 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/autocomplete)
    */
-  autoComplete?: AutoFill;
+  autoComplete?: FormAttributeAutocomplete;
   /**
    * A Boolean attribute which, if present, indicates that the input should automatically have
    * focus when the page has finished loading

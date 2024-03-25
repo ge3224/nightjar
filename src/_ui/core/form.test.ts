@@ -4,7 +4,7 @@ import { expect, test } from "vitest";
 import {
   FormAttributeEnctype,
   FormAttributeMethod,
-  FormAttributesAutocomplete,
+  FormAttributeAutocomplete,
   FormAttributesTarget,
   HTMLElementAttributeAutocapitalize,
   HTMLFormElementAttributes,
@@ -37,7 +37,7 @@ test("construction with attributes", () => {
     acceptCharset: "UTF-8",
     action: "/mock-submit-form",
     autocapitalize: HTMLElementAttributeAutocapitalize.sentences,
-    autocomplete: FormAttributesAutocomplete.off,
+    autocomplete: FormAttributeAutocomplete.off,
     class: "foo bar baz",
     enctype: FormAttributeEnctype.text,
     id: "bar",

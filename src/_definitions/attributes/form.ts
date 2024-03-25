@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "./global";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#autocomplete)
  */
-export enum FormAttributesAutocomplete {
+export enum FormAttributeAutocomplete {
   /**
    * The browser may automatically complete entries.
    */
@@ -105,7 +105,7 @@ export interface HTMLFormElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#autocomplete)
    */
-  autocomplete?: FormAttributesAutocomplete;
+  autocomplete?: FormAttributeAutocomplete;
   /**
    * The name of the form. The value must not be the empty string, and must be unique among the
    * form elements in the forms collection that it is in, if any.
