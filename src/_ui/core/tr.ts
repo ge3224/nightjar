@@ -11,15 +11,17 @@ export default function Tr(
 ): HTMLTableRowElement {
   const tr = document.createElement("tr");
 
+  const allowedChildTypes = ["TH", "TD"];
+
   if (Array.isArray(children)) {
     children.forEach(child => {
-      if (child instanceof HTMLTableCellElement) {
+      if (allowedChildTypes.includes(child.nodeName)) {
         tr.appendChild(child);
       }
     });
   } else {
     const child = children;
-    if (child instanceof HTMLTableCellElement) {
+    if (allowedChildTypes.includes(child.nodeName)) {
       tr.appendChild(child);
     }
   }
