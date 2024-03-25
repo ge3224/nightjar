@@ -1,0 +1,33 @@
+import { HTMLOptionElementAttributes } from "@/_definitions/attributes";
+
+/**
+ * A constructor for the <option> element.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
+ */
+export default function Option(
+  content: string,
+  attributes: HTMLOptionElementAttributes
+): HTMLOptionElement {
+  const option = document.createElement("option");
+
+  option.textContent = content;
+
+  Object.entries(attributes).map(([key, value]) => {
+    switch (key) {
+      case "disabled":
+        option.disabled = value ? true : false;
+        return;
+      case "selected":
+        option.selected = value ? true : false;
+        return;
+      default:
+        option.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
+  });
+
+  return option;
+}
