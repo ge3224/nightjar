@@ -1,7 +1,14 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import { ButtonAttributeType, FormAttributeEnctype, FormAttributeMethod, FormAttributesTarget, HTMLButtonElementAttributes, PopoverTargetAction } from "@/_definitions/attributes";
+import {
+  ButtonAttributeType,
+  FormAttributeEnctype,
+  FormAttributeMethod,
+  FormAttributesTarget,
+  HTMLButtonElementAttributes,
+  PopoverTargetAction,
+} from "@/_definitions/attributes";
 import Button from "./button";
 
 test("basic construction", () => {
@@ -12,10 +19,7 @@ test("basic construction", () => {
 });
 
 test("construct with children", () => {
-  const children = [
-    "foo",
-    document.createElement("span"),
-  ];
+  const children = ["foo", document.createElement("span")];
   const mock = Button(children, {});
   expect(mock.childNodes.length).toBe(children.length);
 });
@@ -65,10 +69,10 @@ test("cannot append certain child nodes", () => {
     document.createElement("form"),
     document.createElement("select"),
     document.createElement("textarea"),
-  ]
+  ];
 
-  unallowedChildren.map(child => {
-    const mock = Button(["foo", child], {})
+  unallowedChildren.map((child) => {
+    const mock = Button(["foo", child], {});
     expect(mock.childNodes.length).toBe(1);
   });
 });

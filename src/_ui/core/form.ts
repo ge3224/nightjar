@@ -7,7 +7,7 @@ export default function Form(
 ): HTMLFormElement {
   const form = document.createElement("form");
 
-  appendChildren(form, children, ["FORM"])
+  appendChildren(form, children, ["FORM"]);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {

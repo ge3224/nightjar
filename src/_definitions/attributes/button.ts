@@ -96,7 +96,7 @@ export interface HTMLButtonElementAttributes extends HTMLElementAttributes {
    */
   name?: string;
   /**
-   * Turns a <button> element into a popover control button; takes the ID of 
+   * Turns a <button> element into a popover control button; takes the ID of
    * the popover element to control as its value.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#popovertarget)

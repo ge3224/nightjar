@@ -1,5 +1,4 @@
 import {
-  FormAttributeAutocomplete,
   FormAttributeEnctype,
   FormAttributeMethod,
   FormAttributesTarget,
@@ -37,7 +36,7 @@ export enum InputAttributeType {
   /**
    * A control for entering a date (year, month, and day, with no time). Opens
    * a date picker or numeric wheels for year, month, day when active in
-   * supporting browsers. 
+   * supporting browsers.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
    */
@@ -45,7 +44,7 @@ export enum InputAttributeType {
   /**
    * A control for entering a date and time, with no time zone. Opens a date
    * picker or numeric wheels for date- and time-components when active in
-   * supporting browsers. 
+   * supporting browsers.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local)
    */
@@ -63,14 +62,14 @@ export enum InputAttributeType {
    */
   file = "file",
   /**
-   * A control that is not displayed but whose value is submitted to the server. 
+   * A control that is not displayed but whose value is submitted to the server.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden)
    */
   hidden = "hidden",
   /**
    * A graphical submit button. Displays an image defined by the `src` attribute.
-   * The `alt` attribute displays if the image src is missing. 
+   * The `alt` attribute displays if the image src is missing.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image)
    */
@@ -83,14 +82,14 @@ export enum InputAttributeType {
   month = "month",
   /**
    * A control for entering a number. Displays a spinner and adds default
-   * validation. Displays a numeric keypad in some devices with dynamic keypads. 
+   * validation. Displays a numeric keypad in some devices with dynamic keypads.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number)
    */
   number = "number",
   /**
    * A single-line text field whose value is obscured. Will alert user if site
-   * is not secure. 
+   * is not secure.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password)
    */
@@ -103,7 +102,7 @@ export enum InputAttributeType {
    */
   radio = "radio",
   /**
-   * A control for entering a number whose exact value is not important. 
+   * A control for entering a number whose exact value is not important.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
    */
@@ -118,7 +117,7 @@ export enum InputAttributeType {
    * A single-line text field for entering search strings. Line-breaks are
    * automatically removed from the input value. May include a delete icon in
    * supporting browsers that can be used to clear the field. Displays a search
-   * icon instead of enter key on some devices with dynamic keypads. 
+   * icon instead of enter key on some devices with dynamic keypads.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search)
    */
@@ -131,14 +130,14 @@ export enum InputAttributeType {
   submit = "submit",
   /**
    * A control for entering a telephone number. Displays a telephone keypad in
-   * some devices with dynamic keypads. 
+   * some devices with dynamic keypads.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel)
    */
   tel = "tel",
   /**
    * The default value. A single-line text field. Line-breaks are automatically
-   * removed from the input value. 
+   * removed from the input value.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text)
    */
@@ -152,7 +151,7 @@ export enum InputAttributeType {
   /**
    * A field for entering a URL. Looks like a text input, but has validation
    * parameters and relevant keyboard in supporting browsers and devices with
-   * dynamic keyboards. 
+   * dynamic keyboards.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url)
    */
@@ -191,7 +190,7 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement/autocomplete)
    */
-  autoComplete?: FormAttributeAutocomplete;
+  autocomplete?: AutoFill;
   /**
    * A Boolean attribute which, if present, indicates that the input should automatically have
    * focus when the page has finished loading

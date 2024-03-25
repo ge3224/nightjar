@@ -22,7 +22,7 @@ test("construction with attributes", () => {
   const mockAttributes: HTMLInputElementAttributes = {
     accept: ".jpg, .jpeg, .png",
     alt: "mock input element",
-    autoComplete: "username",
+    autocomplete: "username",
     autofocus: true,
     capture: "camera",
     dirname: "rtl",
@@ -69,7 +69,7 @@ test("construction with attributes", () => {
         expect(mock.formNoValidate).toBe(value);
         return;
       case "incremental":
-        expect(mock.getAttribute("incremental")).toBe(value)
+        expect(mock.getAttribute("incremental")).toBe(value);
         return;
       case "multiple":
         return;

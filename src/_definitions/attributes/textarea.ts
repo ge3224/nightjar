@@ -1,4 +1,3 @@
-import { FormAttributeAutocomplete } from "./form";
 import { HTMLElementAttributes } from "./global";
 
 /**
@@ -13,7 +12,7 @@ export interface HTMLTextAreaElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#autocomplete)
    */
-  autocomplete?: FormAttributeAutocomplete;
+  autocomplete?: AutoFill;
   /**
    * This Boolean attribute lets you specify that a form control should have
    * input focus when the page loads. Only one form-associated element in a
@@ -38,13 +37,13 @@ export interface HTMLTextAreaElementAttributes extends HTMLElementAttributes {
   dirname?: string;
   /**
    * This Boolean attribute indicates that the user cannot interact with the
-   * control. 
+   * control.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#disabled)
    */
   disabled?: boolean;
   /**
-   * The form element that the <textarea> element is associated with (its "form owner"). 
+   * The form element that the <textarea> element is associated with (its "form owner").
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#form)
    */

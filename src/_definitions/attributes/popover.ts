@@ -1,5 +1,5 @@
 /**
- * The Popover API provides developers with a standard, consistent, flexible 
+ * The Popover API provides developers with a standard, consistent, flexible
  * mechanism for displaying popover content on top of other page content.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
