@@ -12,7 +12,6 @@ test("basic construction", () => {
 });
 
 test("construct with children", () => {
-
   const allowedChildrenTypes = [
     document.createElement("caption"),
     document.createElement("thead"),
@@ -23,7 +22,7 @@ test("construct with children", () => {
 
   let mockParent: HTMLTableElement;
 
-  allowedChildrenTypes.forEach(mockChild => {
+  allowedChildrenTypes.forEach((mockChild) => {
     mockParent = Table(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
   });

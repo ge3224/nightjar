@@ -14,7 +14,7 @@ export default function Tr(
   const allowedChildTypes = ["TH", "TD"];
 
   if (Array.isArray(children)) {
-    children.forEach(child => {
+    children.forEach((child) => {
       if (allowedChildTypes.includes(child.nodeName)) {
         tr.appendChild(child);
       }

@@ -1,4 +1,3 @@
-
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
@@ -13,7 +12,6 @@ test("basic construction", () => {
 });
 
 test("construct with children", () => {
-
   const allowedChildrenTypes = [
     document.createElement("th"),
     document.createElement("td"),
@@ -21,7 +19,7 @@ test("construct with children", () => {
 
   let mockParent: HTMLTableRowElement;
 
-  allowedChildrenTypes.forEach(mockChild => {
+  allowedChildrenTypes.forEach((mockChild) => {
     console.log("testing....'%s'", mockChild.nodeName);
     mockParent = Tr(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
