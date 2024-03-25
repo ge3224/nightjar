@@ -21,8 +21,8 @@ export interface HTMLOptionElementAttributes extends HTMLElementAttributes {
    */
   label?: string;
   /**
-   * If present, this Boolean attribute indicates that the option is 
-   * initially selected. 
+   * If present, this Boolean attribute indicates that the option is
+   * initially selected.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#selected)
    */
