@@ -9,3 +9,4 @@ export * from "./button";
 export * from "./textarea";
 export * from "./select";
 export * from "./option";
+export * from "./td";
