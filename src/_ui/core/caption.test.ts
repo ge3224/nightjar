@@ -1,4 +1,3 @@
-
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
@@ -27,8 +26,7 @@ test("construction with permitted children", () => {
 });
 
 test("construction with attributes", () => {
-  const mockAttributes: HTMLElementAttributes = {
-  };
+  const mockAttributes: HTMLElementAttributes = {};
 
   const mock = Caption("foo", mockAttributes);
 
@@ -50,7 +48,7 @@ test("construction with prohibited children", () => {
 
   let mock: HTMLTableCaptionElement;
 
-  prohibited.forEach(node => {
+  prohibited.forEach((node) => {
     mock = Caption(node, {});
     expect(mock.childNodes.length).toBeLessThan(1);
   });

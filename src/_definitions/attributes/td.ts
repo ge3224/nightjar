@@ -8,7 +8,7 @@ import { HTMLElementAttributes } from "./global";
 export interface HTMLTableCellElementAttributes extends HTMLElementAttributes {
   /**
    * Contains a non-negative integer value that indicates how many columns the
-   * data cell spans or extends. 
+   * data cell spans or extends.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#colspan)
    */
