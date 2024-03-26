@@ -1,5 +1,4 @@
 import { HTMLTableCellElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 /**
  * A constructor for the HTML <td> element.
@@ -12,7 +11,23 @@ export default function Td(
 ): HTMLTableCellElement {
   const td = document.createElement("td");
 
-  const disallowedChildNodeNames = [
+  Object.entries(attributes).map(([key, value]) => {
+    switch (key) {
+      case "autofocus":
+        td.autofocus = value;
+        return;
+      case "inert":
+        td.inert = value;
+        return;
+      default:
+        td.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
+  });
+
+  const prohibited = [
     "DIV",
     "P",
     "HEADER",
@@ -31,22 +46,17 @@ export default function Td(
     "FORM",
   ];
 
-  appendChildren(td, children, disallowedChildNodeNames)
-
-  Object.entries(attributes).map(([key, value]) => {
-    switch (key) {
-      case "autofocus":
-        td.autofocus = value;
-        return;
-      case "inert":
-        td.inert = value;
-        return;
-      default:
-        td.setAttribute(
-          key.toLowerCase(),
-          typeof value === "number" ? value.toString() : value
-        );
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      td.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node && !prohibited.includes(child.nodeName)) {
+      td.appendChild(child);
     }
-  });
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
+
   return td;
 }

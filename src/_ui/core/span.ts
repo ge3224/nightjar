@@ -1,12 +1,10 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 export default function Span(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLSpanElement {
   const span = document.createElement("span");
-  appendChildren(span, children);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -23,6 +21,18 @@ export default function Span(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      span.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      span.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return span;
 }

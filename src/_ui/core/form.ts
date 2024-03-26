@@ -1,4 +1,3 @@
-import appendChildren from "@/_lib/append_children";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
 export default function Form(
@@ -6,8 +5,6 @@ export default function Form(
   attributes: HTMLElementAttributes
 ): HTMLFormElement {
   const form = document.createElement("form");
-
-  appendChildren(form, children, ["FORM"]);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -30,6 +27,18 @@ export default function Form(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      form.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      form.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return form;
 }

@@ -1,5 +1,4 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 export default function P(
   children: string | Node | (string | Node)[],
@@ -7,9 +6,7 @@ export default function P(
 ): HTMLParagraphElement {
   const p = document.createElement("p");
 
-  appendChildren(p, children);
-
-  Object.entries(attributes).map(([key, value]) => {
+  Object.entries(attributes).forEach(([key, value]) => {
     switch (key) {
       case "autofocus":
         p.autofocus = value;
@@ -24,6 +21,18 @@ export default function P(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      p.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      p.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return p;
 }

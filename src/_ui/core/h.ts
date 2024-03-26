@@ -1,5 +1,4 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 export default function H(
   level: number,
@@ -10,8 +9,6 @@ export default function H(
     throw new Error("Heading level must be between 1 and 6");
   }
   const h = document.createElement("h" + level);
-
-  appendChildren(h, children);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -28,6 +25,18 @@ export default function H(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      h.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      h.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return h as HTMLHeadingElement;
 }

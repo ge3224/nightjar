@@ -1,4 +1,3 @@
-import appendChildren from "@/_lib/append_children";
 import { HTMLButtonElementAttributes } from "@/_definitions/attributes";
 
 export default function Button(
@@ -6,14 +5,6 @@ export default function Button(
   attributes: HTMLButtonElementAttributes
 ): HTMLButtonElement {
   const button = document.createElement("button");
-
-  appendChildren(button, children, [
-    "BUTTON",
-    "INPUT",
-    "FORM",
-    "SELECT",
-    "TEXTAREA",
-  ]);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -36,6 +27,20 @@ export default function Button(
         );
     }
   });
+
+  const prohibited = ["BUTTON", "INPUT", "FORM", "SELECT", "TEXTAREA"];
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      button.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node && !prohibited.includes(child.nodeName)) {
+      button.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return button;
 }

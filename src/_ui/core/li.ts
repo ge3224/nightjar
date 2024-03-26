@@ -1,12 +1,10 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 export default function Li(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLLIElement {
   const li = document.createElement("li");
-  appendChildren(li, children);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -23,5 +21,18 @@ export default function Li(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      li.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      li.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
+
   return li;
 }

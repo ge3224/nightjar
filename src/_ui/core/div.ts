@@ -1,12 +1,12 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
+// import appendChildren from "@/_lib/append_children";
 
 export default function Div(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLDivElement {
   const div = document.createElement("div");
-  appendChildren(div, children);
+  // appendChildren(div, children);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -23,6 +23,18 @@ export default function Div(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      div.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      div.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return div;
 }

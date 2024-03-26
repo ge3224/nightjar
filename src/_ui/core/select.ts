@@ -1,5 +1,4 @@
 import { HTMLSelectElementAttributes } from "@/_definitions/attributes";
-import appendChildren from "@/_lib/append_children";
 
 /**
  * A constructor for the HTML <select> element.
@@ -11,8 +10,6 @@ export default function Select(
   attributes: HTMLSelectElementAttributes
 ): HTMLSelectElement {
   const select = document.createElement("select");
-
-  appendChildren(select, children);
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
@@ -38,6 +35,18 @@ export default function Select(
         );
     }
   });
+
+  const append = (child: string | Node) => {
+    if (typeof child === "string") {
+      select.appendChild(document.createTextNode(child));
+    } else if (child instanceof Node) {
+      select.appendChild(child);
+    }
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return select;
 }
