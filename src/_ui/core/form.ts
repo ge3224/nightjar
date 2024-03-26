@@ -1,5 +1,12 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { isFlowContent } from "@/_lib/content";
 
+/**
+ * A constructor for the HTML <form> element.
+ *
+ * Permitted content includes any "Flow Content" except for "form" elements.
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#technical_summary)
+ */
 export default function Form(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
@@ -12,7 +19,7 @@ export default function Form(
         form.setAttribute("accept-charset", value);
         return;
       case "novalidate":
-        form.noValidate = value ? true : false;
+        form.noValidate = value;
         return;
       case "autofocus":
         form.autofocus = value;
@@ -31,7 +38,11 @@ export default function Form(
   const append = (child: string | Node) => {
     if (typeof child === "string") {
       form.appendChild(document.createTextNode(child));
-    } else if (child instanceof Node) {
+    } else if (
+      child instanceof Node &&
+      isFlowContent(child) &&
+      child.nodeName !== "FORM"
+    ) {
       form.appendChild(child);
     }
   };
