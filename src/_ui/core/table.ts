@@ -11,8 +11,8 @@ export default function Table(
     | HTMLTableSectionElement
     | HTMLTableRowElement
     | Array<
-        HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
-      >,
+      HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
+    >,
   attributes: HTMLElementAttributes
 ): HTMLTableElement {
   const table = document.createElement("table");
@@ -38,6 +38,12 @@ export default function Table(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
+      case "autofocus":
+        table.autofocus = value;
+        return;
+      case "inert":
+        table.inert = value;
+        return;
       default:
         table.setAttribute(
           key.toLowerCase(),

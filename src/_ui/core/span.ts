@@ -9,7 +9,19 @@ export default function Span(
   appendChildren(span, children);
 
   Object.entries(attributes).map(([key, value]) => {
-    span.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        span.autofocus = value;
+        return;
+      case "inert":
+        span.inert = value;
+        return;
+      default:
+        span.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return span;

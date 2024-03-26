@@ -33,6 +33,8 @@ test("construction with attributes", () => {
     id: "bar",
     href: "https://baz.com",
     target: HTMLAnchorElementAttributeTarget.blank,
+    autofocus: true,
+    inert: true,
   } as HTMLAnchorElementAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
@@ -40,4 +42,6 @@ test("construction with attributes", () => {
   expect(mock.getAttribute("target")).toBe(
     HTMLAnchorElementAttributeTarget.blank
   );
+  expect(mock.autofocus).toBe(true);
+  expect(mock.inert).toBe(true);
 });

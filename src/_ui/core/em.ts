@@ -10,7 +10,19 @@ export default function Em(
   appendChildren(em, children);
 
   Object.entries(attributes).map(([key, value]) => {
-    em.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        em.autofocus = value;
+        return;
+      case "inert":
+        em.inert = value;
+        return;
+      default:
+        em.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return em;

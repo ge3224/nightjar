@@ -17,8 +17,17 @@ export default function Form(
       case "novalidate":
         form.noValidate = value ? true : false;
         return;
+      case "autofocus":
+        form.autofocus = value;
+        return;
+      case "inert":
+        form.inert = value;
+        return;
       default:
-        form.setAttribute(key, value);
+        form.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
     }
   });
 

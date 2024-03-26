@@ -36,13 +36,6 @@ export enum ButtonAttributeType {
  */
 export interface HTMLButtonElementAttributes extends HTMLElementAttributes {
   /**
-   * This Boolean attribute specifies that the button should have input focus
-   * when the page loads. Only one element in a document can have this attribute.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#autofocus)
-   */
-  autofocus?: boolean;
-  /**
    * This Boolean attribute prevents the user from interacting with the button:
    * it cannot be pressed or focused.
    *

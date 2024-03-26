@@ -192,13 +192,6 @@ export interface HTMLInputElementAttributes extends HTMLElementAttributes {
    */
   autocomplete?: AutoFill;
   /**
-   * A Boolean attribute which, if present, indicates that the input should automatically have
-   * focus when the page has finished loading
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#autofocus)
-   */
-  autofocus?: boolean;
-  /**
    * Introduced in the HTML Media Capture specification and valid for the file input type only, the
    * capture attribute defines which media—microphone, video, or camera—should be used to capture a
    * new file for upload with file upload control in supporting scenarios.

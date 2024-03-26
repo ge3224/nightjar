@@ -17,7 +17,10 @@ export default function Select(
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
       case "autofocus":
-        select.autofocus = value ? true : false;
+        select.autofocus = value;
+        return;
+      case "inert":
+        select.inert = value;
         return;
       case "disabled":
         select.disabled = value ? true : false;

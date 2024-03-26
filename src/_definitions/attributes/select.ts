@@ -13,14 +13,6 @@ export interface HTMLSelectElementAttributes extends HTMLElementAttributes {
    */
   autocomplete?: AutoFill;
   /**
-   * This Boolean attribute lets you specify that a form control should have
-   * input focus when the page loads. Only one form element in a document can
-   * have the autofocus attribute.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autofocus)
-   */
-  autofocus?: boolean;
-  /**
    * This Boolean attribute indicates that the user cannot interact with
    * the control.
    *

@@ -9,7 +9,19 @@ export default function Strong(
   appendChildren(strong, children);
 
   Object.entries(attributes).map(([key, value]) => {
-    strong.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        strong.autofocus = value;
+        return;
+      case "inert":
+        strong.inert = value;
+        return;
+      default:
+        strong.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return strong;

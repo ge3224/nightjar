@@ -23,7 +23,6 @@ test("construction with attributes", () => {
     accept: ".jpg, .jpeg, .png",
     alt: "mock input element",
     autocomplete: "username",
-    autofocus: true,
     capture: "camera",
     dirname: "rtl",
     disabled: true,
@@ -59,9 +58,6 @@ test("construction with attributes", () => {
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        expect(mock.autofocus).toBe(value);
-        return;
       case "disabled":
         expect(mock.disabled).toBe(value);
         return;

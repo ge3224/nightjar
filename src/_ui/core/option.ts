@@ -16,10 +16,16 @@ export default function Option(
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
       case "disabled":
-        option.disabled = value ? true : false;
+        option.disabled = value;
         return;
       case "selected":
-        option.selected = value ? true : false;
+        option.selected = value;
+        return;
+      case "autofocus":
+        option.autofocus = value;
+        return;
+      case "inert":
+        option.inert = value;
         return;
       default:
         option.setAttribute(

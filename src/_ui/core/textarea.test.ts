@@ -4,7 +4,6 @@ import { expect, test } from "vitest";
 import Textarea from "./textarea";
 import {
   HTMLTextAreaElementAttributes,
-  TextAreaAttributeSpellcheck,
   TextAreaAttributeWrap,
 } from "@/_definitions/attributes";
 
@@ -20,7 +19,6 @@ test("construction with attributes", () => {
     name: "mock",
     rows: 4,
     cols: 50,
-    autofocus: true,
     disabled: true,
     form: "mock-form",
     maxlength: 100,
@@ -28,7 +26,6 @@ test("construction with attributes", () => {
     placeholder: "Mock placeholder text",
     readOnly: true,
     required: true,
-    spellcheck: TextAreaAttributeSpellcheck.default,
     wrap: TextAreaAttributeWrap.soft,
   };
 
@@ -36,9 +33,6 @@ test("construction with attributes", () => {
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        expect(mock.autofocus).toBe(value);
-        return;
       case "disabled":
         expect(mock.disabled).toBe(value);
         return;

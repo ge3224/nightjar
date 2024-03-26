@@ -9,7 +9,19 @@ export default function Div(
   appendChildren(div, children);
 
   Object.entries(attributes).map(([key, value]) => {
-    div.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        div.autofocus = value;
+        return;
+      case "inert":
+        div.inert = value;
+        return;
+      default:
+        div.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return div;

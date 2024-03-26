@@ -35,6 +35,12 @@ export default function Td(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
+      case "autofocus":
+        td.autofocus = value;
+        return;
+      case "inert":
+        td.inert = value;
+        return;
       default:
         td.setAttribute(
           key.toLowerCase(),

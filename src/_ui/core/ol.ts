@@ -13,15 +13,22 @@ export default function Ol(
   }
 
   Object.entries(attributes).map(([key, value]) => {
-    if (key === "reversed" && value) {
-      ol.reversed = true;
-      return;
-    } else if (key === "start") {
-      ol.setAttribute(key, value.toString());
-      return;
+    switch (key) {
+      case "autofocus":
+        ol.autofocus = value;
+        return;
+      case "inert":
+        ol.inert = value;
+        return;
+      case "reversed":
+        ol.reversed = value;
+        return;
+      default:
+        ol.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
     }
-
-    ol.setAttribute(key, value);
   });
 
   return ol;

@@ -16,8 +16,17 @@ export default function Img(
       case "ismap":
         img.isMap = true;
         return;
+      case "autofocus":
+        img.autofocus = value;
+        return;
+      case "inert":
+        img.inert = value;
+        return;
       default:
-        img.setAttribute(key, value);
+        img.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
     }
   });
 

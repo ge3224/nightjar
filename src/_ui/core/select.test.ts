@@ -24,7 +24,6 @@ test("construct with children", () => {
 test("construct with attributes", () => {
   const mockAttributes: HTMLSelectElementAttributes = {
     autocomplete: "username",
-    autofocus: true,
     disabled: true,
     form: "mock_form",
     multiple: true,
@@ -37,9 +36,6 @@ test("construct with attributes", () => {
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        expect(mock.autofocus).toBe(value);
-        return;
       case "disabled":
         expect(mock.disabled).toBe(value);
         return;

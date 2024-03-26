@@ -7,9 +7,6 @@ export default function Input(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        input.autofocus = value ? true : false;
-        return;
       case "checked":
         input.checked = value ? true : false;
         return;
@@ -33,6 +30,12 @@ export default function Input(
         return;
       case "webkitDirectory":
         input.webkitdirectory = value ? true : false;
+        return;
+      case "autofocus":
+        input.autofocus = value;
+        return;
+      case "inert":
+        input.inert = value;
         return;
       default:
         input.setAttribute(

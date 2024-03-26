@@ -14,14 +14,6 @@ export interface HTMLTextAreaElementAttributes extends HTMLElementAttributes {
    */
   autocomplete?: AutoFill;
   /**
-   * This Boolean attribute lets you specify that a form control should have
-   * input focus when the page loads. Only one form-associated element in a
-   * document can have this attribute specified.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#autofocus)
-   */
-  autofocus?: boolean;
-  /**
    * The visible width of the text control, in average character widths. If it
    * is specified, it must be a positive integer.
    *
@@ -101,40 +93,11 @@ export interface HTMLTextAreaElementAttributes extends HTMLElementAttributes {
    */
   rows?: number;
   /**
-   * Specifies whether the <textarea> is subject to spell checking by the
-   * underlying browser/OS.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#spellcheck)
-   */
-  spellcheck?: TextAreaAttributeSpellcheck;
-  /**
    * Indicates how the control should wrap the value for form submission.
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#wrap)
    */
   wrap?: TextAreaAttributeWrap;
-}
-
-/**
- * An enumeration of the possible values of the `spellcheck` attribute of the HTML
- * <textarea> element.
- *
- * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#spellcheck)
- */
-export enum TextAreaAttributeSpellcheck {
-  /**
-   * Indicates that the element needs to have its spelling and grammar checked.
-   */
-  true = "true",
-  /**
-   * Indicates that the element is to act according to a default behavior,
-   * possibly based on the parent element's own spellcheck value.
-   */
-  default = "default",
-  /**
-   * Indicates that the element should not be spell checked.
-   */
-  false = "false",
 }
 
 /**

@@ -28,6 +28,12 @@ export default function Tr(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
+      case "autofocus":
+        tr.autofocus = value;
+        return;
+      case "inert":
+        tr.inert = value;
+        return;
       default:
         tr.setAttribute(
           key.toLowerCase(),

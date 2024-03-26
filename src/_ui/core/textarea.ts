@@ -14,7 +14,10 @@ export default function Textarea(
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
       case "autofocus":
-        textarea.autofocus = value ? true : false;
+        textarea.autofocus = value;
+        return;
+      case "inert":
+        textarea.inert = value;
         return;
       case "disabled":
         textarea.disabled = value ? true : false;

@@ -13,7 +13,19 @@ export default function Ul(
   }
 
   Object.entries(attributes).map(([key, value]) => {
-    ul.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        ul.autofocus = value;
+        return;
+      case "inert":
+        ul.inert = value;
+        return;
+      default:
+        ul.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return ul;

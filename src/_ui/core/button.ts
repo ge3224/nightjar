@@ -17,14 +17,17 @@ export default function Button(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        button.autofocus = value ? true : false;
-        return;
       case "disabled":
-        button.disabled = value ? true : false;
+        button.disabled = value;
         return;
       case "formNoValidate":
-        button.formNoValidate = value ? true : false;
+        button.formNoValidate = value;
+        return;
+      case "autofocus":
+        button.autofocus = value;
+        return;
+      case "inert":
+        button.inert = value;
         return;
       default:
         button.setAttribute(

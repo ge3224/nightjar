@@ -14,7 +14,19 @@ export default function H(
   appendChildren(h, children);
 
   Object.entries(attributes).map(([key, value]) => {
-    h.setAttribute(key, value);
+    switch (key) {
+      case "autofocus":
+        h.autofocus = value;
+        return;
+      case "inert":
+        h.inert = value;
+        return;
+      default:
+        h.setAttribute(
+          key.toLowerCase(),
+          typeof value === "number" ? value.toString() : value
+        );
+    }
   });
 
   return h as HTMLHeadingElement;

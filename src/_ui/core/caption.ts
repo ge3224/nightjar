@@ -33,6 +33,12 @@ export default function Caption(
 
   Object.entries(attributes).map(([key, value]) => {
     switch (key) {
+      case "autofocus":
+        caption.autofocus = value;
+        return;
+      case "inert":
+        caption.inert = value;
+        return;
       default:
         caption.setAttribute(
           key.toLowerCase(),

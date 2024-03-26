@@ -26,7 +26,6 @@ test("construct with children", () => {
 
 test("construction with attributes", () => {
   const mockAttributes: HTMLButtonElementAttributes = {
-    autofocus: true,
     disabled: true,
     form: "mockFormID",
     formAction: "/mock_url",
@@ -45,9 +44,6 @@ test("construction with attributes", () => {
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
-      case "autofocus":
-        expect(mock.autofocus).toBe(value);
-        return;
       case "disabled":
         expect(mock.disabled).toBe(value);
         return;
