@@ -25,24 +25,19 @@ export default function A(
           typeof value === "number" ? value.toString() : value
         );
     }
-    a.setAttribute(key, value);
   });
 
-  let _children: Array<string | Node> = [];
-
-  if (!Array.isArray(children)) {
-    _children.push(children);
-  } else {
-    _children = children.slice();
-  }
-
-  _children.forEach((child) => {
+  const append = (child: string | Node) => {
     if (typeof child === "string") {
       a.appendChild(document.createTextNode(child));
-    } else {
+    } else if (child instanceof Node) {
       a.appendChild(child);
     }
-  });
+  };
+
+  Array.isArray(children)
+    ? children.forEach((child) => append(child))
+    : append(children);
 
   return a;
 }
