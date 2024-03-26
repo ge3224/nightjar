@@ -12,7 +12,6 @@ export default function A(
   const a = document.createElement("a");
 
   Object.entries(attributes).forEach(([key, value]) => {
-    console.log(typeof key, typeof value);
     switch (key) {
       case "autofocus":
         a.autofocus = value;
