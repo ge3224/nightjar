@@ -20,7 +20,6 @@ test("construct with children", () => {
   let mockParent: HTMLTableRowElement;
 
   allowedChildrenTypes.forEach((mockChild) => {
-    console.log("testing....'%s'", mockChild.nodeName);
     mockParent = Tr(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
   });
