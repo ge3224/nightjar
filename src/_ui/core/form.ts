@@ -1,6 +1,4 @@
-import {
-  HTMLFormElementAttributes,
-} from "@/_definitions/attributes";
+import { HTMLFormElementAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 
 /**
