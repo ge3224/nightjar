@@ -1,4 +1,6 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import {
+  HTMLFormElementAttributes,
+} from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 
 /**
@@ -8,8 +10,8 @@ import { isFlowContent } from "@/_lib/content";
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#technical_summary)
  */
 export default function Form(
-  children: string | Node | (string | Node)[],
-  attributes: HTMLElementAttributes
+  children: string | Node | Array<string | Node>,
+  attributes: HTMLFormElementAttributes
 ): HTMLFormElement {
   const form = document.createElement("form");
 
@@ -18,7 +20,7 @@ export default function Form(
       case "acceptCharset":
         form.setAttribute("accept-charset", value);
         return;
-      case "novalidate":
+      case "noValidate":
         form.noValidate = value;
         return;
       case "autofocus":

@@ -42,9 +42,10 @@ test("construction with attributes", () => {
     id: "bar",
     name: "mock-form",
     method: FormAttributeMethod.dialog,
-    novalidate: true,
+    noValidate: true,
     rel: "alternate stylesheet",
     target: FormAttributesTarget.blank,
+    inert: true,
   };
 
   const mock = Form("foo", mockAttributes);
@@ -54,8 +55,11 @@ test("construction with attributes", () => {
       case "acceptCharset":
         expect(mock.getAttribute("accept-charset")).toBe(value);
         return;
-      case "novalidate":
-        expect(mock.noValidate).toBe(mockAttributes.novalidate);
+      case "noValidate":
+        expect(mock.noValidate).toBe(mockAttributes.noValidate);
+        return;
+      case "inert":
+        expect(mock.inert).toBe(mockAttributes.inert);
         return;
       default:
         expect(mock.getAttribute(key)).toBe(value);

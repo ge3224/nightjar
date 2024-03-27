@@ -142,7 +142,7 @@ export interface HTMLFormElementAttributes extends HTMLElementAttributes {
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#novalidate)
    */
-  novalidate?: boolean;
+  noValidate?: boolean;
   /**
    * Indicates where to display the response after submitting the form.
    *
