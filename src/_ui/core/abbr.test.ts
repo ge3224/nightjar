@@ -8,7 +8,7 @@ test("basic construction", () => {
   const mock = Abbr("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("CITE");
+  expect(mock.tagName).toEqual("ABBR");
   expect(mock.textContent).toBe("foo");
 });
 
