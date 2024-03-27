@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Article from "./article";
+import Article from "./_article";
 import Aside from "./aside";
 
 export default function PageMain(): HTMLElement {
