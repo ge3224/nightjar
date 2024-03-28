@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Article from "./_article";
-import Aside from "./aside";
+import Aside from "./_aside";
 
 export default function PageMain(): HTMLElement {
   const main = document.createElement("main");
