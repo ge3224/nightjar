@@ -11,3 +11,4 @@ export * from "./select";
 export * from "./option";
 export * from "./td";
 export * from "./details";
+export * from "./time";
