@@ -1,4 +1,34 @@
 /**
+ * Indicates whether a node is metadata content.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#metadata_content)
+ */
+export function isMetadataContent(node: Node): boolean {
+  const nodeNames = [
+    "BASE",
+    "LINK",
+    "META",
+    "NOSCRIPT",
+    "SCRIPT",
+    "STYLE",
+    "TITLE",
+  ];
+
+  return nodeNames.includes(node.nodeName);
+}
+
+/**
+ * Indicates whether a node is heading content.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#heading_content)
+ */
+export function isHeadingContent(node: Node): boolean {
+  const nodeNames = ["H1", "H2", "H3", "H4", "H5", "H6", "HGROUP"];
+
+  return nodeNames.includes(node.nodeName);
+}
+
+/**
  * Indicates whether a node is flow content.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories)
