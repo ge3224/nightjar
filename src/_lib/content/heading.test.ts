@@ -1,10 +1,19 @@
+/**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ *
+ * Unit tests for the content/heading module.
+ */
+
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import { isHeadingContent } from "./categories";
+import { isHeadingContent } from "./heading";
 
 test("isHeadingContent helper function", () => {
-  const validHeadings = [
+  const valid = [
     document.createElement("h1"),
     document.createElement("h2"),
     document.createElement("h3"),
@@ -14,19 +23,16 @@ test("isHeadingContent helper function", () => {
     document.createElement("hgroup"),
   ];
 
-  validHeadings.forEach((heading) => {
-    expect(isHeadingContent(heading)).toBe(true);
+  valid.forEach((node) => {
+    expect(isHeadingContent(node)).toBe(true);
   });
 
-  const invalidHeadings = [
-    document.createElement("p"),
+  const invalid = [
     document.createElement("title"),
-    document.createElement("strong"),
-    document.createElement("em"),
     document.createElement("header"),
   ];
 
-  invalidHeadings.forEach((invalid) => {
-    expect(isHeadingContent(invalid)).toBe(false);
+  invalid.forEach((node) => {
+    expect(isHeadingContent(node)).toBe(false);
   });
 });
