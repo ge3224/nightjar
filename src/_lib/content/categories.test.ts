@@ -14,7 +14,7 @@ test("isHeadingContent helper function", () => {
     document.createElement("hgroup"),
   ];
 
-  validHeadings.forEach(heading => {
+  validHeadings.forEach((heading) => {
     expect(isHeadingContent(heading)).toBe(true);
   });
 
@@ -26,7 +26,7 @@ test("isHeadingContent helper function", () => {
     document.createElement("header"),
   ];
 
-  invalidHeadings.forEach(invalid => {
+  invalidHeadings.forEach((invalid) => {
     expect(isHeadingContent(invalid)).toBe(false);
   });
 });

@@ -34,16 +34,19 @@ export default function Details(
   const append = (child: string | Node) => {
     if (typeof child === "string") {
       details.appendChild(document.createTextNode(child));
-    } else if (child instanceof Node && (isFlowContent(child) || child.nodeName === "SUMMARY")) {
+    } else if (
+      child instanceof Node &&
+      (isFlowContent(child) || child.nodeName === "SUMMARY")
+    ) {
       details.appendChild(child);
     }
   };
 
   Array.isArray(children)
     ? children.forEach((child) => {
-      // TODO: summary must be the first child
-      append(child);
-    })
+        // TODO: summary must be the first child
+        append(child);
+      })
     : append(children);
 
   return details;

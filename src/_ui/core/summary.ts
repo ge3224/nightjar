@@ -35,7 +35,7 @@ export default function Summary(
       child instanceof Node &&
       (isPhrasingContent(child) || isHeadingContent(child))
     ) {
-      // TODO: can contain only one from the heading content category 
+      // TODO: can contain only one from the heading content category
       //
       //[MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary#technical_summary)
       summary.appendChild(child);
