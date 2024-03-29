@@ -27,12 +27,12 @@ test("construction with a child node", () => {
   let mockChildren: Array<string | Node>;
 
   mockChild = "foo";
-  mockParent = Address(mockChild, {})
+  mockParent = Address(mockChild, {});
 
   expect(mockParent.textContent).toBe("foo");
 
   mockChild = document.createElement("p");
-  mockParent = Address(mockChild, {})
+  mockParent = Address(mockChild, {});
 
   expect(mockParent.childNodes.length).toBe(1);
 
@@ -111,7 +111,7 @@ test("construction with a child node", () => {
     document.createElement("wbr"),
   ];
 
-  mockChildren.forEach(child => {
+  mockChildren.forEach((child) => {
     mockParent = Address(child, {});
     if (typeof child === "string") {
       expect(mockParent.textContent).toBe(child);
