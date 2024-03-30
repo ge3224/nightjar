@@ -4,7 +4,7 @@
  * Copyright: (C) 2024 Jacob Benison
  * License: MIT
  *
- * Unit tests for the _ui/core/col module
+ * Unit tests for the _ui/core/colgroup module
  */
 
 import { expect, test } from "vitest";

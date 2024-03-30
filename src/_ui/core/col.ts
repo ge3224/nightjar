@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLTableColElementAttributes } from "@/_definitions/attributes/col";
+import { HTMLTableColElementAttributes } from "@/_definitions/attributes";
 
 /**
  * A constructor for the HTML <col> element.

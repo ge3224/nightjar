@@ -23,3 +23,4 @@ export * from "./option";
 export * from "./td";
 export * from "./details";
 export * from "./time";
+export * from "./table_col";
