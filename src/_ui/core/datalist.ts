@@ -79,7 +79,7 @@ function isPermittedContent(
     const _type =
       typeof item === "string" || isPhrasingContent(item)
         ? "phrasing"
-        : item instanceof Node && item.nodeName === "option"
+        : item instanceof Node && item.nodeName === "OPTION"
           ? "option"
           : "prohibited";
 
