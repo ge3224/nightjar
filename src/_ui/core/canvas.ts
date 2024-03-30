@@ -6,7 +6,7 @@
  */
 
 import { HTMLCanvasElementAttributes } from "@/_definitions/attributes/canvas";
-import { isTransparent } from "@/_lib/content";
+import { isInteractiveContent, isTransparent } from "@/_lib/content";
 
 /**
  * A constructor for the HTML <canvas> element.
@@ -38,7 +38,7 @@ export default function Canvas(
   const append = (child: string | Node) => {
     if (typeof child === "string") {
       canvas.appendChild(document.createTextNode(child));
-    } else if (child instanceof Node && isPermittedTransparent(child)) {
+    } else if (child instanceof Node && isPermittedContent(child)) {
       canvas.appendChild(child);
     }
   };
@@ -50,28 +50,32 @@ export default function Canvas(
 }
 
 /**
- * Helper function to detect permitted content accordin to the HTML specification
+ * Helper function to detect permitted content according to the HTML specification
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#technical_summary)
  */
-function isPermittedTransparent(node: Node): boolean {
-  const permittedInteractiveTags: string[] = ["A", "BUTTON"];
-  const permittedInputTypes: string[] = ["CHECKBOX", "RADIO", "BUTTON"];
+function isPermittedContent(node: Node): boolean {
+  const permittedInteractiveContent: Array<string> = ["A", "BUTTON"];
+  const permittedInputTypes: Array<string> = ["checkbox", "radio", "button"];
 
   if (!isTransparent(node)) {
     return false;
   }
 
-  const interactiveDescendants = Array.from(
+  const notPermitted = Array.from(
     (node as HTMLElement).querySelectorAll("*")
   ).filter((descendant) => {
-    const tagName = descendant.tagName;
-    return (
-      permittedInteractiveTags.includes(tagName) ||
-      (tagName === "input" &&
-        permittedInputTypes.includes((descendant as HTMLInputElement).type))
-    );
+    if (!isInteractiveContent(descendant)) return;
+
+    if (permittedInteractiveContent.includes(descendant.nodeName)) return;
+
+    if (descendant.nodeName === "INPUT") {
+      const type = (descendant as HTMLInputElement).type;
+      if (permittedInputTypes.includes(type)) return;
+    }
+
+    return descendant;
   });
 
-  return interactiveDescendants.length === 0;
+  return notPermitted.length === 0;
 }

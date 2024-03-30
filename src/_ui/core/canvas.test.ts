@@ -21,17 +21,33 @@ test("basic construction", () => {
   expect(mock.textContent).toBe("foo");
 });
 
-test('a transparent child with permitted content', () => {
+test("a transparent child containing only non-interactive descendants", () => {
   const mockChild = document.createElement("del");
-  mockChild.appendChild(document.createElement("del"));
-  mockChild.innerHTML = `<a href="#">Link</a>`;
-  // TODO: Fix this
+  mockChild.innerHTML = `<span>foo</span>`;
   expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
 });
 
-test('returns false for a transparent element with non-permitted interactive content', () => {
+test("a transparent child containing interactive descendants that are always permitted", () => {
   const mockChild = document.createElement("del");
-  mockChild.innerHTML = `<a href="#">Link</a><input type="text" /><button>Button</button>`;
+  mockChild.innerHTML = `<a href="#">foo</a><button type="button">bar</button>`;
+  expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
+});
+
+test("a transparent child containing interactive descendants conditionally permitted", () => {
+  const mockChild = document.createElement("del");
+
+  mockChild.innerHTML = `
+<input type="checkbox" name="checkbox" value="checkbox">
+<input type="radio" id="radio" name="radioGroup" value="radio">
+<input type="button" value="Button">
+`;
+
+  expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
+});
+
+test("returns false for a transparent element with non-permitted interactive content", () => {
+  const mockChild = document.createElement("del");
+  mockChild.innerHTML = `<a href="#">Link</a><input type="text" />`;
   expect(Canvas(mockChild, {}).childNodes.length).toBe(0);
 });
 
