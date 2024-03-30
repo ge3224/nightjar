@@ -1,5 +1,17 @@
+/**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ */
+
 import { HTMLImageElementAttributes } from "@/_definitions/attributes";
 
+/**
+ * A constructor for the HTML <img> element.
+ *
+ * [MDN Reference]()
+ */
 export default function Img(
   attributes: HTMLImageElementAttributes
 ): HTMLImageElement {

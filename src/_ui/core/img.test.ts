@@ -1,4 +1,11 @@
-// @vitest-environment happy-dom
+/**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ *
+ * Unit tests for the _ui/core/img module.
+ */
 
 import { expect, test } from "vitest";
 import {
@@ -7,9 +14,11 @@ import {
   ImageAttributeDecoding,
   ImageAttributeFetchpriority,
   ImageAttributeLoading,
-  ImageAttributeReferrerpolicy,
 } from "@/_definitions/attributes";
 import Img from "./img";
+import { HTMLElementAttributeReferrerPolicy } from "@/_definitions/attributes/referrer_policy";
+
+// @vitest-environment happy-dom
 
 test("basic construction", () => {
   const mock = Img({ src: "https://foo.jpg" });
@@ -30,7 +39,7 @@ test("construction with attributes", () => {
     id: "foo",
     ismap: true,
     loading: ImageAttributeLoading.lazy,
-    referrerpolicy: ImageAttributeReferrerpolicy.noReferrer,
+    referrerpolicy: HTMLElementAttributeReferrerPolicy.noReferrer,
     sizes: "(max-width: 600px) 100vw, 50vw",
     src: "https://foo.jpg",
     srcset: "mock-320w.jpg 320w, mock-480w.jpg 480w, mock-800w.jpg 800w",
