@@ -13,7 +13,10 @@ import { isPhrasingContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
  */
-export default function Data(children: string | Node | Array<string | Node>, attributes: HTMLDataElementAttribues): HTMLDataElement {
+export default function Data(
+  children: string | Node | Array<string | Node>,
+  attributes: HTMLDataElementAttribues
+): HTMLDataElement {
   const data = document.createElement("data");
 
   Object.entries(attributes).forEach(([key, value]) => {

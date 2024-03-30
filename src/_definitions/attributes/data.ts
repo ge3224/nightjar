@@ -14,7 +14,7 @@ import { HTMLElementAttributes } from "./global";
  */
 export interface HTMLDataElementAttribues extends HTMLElementAttributes {
   /**
-  * This attribute specifies the machine-readable translation of the content of the element.
-  */
+   * This attribute specifies the machine-readable translation of the content of the element.
+   */
   value?: string;
 }
