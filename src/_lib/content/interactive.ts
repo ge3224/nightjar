@@ -21,6 +21,34 @@ export function isInteractiveContent(node: Node): boolean {
     "TEXTAREA",
   ];
 
-  // TODO: Handle conditional elements, see MDN reference.
-  return nodeNames.includes(node.nodeName);
+  if (nodeNames.includes(node.nodeName)) return true;
+
+  switch (node.nodeName) {
+    case "A":
+      return (node as HTMLAnchorElement).getAttribute("href") === null
+        ? false
+        : true;
+    case "AUDIO":
+      return (node as HTMLAudioElement).getAttribute("controls") === null
+        ? false
+        : true;
+    case "IMG":
+      return (node as HTMLImageElement).getAttribute("usemap") === null
+        ? false
+        : true;
+    case "INPUT":
+      return (node as HTMLInputElement).getAttribute("type") === null
+        ? false
+        : true;
+    case "OBJECT":
+      return (node as HTMLObjectElement).getAttribute("usemap") === null
+        ? false
+        : true;
+    case "VIDEO":
+      return (node as HTMLVideoElement).getAttribute("controls") === null
+        ? false
+        : true;
+    default:
+      return false;
+  }
 }
