@@ -8,7 +8,7 @@
 import { HTMLElementAttributes } from "./global";
 
 /**
- * Defines attributes specific tot he HTML <base> element.
+ * Defines attributes specific to the HTML <base> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base#attributes)
  */
