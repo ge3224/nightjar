@@ -25,3 +25,4 @@ export * from "./details";
 export * from "./time";
 export * from "./table_col";
 export * from "./mod";
+export * from "./dialog";
