@@ -15,3 +15,27 @@ export function isHeadingContent(node: Node): boolean {
 
   return nodeNames.includes(node.nodeName);
 }
+
+/**
+ * Checks if a node is a descendant of a member of the header content category.
+ */
+export function isDescendantOfHeader(node: Node): boolean {
+  if (!(node instanceof Node)) {
+    return false;
+  }
+
+  function checkAncestors(ancestor: Node | null): boolean {
+    if (!ancestor) {
+      // Reached the root of the document, no header found
+      return false;
+    }
+    if (isHeadingContent(ancestor)) {
+      // Found a header element
+      return true;
+    }
+    // Recursively check the parent node
+    return checkAncestors(ancestor.parentNode);
+  }
+  // Start checking from the parent node
+  return checkAncestors(node.parentNode);
+}
