@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLModElementAttributes } from "@/_definitions/attributes/mod";
+import { HTMLModElementAttributes } from "@/_definitions/attributes";
 import { isTransparent } from "@/_lib/content";
 
 /**
