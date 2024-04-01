@@ -46,6 +46,11 @@ export type NewHTMLLabelElement = () => HTMLLabelElement;
 export type NewHTMLLegendElement = () => HTMLLegendElement;
 
 /**
+ * Defines a constructor for an HTMLMapElement.
+ */
+export type NewHTMLMapElement = () => HTMLMapElement;
+
+/**
  * Defines a constructor for an HTMLModElement.
  */
 export type NewHTMLModElement = () => HTMLModElement;

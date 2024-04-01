@@ -10,8 +10,8 @@
  */
 
 export * from "./anchor";
-export * from "./audio";
 export * from "./area";
+export * from "./audio";
 export * from "./base";
 export * from "./blockquote";
 export * from "./button";
@@ -21,13 +21,14 @@ export * from "./details";
 export * from "./dialog";
 export * from "./embed";
 export * from "./fieldset";
-export * from "./label";
 export * from "./form";
 export * from "./global";
 export * from "./iframe";
 export * from "./image";
 export * from "./input";
+export * from "./label";
 export * from "./list";
+export * from "./map";
 export * from "./mod";
 export * from "./option";
 export * from "./popover";
