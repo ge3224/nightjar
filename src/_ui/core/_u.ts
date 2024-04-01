@@ -1,3 +1,3 @@
-export default function U(): HTMLElement {
+export default function NewU(): HTMLElement {
   return document.createElement("u");
 }

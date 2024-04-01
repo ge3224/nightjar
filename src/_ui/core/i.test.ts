@@ -9,6 +9,7 @@
 
 import { expect, test } from "vitest";
 import NewI from "./i";
+import { I } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
@@ -17,11 +18,11 @@ test("basic construction", () => {
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("I");
+  expect(mock.tagName).toEqual(I);
 });
 
 test("construction with attributes", () => {
-  const mock = NewI(null, {
+  const mock = NewI(undefined, {
     id: "bar",
     class: "foo bar baz",
   })();

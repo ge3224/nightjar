@@ -12,7 +12,7 @@ import { HTMLImageElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference]()
  */
-export default function Img(
+export default function NewImg(
   attributes: HTMLImageElementAttributes
 ): HTMLImageElement {
   const img = document.createElement("img");

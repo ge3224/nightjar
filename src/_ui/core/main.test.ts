@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Main from "./main";
+import NewMain from "./main";
+import { MAIN } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Main("foo", {});
+  const mock = NewMain("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("MAIN");
+  expect(mock.tagName).toEqual(MAIN);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -20,13 +21,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  const mockParent = Main(mockChildren, {});
+  const mockParent = NewMain(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Main("foo", {
+  const mock = NewMain("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

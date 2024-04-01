@@ -5,6 +5,8 @@
  * License: MIT
  */
 
+import { BUTTON, INPUT, METER, OUTPUT, PROGRESS, SELECT, TEXTAREA } from "../node_names";
+
 /**
  * Indicates if a node is labelable content.
  *
@@ -12,13 +14,13 @@
  */
 export function islabelable(input: Node): boolean {
   const nodeNames = [
-    "BUTTON",
-    "INPUT",
-    "METER",
-    "OUTPUT",
-    "PROGRESS",
-    "SELECT",
-    "TEXTAREA",
+    BUTTON,
+    INPUT,
+    METER,
+    OUTPUT,
+    PROGRESS,
+    SELECT,
+    TEXTAREA,
   ];
   return nodeNames.includes(input.nodeName);
 }

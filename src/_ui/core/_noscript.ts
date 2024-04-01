@@ -1,3 +1,3 @@
-export default function Noscript(): HTMLElement {
+export default function NewNoscript(): HTMLElement {
   return document.createElement("noscript");
 }

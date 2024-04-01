@@ -6,7 +6,7 @@ import { isFlowContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
  */
-export default function Section(
+export default function NewSection(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {

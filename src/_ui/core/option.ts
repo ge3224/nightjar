@@ -5,7 +5,7 @@ import { HTMLOptionElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
  */
-export default function Option(
+export default function NewOption(
   content: string,
   attributes: HTMLOptionElementAttributes
 ): HTMLOptionElement {

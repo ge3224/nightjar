@@ -8,16 +8,17 @@
  */
 
 import { expect, test } from "vitest";
-import Embed from "./embed";
+import NewEmbed from "./embed";
+import { EMBED } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Embed()();
+  const mock = NewEmbed()();
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("EMBED");
+  expect(mock.tagName).toEqual(EMBED);
 });
 
 test("construction with attributes", () => {
@@ -29,7 +30,7 @@ test("construction with attributes", () => {
     type: "application/pdf",
   };
 
-  const mock = Embed(mockAttributes)();
+  const mock = NewEmbed(mockAttributes)();
 
   expect(mock.id).toBe(mockAttributes.id);
   expect(mock.getAttribute("height")).toBe(mockAttributes.height);

@@ -16,6 +16,7 @@ export * from "./flow";
 export * from "./form";
 export * from "./heading";
 export * from "./interactive";
+export * from "./labelable";
 export * from "./metadata";
 export * from "./phrasing";
 export * from "./sectioning";

@@ -15,7 +15,7 @@ import { HGROUP, LEGEND } from "@/_lib/node_names";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
  */
-export default function Legend(
+export default function NewLegend(
   children: string | Node | Array<string | Node> | null = null,
   attributes: HTMLElementAttributes = {}
 ): NewHTMLLegendElement {

@@ -7,13 +7,14 @@
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
+import { OPTION } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <datalist> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
  */
-export default function Datalist(
+export default function NewDatalist(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLDataListElement {
@@ -40,7 +41,7 @@ export default function Datalist(
       datalist.appendChild(document.createTextNode(child));
     } else if (
       child instanceof Node &&
-      (isPhrasingContent(child) || child.nodeName === "OPTION")
+      (isPhrasingContent(child) || child.nodeName === OPTION)
     ) {
       datalist.appendChild(child);
     }
@@ -67,7 +68,7 @@ function isPermittedContent(
     return (
       typeof input === "string" ||
       isPhrasingContent(input) ||
-      (input instanceof Node && input.nodeName === "OPTION")
+      (input instanceof Node && input.nodeName === OPTION)
     );
   }
 
@@ -79,7 +80,7 @@ function isPermittedContent(
     const _type =
       typeof item === "string" || isPhrasingContent(item)
         ? "phrasing"
-        : item instanceof Node && item.nodeName === "OPTION"
+        : item instanceof Node && item.nodeName === OPTION
           ? "option"
           : "prohibited";
 

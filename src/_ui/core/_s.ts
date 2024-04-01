@@ -1,3 +1,3 @@
-export default function S(): HTMLElement {
+export default function NewS(): HTMLElement {
   return document.createElement("s");
 }

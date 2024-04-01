@@ -6,7 +6,7 @@ import {
   HTMLAnchorElementAttributeTarget,
   HTMLAnchorElementAttributes,
 } from "@/_definitions/attributes";
-import { A } from "@/_lib/node_names";
+import { A, SPAN } from "@/_lib/node_names";
 
 test("basic construction", () => {
   const mock = NewA()();
@@ -22,7 +22,7 @@ test("construction with a child node", () => {
   const mockParent = NewA(mockChild, {})();
 
   expect(mockParent.firstElementChild).not.toBeNull();
-  expect(mockParent.firstElementChild?.tagName).toBe("SPAN");
+  expect(mockParent.firstElementChild?.tagName).toBe(SPAN);
   expect(mockParent.firstElementChild?.textContent).toEqual(
     mockChild.textContent
   );

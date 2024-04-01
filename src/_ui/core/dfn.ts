@@ -7,14 +7,14 @@
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
+import { DFN } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <dfn> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
  */
-
-export default function Dfn(
+export default function NewDfn(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes = {}
 ): HTMLElement {
@@ -42,7 +42,7 @@ export default function Dfn(
     } else if (
       child instanceof Node &&
       isPhrasingContent(child) &&
-      child.nodeName !== "DFN"
+      child.nodeName !== DFN
     ) {
       dfn.appendChild(child);
     }

@@ -6,7 +6,7 @@ import { isFlowContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
  */
-export default function Caption(
+export default function NewCaption(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLTableCaptionElement {

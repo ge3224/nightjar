@@ -8,13 +8,13 @@
  */
 
 import { expect, test } from "vitest";
-import Legend from "./legend";
-import { H1, H2, H3, HGROUP, LEGEND } from "@/_lib/node_names";
+import { H1, H2, H3, HGROUP, HTML, LEGEND } from "@/_lib/node_names";
+import NewLegend from "./legend";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Legend()();
+  const mock = NewLegend()();
 
   expect(mock).not.toBeNull();
 
@@ -27,7 +27,7 @@ test("construction with attributes", () => {
     class: "foo bar baz",
     for: "foo-bar-baz",
   };
-  const mock = Legend(null, attributes)();
+  const mock = NewLegend(null, attributes)();
 
   expect(mock.getAttribute("id")).toBe(attributes.id);
   expect(mock.getAttribute("class")).toBe(attributes.class);
@@ -43,14 +43,14 @@ test("construction with phrasing content", () => {
 
     const abbr = document.createElement("abbr");
     abbr.title = "Hypertext Markup Language";
-    abbr.textContent = "HTML";
+    abbr.textContent = HTML;
 
     const style = document.createElement("style"); // not phrasing content
 
     return [em, br, abbr, style];
   })();
 
-  const mock = Legend(content)();
+  const mock = NewLegend(content)();
   expect(mock.childNodes.length).toBe(3);
 });
 
@@ -71,7 +71,7 @@ test("construction with permitted heading content", () => {
     return [h1, h2, h3, hgroup];
   })();
 
-  const mock = Legend(content)();
+  const mock = NewLegend(content)();
 
   expect(mock.childNodes.length).toBe(3);
 });

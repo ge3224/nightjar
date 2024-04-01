@@ -1,3 +1,3 @@
-export default function Style(): HTMLElement {
+export default function NewStyle(): HTMLElement {
   return document.createElement("style");
 }

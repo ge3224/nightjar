@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Tfoot from "./tfoot";
+import NewTfoot from "./tfoot";
+import { TFOOT } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Tfoot(document.createElement("tr"), {});
+  const mock = NewTfoot(document.createElement("tr"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("TFOOT");
+  expect(mock.tagName).toEqual(TFOOT);
 });
 
 test("construct with children", () => {
@@ -20,17 +21,17 @@ test("construct with children", () => {
   let mockParent: HTMLTableSectionElement;
 
   allowedChildrenTypes.forEach((mockChild) => {
-    mockParent = Tfoot(mockChild, {});
+    mockParent = NewTfoot(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
   });
 
-  mockParent = Tfoot(allowedChildrenTypes, {});
+  mockParent = NewTfoot(allowedChildrenTypes, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
 });
 
 test("construction with attributes", () => {
-  const mock = Tfoot(document.createElement("tr"), {
+  const mock = NewTfoot(document.createElement("tr"), {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

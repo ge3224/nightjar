@@ -6,7 +6,7 @@ import { isPhrasingContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
  */
-export default function Time(
+export default function NewTime(
   children: string | Node | Array<string | Node>,
   attributes: HTMLTimeElementAttributes
 ): HTMLTimeElement {

@@ -1,3 +1,3 @@
-export default function Th(): HTMLElement {
+export default function NewTh(): HTMLElement {
   return document.createElement("th");
 }

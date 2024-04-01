@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Code from "./code";
+import NewCode from "./code";
+import { CODE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Code("foo", {});
+  const mock = NewCode("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("CODE");
+  expect(mock.tagName).toEqual(CODE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -19,13 +20,13 @@ test("construction with a child node", () => {
     document.createElement("div"), // not phrasing content
   ];
 
-  const mockParent = Code(mockChildren, {});
+  const mockParent = NewCode(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(2);
 });
 
 test("construction with attributes", () => {
-  const mock = Code("foo", {
+  const mock = NewCode("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

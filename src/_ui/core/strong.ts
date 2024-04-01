@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Strong(
+export default function NewStrong(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLElement {

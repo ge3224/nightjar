@@ -1,3 +1,3 @@
-export default function Output(): HTMLElement {
+export default function NewOutput(): HTMLElement {
   return document.createElement("output");
 }

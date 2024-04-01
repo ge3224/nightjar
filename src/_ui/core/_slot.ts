@@ -1,3 +1,3 @@
-export default function Slot(): HTMLElement {
+export default function NewSlot(): HTMLElement {
   return document.createElement("slot");
 }

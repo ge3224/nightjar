@@ -15,16 +15,17 @@ import {
   ImageAttributeFetchpriority,
   ImageAttributeLoading,
 } from "@/_definitions/attributes";
-import Img from "./img";
 import { HTMLElementAttributeReferrerPolicy } from "@/_definitions/attributes/referrer_policy";
+import NewImg from "./img";
+import { IMG } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Img({ src: "https://foo.jpg" });
+  const mock = NewImg({ src: "https://foo.jpg" });
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("IMG");
+  expect(mock.tagName).toEqual(IMG);
 });
 
 test("construction with attributes", () => {
@@ -47,7 +48,7 @@ test("construction with attributes", () => {
     width: 100,
   };
 
-  const mock = Img(mockAttributes);
+  const mock = NewImg(mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     if (key === "width" || key === "height") {

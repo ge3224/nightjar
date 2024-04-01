@@ -6,13 +6,14 @@
  */
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { DD, DIV, DT, SCRIPT, TEMPLATE } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <dl> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
  */
-export default function Dl(
+export default function NewDl(
   children: Node | Array<Node> | null = null,
   attributes: HTMLElementAttributes = {}
 ): HTMLDListElement {
@@ -49,10 +50,10 @@ export default function Dl(
 function permittedContent(input: Node | Array<Node>): Array<Node> {
   // If the input is not an array, it must be a <div> to be permitted, according to the spec.
   if (!Array.isArray(input)) {
-    return input.nodeName === "DIV" ? [input] : [];
+    return input.nodeName === DIV ? [input] : [];
   }
 
-  const permittedContentTypes = ["DD", "DT", "DIV", "SCRIPT", "TEMPLATE"];
+  const permittedContentTypes = [DD, DT, DIV, SCRIPT, TEMPLATE];
 
   const { permitted } = input.reduce(
     (accumulator: { permitted: Array<Node>; initial: number }, item: Node) => {

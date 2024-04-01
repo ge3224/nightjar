@@ -1,12 +1,13 @@
 import { HTMLDetailsElementAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
+import { SUMMARY } from "@/_lib/node_names";
 
 /**
  * A constructor for HTML <details> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
  */
-export default function Details(
+export default function NewDetails(
   children: string | Node | Array<string | Node>,
   attributes: HTMLDetailsElementAttributes
 ): HTMLDetailsElement {
@@ -36,7 +37,7 @@ export default function Details(
       details.appendChild(document.createTextNode(child));
     } else if (
       child instanceof Node &&
-      (isFlowContent(child) || child.nodeName === "SUMMARY")
+      (isFlowContent(child) || child.nodeName === SUMMARY)
     ) {
       details.appendChild(child);
     }
@@ -44,9 +45,9 @@ export default function Details(
 
   Array.isArray(children)
     ? children.forEach((child) => {
-        // TODO: summary must be the first child
-        append(child);
-      })
+      // TODO: summary must be the first child
+      append(child);
+    })
     : append(children);
 
   return details;

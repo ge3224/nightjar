@@ -1,3 +1,3 @@
-export default function Picture(): HTMLElement {
+export default function NewPicture(): HTMLElement {
   return document.createElement("picture");
 }

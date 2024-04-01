@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
  */
-export default function Br(attributes: HTMLElementAttributes): HTMLElement {
+export default function NewBr(attributes: HTMLElementAttributes): HTMLElement {
   const br = document.createElement("br");
 
   Object.entries(attributes).forEach(([key, value]) => {

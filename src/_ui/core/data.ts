@@ -13,7 +13,7 @@ import { isPhrasingContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
  */
-export default function Data(
+export default function NewData(
   children: string | Node | Array<string | Node>,
   attributes: HTMLDataElementAttribues
 ): HTMLDataElement {

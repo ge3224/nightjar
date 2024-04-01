@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Li(
+export default function NewLi(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLLIElement {

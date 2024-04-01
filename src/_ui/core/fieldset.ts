@@ -8,13 +8,14 @@
 import { HTMLFieldSetElementAttributes } from "@/_definitions/attributes";
 import { NewHTMLFieldSetElement } from "@/_definitions/constructors";
 import { isFlowContent } from "@/_lib/content";
+import { LEGEND } from "@/_lib/node_names";
 
 /**
  * Returns a constructor for the HTML <fieldset> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
  */
-export default function Fieldset(
+export default function NewFieldset(
   children: string | Node | Array<string | Node> | null = null,
   attributes: HTMLFieldSetElementAttributes = {}
 ): NewHTMLFieldSetElement {
@@ -70,7 +71,7 @@ export default function Fieldset(
           return { ...collect, permitted };
         }
 
-        if (child.nodeName === "LEGEND" && !hasLegend) {
+        if (child.nodeName === LEGEND && !hasLegend) {
           if (permitted.length > 0) {
             permitted.unshift(child);
           } else {
@@ -104,5 +105,5 @@ function isPermittedNode(input: Node): boolean {
     return false;
   }
 
-  return isFlowContent(input) || input.nodeName === "LEGEND";
+  return isFlowContent(input) || input.nodeName === LEGEND;
 }

@@ -12,7 +12,7 @@ import { HTMLTableColElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
  */
-export default function Col(
+export default function NewCol(
   attributes: HTMLTableColElementAttributes
 ): HTMLTableColElement {
   const col = document.createElement("col");

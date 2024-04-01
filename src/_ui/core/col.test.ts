@@ -9,19 +9,20 @@
 
 import { expect, test } from "vitest";
 import { HTMLCanvasElementAttributes } from "@/_definitions/attributes/canvas";
-import Col from "./col";
+import NewCol from "./col";
+import { COL } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Col({});
+  const mock = NewCol({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("COL");
+  expect(mock.tagName).toEqual(COL);
 });
 
 test("construction with attributes", () => {
-  const mock = Col({
+  const mock = NewCol({
     id: "bar",
     class: "foo bar baz",
     span: 150,

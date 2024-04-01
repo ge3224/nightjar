@@ -1,3 +1,3 @@
-export default function Q(): HTMLElement {
+export default function NewQ(): HTMLElement {
   return document.createElement("q");
 }

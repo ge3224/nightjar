@@ -1,3 +1,3 @@
-export default function Progress(): HTMLElement {
+export default function NewProgress(): HTMLElement {
   return document.createElement("progress");
 }

@@ -6,13 +6,14 @@
  */
 
 import { HTMLTableColElementAttributes } from "@/_definitions/attributes";
+import { COL } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <colgroup> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
  */
-export default function Colgroup(
+export default function NewColgroup(
   children: HTMLTableColElement | Array<HTMLTableColElement> | null,
   attributes: HTMLTableColElementAttributes
 ): HTMLTableColElement {
@@ -40,7 +41,7 @@ export default function Colgroup(
   if (colgroup.getAttribute("span") !== null) return colgroup;
 
   // If the span attribute is not present, the permitted content is <col>.
-  const isCol = (input: Node) => input.nodeName === "COL";
+  const isCol = (input: Node) => input.nodeName === COL;
 
   if (Array.isArray(children)) {
     children.forEach((child) => {

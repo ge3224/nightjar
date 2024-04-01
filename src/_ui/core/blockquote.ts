@@ -6,7 +6,7 @@ import { isFlowContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
  */
-export default function Blockquote(
+export default function NewBlockquote(
   children: string | Node | Array<string | Node>,
   attributes: HTMLQuoteElementAttributes
 ): HTMLElement {

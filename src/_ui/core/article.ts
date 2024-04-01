@@ -6,7 +6,7 @@ import { isFlowContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
  */
-export default function Article(
+export default function NewArticle(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {

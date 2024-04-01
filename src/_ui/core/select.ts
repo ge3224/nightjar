@@ -5,7 +5,7 @@ import { HTMLSelectElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
  */
-export default function Select(
+export default function NewSelect(
   children: HTMLOptionElement[],
   attributes: HTMLSelectElementAttributes
 ): HTMLSelectElement {

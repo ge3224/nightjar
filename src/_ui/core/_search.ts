@@ -1,3 +1,3 @@
-export default function Search(): HTMLElement {
+export default function NewSearch(): HTMLElement {
   return document.createElement("search");
 }

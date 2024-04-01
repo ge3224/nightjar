@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Option from "./option";
 import { HTMLOptionElementAttributes } from "@/_definitions/attributes";
+import NewOption from "./option";
+import { OPTION } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Option("foo", {});
+  const mock = NewOption("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("OPTION");
+  expect(mock.tagName).toEqual(OPTION);
 });
 
 test("construct with attributes", () => {
@@ -19,7 +20,7 @@ test("construct with attributes", () => {
     label: "mockLabel",
   };
 
-  const mock = Option("bar", mockAttributes);
+  const mock = NewOption("bar", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

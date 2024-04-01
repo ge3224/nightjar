@@ -5,7 +5,7 @@ import { HTMLIFrameElementAttributes } from "@/_definitions/attributes/iframe";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
  */
-export default function Iframe(
+export default function NewIframe(
   attributes: HTMLIFrameElementAttributes
 ): HTMLIFrameElement {
   const iframe = document.createElement("iframe");

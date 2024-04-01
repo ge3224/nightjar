@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Article from "./article";
+import NewArticle from "./article";
+import { ARTICLE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Article("foo", {});
+  const mock = NewArticle("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("ARTICLE");
+  expect(mock.tagName).toEqual(ARTICLE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -20,13 +21,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  const mockParent = Article(mockChildren, {});
+  const mockParent = NewArticle(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Article("foo", {
+  const mock = NewArticle("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

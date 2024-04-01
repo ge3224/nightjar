@@ -3,7 +3,7 @@ import { HTMLTextAreaElementAttributes } from "@/_definitions/attributes";
 /**
  * Constructor for the HTML <textarea> element.
  */
-export default function Textarea(
+export default function NewTextarea(
   content: string,
   attributes: HTMLTextAreaElementAttributes
 ): HTMLTextAreaElement {

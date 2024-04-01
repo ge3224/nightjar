@@ -2,17 +2,18 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Br from "./br";
+import NewBr from "./br";
+import { BR } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Br({});
+  const mock = NewBr({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("BR");
+  expect(mock.tagName).toEqual(BR);
 });
 
 test("construction with attributes", () => {
-  const mock = Br({
+  const mock = NewBr({
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

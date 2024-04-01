@@ -1,12 +1,13 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
+import { FIGCAPTION } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <figure> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
  */
-export default function Figure(
+export default function NewFigure(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {
@@ -33,7 +34,7 @@ export default function Figure(
       figure.appendChild(document.createTextNode(child));
     } else if (
       child instanceof Node &&
-      (isFlowContent(child) || child.nodeName === "FIGCAPTION")
+      (isFlowContent(child) || child.nodeName === FIGCAPTION)
     ) {
       // TODO: See permitted content
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure#technical_summary

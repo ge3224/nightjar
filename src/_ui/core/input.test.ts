@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Input from "./input";
+import NewInput from "./input";
 import {
   FormAttributeEnctype,
   FormAttributeMethod,
@@ -10,12 +10,13 @@ import {
   InputAttributeType,
   PopoverTargetAction,
 } from "@/_definitions/attributes";
+import { INPUT } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Input({});
+  const mock = NewInput({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("INPUT");
+  expect(mock.tagName).toEqual(INPUT);
 });
 
 test("construction with attributes", () => {
@@ -54,7 +55,7 @@ test("construction with attributes", () => {
     width: 1920,
   };
 
-  const mock = Input(mockAttributes);
+  const mock = NewInput(mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

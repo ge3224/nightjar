@@ -1,3 +1,3 @@
-export default function Video(): HTMLElement {
+export default function NewVideo(): HTMLElement {
   return document.createElement("video");
 }

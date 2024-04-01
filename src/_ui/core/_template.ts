@@ -1,3 +1,3 @@
-export default function Template(): HTMLElement {
+export default function NewTemplate(): HTMLElement {
   return document.createElement("template");
 }

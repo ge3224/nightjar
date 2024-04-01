@@ -1,12 +1,13 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
+import { FOOTER, HEADER } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <header> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
  */
-export default function Header(
+export default function NewHeader(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {
@@ -34,8 +35,8 @@ export default function Header(
     } else if (
       child instanceof Node &&
       isFlowContent(child) &&
-      child.nodeName !== "HEADER" &&
-      child.nodeName !== "FOOTER"
+      child.nodeName !== HEADER &&
+      child.nodeName !== FOOTER
     ) {
       header.appendChild(child);
     }

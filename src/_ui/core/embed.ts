@@ -13,7 +13,7 @@ import { NewHTMLEmbedElement } from "@/_definitions/constructors";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
  */
-export default function Embed(
+export default function NewEmbed(
   attributes: HTMLEmbedElementAttributes = {}
 ): NewHTMLEmbedElement {
   return (): HTMLEmbedElement => {

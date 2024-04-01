@@ -1,18 +1,19 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Iframe from "./iframe";
 import {
   HTMLIFrameElementAttributes,
   IFrameAttributeReferrerPolicy,
   IFrameAttributeSandbox,
 } from "@/_definitions/attributes/iframe";
+import NewIframe from "./iframe";
+import { IFRAME } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Iframe({});
+  const mock = NewIframe({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("IFRAME");
+  expect(mock.tagName).toEqual(IFRAME);
 });
 
 test("construction with attributes", () => {
@@ -31,7 +32,7 @@ test("construction with attributes", () => {
     referrerpolicy: IFrameAttributeReferrerPolicy.sameOrigin,
   };
 
-  const mock = Iframe(mockAttributes);
+  const mock = NewIframe(mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

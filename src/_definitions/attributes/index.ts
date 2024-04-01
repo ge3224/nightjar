@@ -20,6 +20,7 @@ export * from "./details";
 export * from "./dialog";
 export * from "./embed";
 export * from "./fieldset";
+export * from "./label";
 export * from "./form";
 export * from "./global";
 export * from "./iframe";

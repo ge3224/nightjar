@@ -9,18 +9,19 @@ import {
   HTMLButtonElementAttributes,
   PopoverTargetAction,
 } from "@/_definitions/attributes";
-import Button from "./button";
+import NewButton from "./button";
+import { BUTTON } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Button("mock", {});
+  const mock = NewButton("mock", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("BUTTON");
+  expect(mock.tagName).toEqual(BUTTON);
 });
 
 test("construct with children", () => {
   const children = ["foo", document.createElement("span")];
-  const mock = Button(children, {});
+  const mock = NewButton(children, {});
   expect(mock.childNodes.length).toBe(children.length);
 });
 
@@ -40,7 +41,7 @@ test("construction with attributes", () => {
     value: "mock-value",
   };
 
-  const mock = Button("Mock", mockAttributes);
+  const mock = NewButton("Mock", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
@@ -68,7 +69,7 @@ test("cannot append certain child nodes", () => {
   ];
 
   unallowedChildren.map((child) => {
-    const mock = Button(["foo", child], {});
+    const mock = NewButton(["foo", child], {});
     expect(mock.childNodes.length).toBe(1);
   });
 });

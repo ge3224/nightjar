@@ -8,13 +8,14 @@ import {
   HTMLElementAttributeAutocapitalize,
   HTMLFormElementAttributes,
 } from "@/_definitions/attributes";
-import Form from "./form";
+import NewForm from "./form";
+import { FORM, SPAN } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Form("foo", {});
+  const mock = NewForm("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("FORM");
+  expect(mock.tagName).toEqual(FORM);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -22,10 +23,10 @@ test("construction with a child node", () => {
   const mockChild = document.createElement("span");
   mockChild.textContent = "foo";
 
-  const mockParent = Form(mockChild, {});
+  const mockParent = NewForm(mockChild, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
-  expect(mockParent.firstElementChild?.tagName).toBe("SPAN");
+  expect(mockParent.firstElementChild?.tagName).toBe(SPAN);
   expect(mockParent.firstElementChild?.textContent).toEqual(
     mockChild.textContent
   );
@@ -48,7 +49,7 @@ test("construction with attributes", () => {
     inert: true,
   };
 
-  const mock = Form("foo", mockAttributes);
+  const mock = NewForm("foo", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
@@ -69,6 +70,6 @@ test("construction with attributes", () => {
 
 test("cannot add <form> as a child", () => {
   const unallowedChild = document.createElement("form");
-  const mock = Form(["foo", unallowedChild], {});
+  const mock = NewForm(["foo", unallowedChild], {});
   expect(mock.childNodes.length).toBe(1);
 });

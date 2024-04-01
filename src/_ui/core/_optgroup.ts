@@ -1,3 +1,3 @@
-export default function Optgroup(): HTMLElement {
+export default function NewOptgroup(): HTMLElement {
   return document.createElement("optgroup");
 }

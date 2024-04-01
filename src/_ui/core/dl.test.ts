@@ -8,19 +8,20 @@
  */
 
 import { expect, test } from "vitest";
-import Dl from "./dl";
+import NewDl from "./dl";
+import { DL } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Dl();
+  const mock = NewDl();
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DL");
+  expect(mock.tagName).toEqual(DL);
 });
 
 test("construction with attributes", () => {
-  const mock = Dl(null, {
+  const mock = NewDl(null, {
     id: "bar",
     class: "foo bar baz",
   });
@@ -30,7 +31,7 @@ test("construction with attributes", () => {
 });
 
 test("constuction with minimum permitted content", () => {
-  expect(Dl(document.createElement("div")).childNodes.length).toBe(1);
+  expect(NewDl(document.createElement("div")).childNodes.length).toBe(1);
 });
 
 test("construction with a leading <dt>, followed by a <dd>", () => {
@@ -43,7 +44,7 @@ test("construction with a leading <dt>, followed by a <dd>", () => {
     return [dt, dd];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(2);
+  expect(NewDl(content).childNodes.length).toBe(2);
 });
 
 test("construction with a leading <dt>, followed by a mix of permitted elements", () => {
@@ -61,7 +62,7 @@ test("construction with a leading <dt>, followed by a mix of permitted elements"
     return [dt, script, dd, template];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(4);
+  expect(NewDl(content).childNodes.length).toBe(4);
 });
 
 test("construction with a leading <div> followed by another <div>", () => {
@@ -75,7 +76,7 @@ test("construction with a leading <div> followed by another <div>", () => {
     return [div1, div2];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(2);
+  expect(NewDl(content).childNodes.length).toBe(2);
 });
 
 test("construction with a leading <div>, followed by a mix of permitted elements", () => {
@@ -93,11 +94,11 @@ test("construction with a leading <div>, followed by a mix of permitted elements
     return [div1, script, div2, template];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(4);
+  expect(NewDl(content).childNodes.length).toBe(4);
 });
 
 test("construction with a non-permitted content type", () => {
-  expect(Dl(document.createElement("p")).childNodes.length).toBe(0);
+  expect(NewDl(document.createElement("p")).childNodes.length).toBe(0);
 });
 
 test("construction with a mix of permitted and non-permitted content", () => {
@@ -109,7 +110,7 @@ test("construction with a mix of permitted and non-permitted content", () => {
     return [dt, p, dd];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(2);
+  expect(NewDl(content).childNodes.length).toBe(2);
 });
 
 test("construction with a mix of permitted but unrelated elements", () => {
@@ -122,7 +123,7 @@ test("construction with a mix of permitted but unrelated elements", () => {
     return [div, dd];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(1);
+  expect(NewDl(content).childNodes.length).toBe(1);
 
   content = (() => {
     const dt = document.createElement("dt");
@@ -132,5 +133,5 @@ test("construction with a mix of permitted but unrelated elements", () => {
     return [dt, div];
   })();
 
-  expect(Dl(content).childNodes.length).toBe(1);
+  expect(NewDl(content).childNodes.length).toBe(1);
 });

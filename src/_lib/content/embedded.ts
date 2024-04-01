@@ -5,6 +5,8 @@
  * License: MIT
  */
 
+import { AUDIO, CANVAS, EMBED, IFRAME, IMG, MATH, OBJECT, PICTURE, SVG, VIDEO } from "../node_names";
+
 /**
  * Indicates if the given node is a member of the embedded content category.
  *
@@ -12,16 +14,16 @@
  */
 export function isEmbeddedContent(node: Node): boolean {
   const nodeNames = [
-    "AUDIO",
-    "CANVAS",
-    "EMBED",
-    "IFRAME",
-    "IMG",
-    "MATH",
-    "OBJECT",
-    "PICTURE",
-    "SVG",
-    "VIDEO",
+    AUDIO,
+    CANVAS,
+    EMBED,
+    IFRAME,
+    IMG,
+    MATH,
+    OBJECT,
+    PICTURE,
+    SVG,
+    VIDEO,
   ];
 
   return nodeNames.includes(node.nodeName);

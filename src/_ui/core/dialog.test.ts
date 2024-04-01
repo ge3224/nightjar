@@ -8,21 +8,22 @@
  */
 
 import { expect, test } from "vitest";
-import Dialog from "./dialog";
+import NewDialog from "./dialog";
 import { isFlowContent } from "@/_lib/content";
+import { DIALOG } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Dialog("foo");
+  const mock = NewDialog("foo");
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DIALOG");
+  expect(mock.tagName).toEqual(DIALOG);
   expect(mock.textContent).toBe("foo");
 });
 
 test("construction with attributes", () => {
-  const mock = Dialog("foo", {
+  const mock = NewDialog("foo", {
     id: "bar",
     class: "foo bar baz",
     open: true,
@@ -38,7 +39,7 @@ test("construction with flow content", () => {
   let mock: HTMLElement;
 
   content = document.createElement("p");
-  mock = Dialog(content);
+  mock = NewDialog(content);
 
   expect(mock.childNodes.length).toBe(1);
 
@@ -49,7 +50,7 @@ test("construction with flow content", () => {
     document.createElement("span"),
     document.createElement("em"),
   ];
-  mock = Dialog(content);
+  mock = NewDialog(content);
 
   expect(mock.childNodes.length).toBe(content.length);
 });
@@ -62,13 +63,13 @@ test("construction with non-flow content", () => {
 
   expect(isFlowContent(content)).toBe(false);
 
-  mock = Dialog(content);
+  mock = NewDialog(content);
 
   expect(mock.childNodes.length).toBe(0);
 
   content = [document.createElement("html"), document.createElement("head")];
 
-  mock = Dialog(content);
+  mock = NewDialog(content);
 
   expect(mock.childNodes.length).toBe(0);
 });

@@ -1,7 +1,7 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 // import appendChildren from "@/_lib/append_children";
 
-export default function Div(
+export default function NewDiv(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLDivElement {

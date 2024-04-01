@@ -2,13 +2,14 @@
 
 import { HTMLSelectElementAttributes } from "@/_definitions/attributes";
 import { expect, test } from "vitest";
-import Select from "./select";
+import NewSelect from "./select";
+import { SELECT } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Select([], {});
+  const mock = NewSelect([], {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("SELECT");
+  expect(mock.tagName).toEqual(SELECT);
 });
 
 test("construct with children", () => {
@@ -17,7 +18,7 @@ test("construct with children", () => {
     document.createElement("option"),
   ];
 
-  const mock = Select(mockChildren, {});
+  const mock = NewSelect(mockChildren, {});
   expect(mock.childNodes.length).toBe(mockChildren.length);
 });
 
@@ -32,7 +33,7 @@ test("construct with attributes", () => {
     size: 3,
   };
 
-  const mock = Select([], mockAttributes);
+  const mock = NewSelect([], mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

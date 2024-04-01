@@ -9,15 +9,16 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Dd from "./dd";
+import NewDd from "./dd";
+import { DD, SPAN } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Dd("foo", {});
+  const mock = NewDd("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DD");
+  expect(mock.tagName).toEqual(DD);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -25,17 +26,17 @@ test("construction with a child node", () => {
   const mockChild = document.createElement("span");
   mockChild.textContent = "foo";
 
-  const mockParent = Dd(mockChild, {});
+  const mockParent = NewDd(mockChild, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
-  expect(mockParent.firstElementChild?.tagName).toBe("SPAN");
+  expect(mockParent.firstElementChild?.tagName).toBe(SPAN);
   expect(mockParent.firstElementChild?.textContent).toEqual(
     mockChild.textContent
   );
 });
 
 test("construction with attributes", () => {
-  const mock = Dd("foo", {
+  const mock = NewDd("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

@@ -1,3 +1,3 @@
-export default function Map(): HTMLElement {
+export default function NewMap(): HTMLElement {
   return document.createElement("map");
 }

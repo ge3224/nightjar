@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
  */
-export default function Tfoot(
+export default function NewTfoot(
   children: HTMLTableRowElement | Array<HTMLTableRowElement>,
   attributes: HTMLElementAttributes
 ): HTMLTableSectionElement {

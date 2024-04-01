@@ -9,15 +9,16 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Bdi from "./bdi";
+import NewBdi from "./bdi";
+import { BDI } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Bdi("foo", {});
+  const mock = NewBdi("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("BDI");
+  expect(mock.tagName).toEqual(BDI);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -29,13 +30,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  const mockParent = Bdi(mockChildren, {});
+  const mockParent = NewBdi(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Bdi("foo", {
+  const mock = NewBdi("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

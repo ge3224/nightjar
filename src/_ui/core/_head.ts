@@ -1,3 +1,3 @@
-export default function Head(): HTMLElement {
+export default function NewHead(): HTMLElement {
   return document.createElement("head");
 }

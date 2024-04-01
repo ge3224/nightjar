@@ -1,17 +1,18 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Textarea from "./textarea";
+import NewTextarea from "./textarea";
 import {
   HTMLTextAreaElementAttributes,
   TextAreaAttributeWrap,
 } from "@/_definitions/attributes";
+import { TEXTAREA } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Textarea("foo", {});
+  const mock = NewTextarea("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("TEXTAREA");
+  expect(mock.tagName).toEqual(TEXTAREA);
 });
 
 test("construction with attributes", () => {
@@ -29,7 +30,7 @@ test("construction with attributes", () => {
     wrap: TextAreaAttributeWrap.soft,
   };
 
-  const mock = Textarea("foo", mockAttributes);
+  const mock = NewTextarea("foo", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

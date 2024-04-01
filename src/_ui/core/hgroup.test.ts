@@ -8,20 +8,21 @@
  */
 
 import { expect, test } from "vitest";
-import Hgroup from "./hgroup";
+import { HGROUP } from "@/_lib/node_names";
+import NewHgroup from "./hgroup";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Hgroup()();
+  const mock = NewHgroup()();
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("HGROUP");
+  expect(mock.tagName).toEqual(HGROUP);
 });
 
 test("construction with attributes", () => {
-  const mock = Hgroup(null, {
+  const mock = NewHgroup(null, {
     id: "bar",
     class: "foo bar baz",
   })();
@@ -31,7 +32,7 @@ test("construction with attributes", () => {
 });
 
 test("construction with a heading", () => {
-  const mock = Hgroup(document.createElement("h1"))();
+  const mock = NewHgroup(document.createElement("h1"))();
 
   expect(mock.childNodes.length).toBe(1);
 });
@@ -43,7 +44,7 @@ test("construction with a paragraph followed by a heading", () => {
     return [p, h2];
   })();
 
-  const mock = Hgroup(content)();
+  const mock = NewHgroup(content)();
 
   expect(mock.childNodes.length).toBe(2);
 });
@@ -56,7 +57,7 @@ test("construction with a paragraph followed by a heading, followed by a paragra
     return [p, h2, p2];
   })();
 
-  const mock = Hgroup(content)();
+  const mock = NewHgroup(content)();
 
   expect(mock.childNodes.length).toBe(3);
 });
@@ -68,7 +69,7 @@ test("construction with a paragraphs and no heading", () => {
     return [p, p2];
   })();
 
-  const mock = Hgroup(content)();
+  const mock = NewHgroup(content)();
 
   expect(mock.childNodes.length).toBe(0);
 });
@@ -81,7 +82,7 @@ test("construction with paragraphs and two headings", () => {
     return [h2, p, _h2];
   })();
 
-  const mock = Hgroup(content)();
+  const mock = NewHgroup(content)();
 
   expect(mock.childNodes.length).toBe(2);
 });

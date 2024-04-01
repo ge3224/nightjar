@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Aside from "./aside";
+import NewAside from "./aside";
+import { ASIDE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Aside("foo", {});
+  const mock = NewAside("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("ASIDE");
+  expect(mock.tagName).toEqual(ASIDE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -20,13 +21,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  const mockParent = Aside(mockChildren, {});
+  const mockParent = NewAside(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Aside("foo", {
+  const mock = NewAside("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

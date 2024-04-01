@@ -1,3 +1,3 @@
-export default function Ruby(): HTMLElement {
+export default function NewRuby(): HTMLElement {
   return document.createElement("ruby");
 }

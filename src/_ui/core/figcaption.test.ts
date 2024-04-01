@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Figcaption from "./figcaption";
+import NewFigcaption from "./figcaption";
+import { FIGCAPTION } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Figcaption("foo", {});
+  const mock = NewFigcaption("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("FIGCAPTION");
+  expect(mock.tagName).toEqual(FIGCAPTION);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -20,13 +21,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  const mockParent = Figcaption(mockChildren, {});
+  const mockParent = NewFigcaption(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Figcaption("foo", {
+  const mock = NewFigcaption("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

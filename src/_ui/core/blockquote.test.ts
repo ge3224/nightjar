@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Blockquote from "./blockquote";
+import NewBlockquote from "./blockquote";
 import { HTMLQuoteElementAttributes } from "@/_definitions/attributes/blockquote";
+import { BLOCKQUOTE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Blockquote("foo", {});
+  const mock = NewBlockquote("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("BLOCKQUOTE");
+  expect(mock.tagName).toEqual(BLOCKQUOTE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -20,13 +21,13 @@ test("construction with a child node", () => {
     document.createElement("style"), // not flow content
   ];
 
-  let mockParent = Blockquote(mockChildren, {});
+  let mockParent = NewBlockquote(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Blockquote("foo", {
+  const mock = NewBlockquote("foo", {
     id: "bar",
     class: "foo bar baz",
     cite: "https://www.foo.com/bar",

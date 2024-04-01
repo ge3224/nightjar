@@ -10,6 +10,7 @@
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import NewB from "./b";
+import { B } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
@@ -17,7 +18,7 @@ test("basic construction", () => {
   const mock = NewB()();
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("B");
+  expect(mock.tagName).toEqual(B);
 });
 
 test("construction with a child node", () => {

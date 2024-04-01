@@ -1,3 +1,3 @@
-export default function Mark(): HTMLElement {
+export default function NewMark(): HTMLElement {
   return document.createElement("mark");
 }

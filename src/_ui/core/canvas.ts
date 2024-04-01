@@ -7,13 +7,14 @@
 
 import { HTMLCanvasElementAttributes } from "@/_definitions/attributes/canvas";
 import { isInteractiveContent, isTransparent } from "@/_lib/content";
+import { A, BUTTON, INPUT } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <canvas> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
  */
-export default function Canvas(
+export default function NewCanvas(
   children: string | Node | Array<string | Node>,
   attributes: HTMLCanvasElementAttributes
 ): HTMLCanvasElement {
@@ -55,7 +56,7 @@ export default function Canvas(
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas#technical_summary)
  */
 function isPermittedContent(node: Node): boolean {
-  const permittedInteractiveContent: Array<string> = ["A", "BUTTON"];
+  const permittedInteractiveContent: Array<string> = [A, BUTTON];
   const permittedInputTypes: Array<string> = ["checkbox", "radio", "button"];
 
   if (!isTransparent(node)) {
@@ -69,7 +70,7 @@ function isPermittedContent(node: Node): boolean {
 
     if (permittedInteractiveContent.includes(descendant.nodeName)) return;
 
-    if (descendant.nodeName === "INPUT") {
+    if (descendant.nodeName === INPUT) {
       const type = (descendant as HTMLInputElement).type;
       if (permittedInputTypes.includes(type)) return;
     }

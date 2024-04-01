@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Caption from "./caption";
+import NewCaption from "./caption";
+import { CAPTION } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Caption("foo", {});
+  const mock = NewCaption("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("CAPTION");
+  expect(mock.tagName).toEqual(CAPTION);
 });
 
 test("construction with permitted children", () => {
@@ -20,7 +21,7 @@ test("construction with permitted children", () => {
 
   const allowedChildrenTypes = [text, strong, em];
 
-  const mockParent = Caption(allowedChildrenTypes, {});
+  const mockParent = NewCaption(allowedChildrenTypes, {});
 
   expect(mockParent.childNodes.length).toBeGreaterThan(2);
 });
@@ -28,7 +29,7 @@ test("construction with permitted children", () => {
 test("construction with attributes", () => {
   const mockAttributes: HTMLElementAttributes = {};
 
-  const mock = Caption("foo", mockAttributes);
+  const mock = NewCaption("foo", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {
@@ -49,11 +50,11 @@ test("construction with prohibited children", () => {
   let mock: HTMLTableCaptionElement;
 
   prohibited.forEach((node) => {
-    mock = Caption(node, {});
+    mock = NewCaption(node, {});
     expect(mock.childNodes.length).toBeLessThan(1);
   });
 
-  mock = Caption(prohibited, {});
+  mock = NewCaption(prohibited, {});
 
   expect(mock.childNodes.length).toBeLessThan(1);
 });

@@ -1,3 +1,3 @@
-export default function Sub(): HTMLElement {
+export default function NewSub(): HTMLElement {
   return document.createElement("sub");
 }

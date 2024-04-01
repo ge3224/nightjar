@@ -1,3 +1,3 @@
-export default function Wbr(): HTMLElement {
+export default function NewWbr(): HTMLElement {
   return document.createElement("wbr");
 }

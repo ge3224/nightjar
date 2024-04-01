@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Abbr from "./abbr";
+import NewAbbr from "./abbr";
+import { ABBR } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Abbr("foo", {});
+  const mock = NewAbbr("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("ABBR");
+  expect(mock.tagName).toEqual(ABBR);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -19,13 +20,13 @@ test("construction with a child node", () => {
     document.createElement("div"), // not phrasing content
   ];
 
-  const mockParent = Abbr(mockChildren, {});
+  const mockParent = NewAbbr(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(2);
 });
 
 test("construction with attributes", () => {
-  const mock = Abbr("foo", {
+  const mock = NewAbbr("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

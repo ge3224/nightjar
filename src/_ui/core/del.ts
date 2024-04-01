@@ -13,7 +13,7 @@ import { isTransparent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
  */
-export default function Del(
+export default function NewDel(
   children: string | Node | Array<string | Node>,
   attributes: HTMLModElementAttributes = {}
 ): HTMLModElement {

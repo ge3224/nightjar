@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Tr from "./tr";
+import NewTr from "./tr";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { TR } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Tr(document.createElement("td"), {});
+  const mock = NewTr(document.createElement("td"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("TR");
+  expect(mock.tagName).toEqual(TR);
 });
 
 test("construct with children", () => {
@@ -20,17 +21,17 @@ test("construct with children", () => {
   let mockParent: HTMLTableRowElement;
 
   allowedChildrenTypes.forEach((mockChild) => {
-    mockParent = Tr(mockChild, {});
+    mockParent = NewTr(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
   });
 
-  mockParent = Tr(allowedChildrenTypes, {});
+  mockParent = NewTr(allowedChildrenTypes, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
 });
 
 test("construction with attributes", () => {
-  const mock = Tr(document.createElement("td"), {
+  const mock = NewTr(document.createElement("td"), {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

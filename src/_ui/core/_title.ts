@@ -1,3 +1,3 @@
-export default function Title(): HTMLElement {
+export default function NewTitle(): HTMLElement {
   return document.createElement("title");
 }

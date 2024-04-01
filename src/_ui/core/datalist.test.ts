@@ -8,15 +8,16 @@
  */
 
 import { expect, test } from "vitest";
-import Datalist from "./datalist";
+import NewDatalist from "./datalist";
+import { DATALIST } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Datalist("foo", {});
+  const mock = NewDatalist("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toBe("DATALIST");
+  expect(mock.tagName).toBe(DATALIST);
 });
 
 test("construction with phrasing content", () => {
@@ -24,7 +25,7 @@ test("construction with phrasing content", () => {
   let content: string | Node | Array<string | Node>;
 
   content = document.createElement("span");
-  mock = Datalist(content, {});
+  mock = NewDatalist(content, {});
 
   expect(mock.childNodes.length).toBe(1);
 
@@ -34,7 +35,7 @@ test("construction with phrasing content", () => {
     document.createElement("strong"),
     document.createElement("em"),
   ];
-  mock = Datalist(content, {});
+  mock = NewDatalist(content, {});
   expect(mock.childNodes.length).toBe(content.length);
 });
 
@@ -43,7 +44,7 @@ test("construction with <option> children", () => {
   let content: Node | Array<Node>;
 
   content = document.createElement("option");
-  mock = Datalist(content, {});
+  mock = NewDatalist(content, {});
 
   expect(mock.childNodes.length).toBe(1);
 
@@ -52,7 +53,7 @@ test("construction with <option> children", () => {
     document.createElement("option"),
     document.createElement("option"),
   ];
-  mock = Datalist(content, {});
+  mock = NewDatalist(content, {});
 
   expect(mock.childNodes.length).toBe(content.length);
 });
@@ -62,7 +63,7 @@ test("construction with mix of phrasing and <option> content", () => {
   let content: string | Node | Array<string | Node>;
 
   content = [document.createElement("span"), document.createElement("option")];
-  mock = Datalist(content, {});
+  mock = NewDatalist(content, {});
 
   expect(mock.childNodes.length).toBe(0);
 });

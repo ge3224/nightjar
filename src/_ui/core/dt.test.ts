@@ -8,19 +8,20 @@
  */
 
 import { expect, test } from "vitest";
-import Dt from "./dt";
+import NewDt from "./dt";
+import { DT } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Dt()();
+  const mock = NewDt()();
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DT");
+  expect(mock.tagName).toEqual(DT);
 });
 
 test("construction with attributes", () => {
-  const mock = Dt(null, {
+  const mock = NewDt(null, {
     id: "bar",
     class: "foo bar baz",
   })();
@@ -44,7 +45,7 @@ test("constuction with permitted content", () => {
     return [a, p, div];
   })();
 
-  expect(Dt(content)().childNodes.length).toBe(content.length);
+  expect(NewDt(content)().childNodes.length).toBe(content.length);
 });
 
 test("construction with non-permitted flow content", () => {
@@ -67,5 +68,5 @@ test("construction with non-permitted flow content", () => {
     return [header, footer, article, aside, nav, section, b];
   })();
 
-  expect(Dt(content)().childNodes.length).toBe(0);
+  expect(NewDt(content)().childNodes.length).toBe(0);
 });

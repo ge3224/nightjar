@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Td from "./td";
+import NewTd from "./td";
 import { HTMLTableCellElementAttributes } from "@/_definitions/attributes";
+import { TD } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Td("foo", {});
+  const mock = NewTd("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("TD");
+  expect(mock.tagName).toEqual(TD);
 });
 
 test("construct with children", () => {
@@ -20,7 +21,7 @@ test("construct with children", () => {
 
   const allowedChildrenTypes = [text, strong, em];
 
-  const mockParent = Td(allowedChildrenTypes, {});
+  const mockParent = NewTd(allowedChildrenTypes, {});
 
   expect(mockParent.childNodes.length).toBeGreaterThan(2);
 });
@@ -32,7 +33,7 @@ test("construction with attributes", () => {
     headers: "header1 header2",
   };
 
-  const mock = Td("foo", mockAttributes);
+  const mock = NewTd("foo", mockAttributes);
 
   Object.entries(mockAttributes).forEach(([key, value]) => {
     switch (key) {

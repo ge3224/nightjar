@@ -9,8 +9,7 @@
 
 import { expect, test } from "vitest";
 import NewLabel from "./label";
-import { ABBR, EM, I, INPUT, LABEL } from "@/_lib/node_names";
-import { isPhrasingContent } from "@/_lib/content";
+import { ABBR, EM, HTML, I, INPUT, LABEL } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
@@ -44,7 +43,7 @@ test("constuction with permitted phrasing content", () => {
   const content = (() => {
     const abbr = document.createElement(ABBR);
     abbr.title = "Hypertext Markup Language";
-    abbr.textContent = "HTML";
+    abbr.textContent = HTML;
 
     const em = document.createElement(EM);
     em.textContent = "foo";

@@ -8,17 +8,18 @@
  */
 
 import { expect, test } from "vitest";
-import Fieldset from "./fieldset";
+import NewFieldset from "./fieldset";
 import { HTMLFieldSetElementAttributes } from "@/_definitions/attributes";
+import { FIELDSET, LEGEND } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Fieldset()();
+  const mock = NewFieldset()();
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("FIELDSET");
+  expect(mock.tagName).toEqual(FIELDSET);
 });
 
 test("construction with attributes", () => {
@@ -29,7 +30,7 @@ test("construction with attributes", () => {
     name: "foobarbaz",
   } as HTMLFieldSetElementAttributes;
 
-  const mock = Fieldset(null, attributes)();
+  const mock = NewFieldset(null, attributes)();
 
   expect(mock.id).toBe(attributes.id);
   expect(mock.disabled).toBe(attributes.disabled);
@@ -43,7 +44,7 @@ test("construction with a <legend> element", () => {
     return [legend];
   })();
 
-  const mock = Fieldset(content)();
+  const mock = NewFieldset(content)();
 
   expect(mock.childNodes.length).toBe(1);
 });
@@ -56,7 +57,7 @@ test("construction with a <legend> element, followed by flow content", () => {
     return [legend, p];
   })();
 
-  const mock = Fieldset(content)();
+  const mock = NewFieldset(content)();
 
   expect(mock.childNodes.length).toBe(2);
 });
@@ -72,9 +73,9 @@ test("construction with flow content, followed by a <legend> element", () => {
     return [p, legend];
   })();
 
-  const mock = Fieldset(content)();
+  const mock = NewFieldset(content)();
 
-  expect(mock.firstChild?.nodeName).toBe("LEGEND");
+  expect(mock.firstChild?.nodeName).toBe(LEGEND);
 });
 
 test("construction with non-permitted content", () => {
@@ -90,7 +91,7 @@ test("construction with non-permitted content", () => {
     return [legend, p, style];
   })();
 
-  const mock = Fieldset(content)();
+  const mock = NewFieldset(content)();
 
   expect(mock.childNodes.length).toBe(2);
 });

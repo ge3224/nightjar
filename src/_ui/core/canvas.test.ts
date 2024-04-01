@@ -8,29 +8,30 @@
  */
 
 import { expect, test } from "vitest";
-import Canvas from "./canvas";
+import NewCanvas from "./canvas";
 import { HTMLCanvasElementAttributes } from "@/_definitions/attributes/canvas";
+import { CANVAS } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Canvas("foo", {});
+  const mock = NewCanvas("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("CANVAS");
+  expect(mock.tagName).toEqual(CANVAS);
   expect(mock.textContent).toBe("foo");
 });
 
 test("a transparent child containing only non-interactive descendants", () => {
   const mockChild = document.createElement("del");
   mockChild.innerHTML = `<span>foo</span>`;
-  expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
+  expect(NewCanvas(mockChild, {}).childNodes.length).toBe(1);
 });
 
 test("a transparent child containing interactive descendants that are always permitted", () => {
   const mockChild = document.createElement("del");
   mockChild.innerHTML = `<a href="#">foo</a><button type="button">bar</button>`;
-  expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
+  expect(NewCanvas(mockChild, {}).childNodes.length).toBe(1);
 });
 
 test("a transparent child containing interactive descendants conditionally permitted", () => {
@@ -42,17 +43,17 @@ test("a transparent child containing interactive descendants conditionally permi
 <input type="button" value="Button">
 `;
 
-  expect(Canvas(mockChild, {}).childNodes.length).toBe(1);
+  expect(NewCanvas(mockChild, {}).childNodes.length).toBe(1);
 });
 
 test("returns false for a transparent element with non-permitted interactive content", () => {
   const mockChild = document.createElement("del");
   mockChild.innerHTML = `<a href="#">Link</a><input type="text" />`;
-  expect(Canvas(mockChild, {}).childNodes.length).toBe(0);
+  expect(NewCanvas(mockChild, {}).childNodes.length).toBe(0);
 });
 
 test("construction with attributes", () => {
-  const mock = Canvas("foo", {
+  const mock = NewCanvas("foo", {
     id: "bar",
     class: "foo bar baz",
     height: 150,

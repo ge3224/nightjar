@@ -9,19 +9,20 @@
 
 import { expect, test } from "vitest";
 import { HTMLAreaElementAttributes } from "@/_definitions/attributes/area";
-import Base from "./base";
+import NewBase from "./base";
+import { BASE } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Base({});
+  const mock = NewBase({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("BASE");
+  expect(mock.tagName).toEqual(BASE);
 });
 
 test("construction with attributes", () => {
-  const mock = Base({
+  const mock = NewBase({
     id: "bar",
     class: "foo bar baz",
     href: "right.html",

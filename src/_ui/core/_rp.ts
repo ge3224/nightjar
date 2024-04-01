@@ -1,3 +1,3 @@
-export default function Rp(): HTMLElement {
+export default function NewRp(): HTMLElement {
   return document.createElement("rp");
 }

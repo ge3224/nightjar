@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Span(
+export default function NewSpan(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLSpanElement {

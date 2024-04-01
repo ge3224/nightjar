@@ -8,20 +8,21 @@
  */
 
 import { expect, test } from "vitest";
-import Kbd from "./kbd";
+import NewKbd from "./kbd";
+import { KBD } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Kbd()();
+  const mock = NewKbd()();
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("KBD");
+  expect(mock.tagName).toEqual(KBD);
 });
 
 test("construction with attributes", () => {
-  const mock = Kbd(null, {
+  const mock = NewKbd(null, {
     id: "bar",
     class: "foo bar baz",
   })();
@@ -38,7 +39,7 @@ test("construction with a child node", () => {
     document.createElement("style"), // not phrasing content
   ];
 
-  const mockParent = Kbd(mockChildren, {})();
+  const mockParent = NewKbd(mockChildren, {})();
 
   expect(mockParent.childNodes.length).toBe(3);
 });

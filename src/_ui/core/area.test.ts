@@ -8,24 +8,25 @@
  */
 
 import { expect, test } from "vitest";
-import Area from "./area";
+import NewArea from "./area";
 import {
   AreaAttributesTarget,
   HTMLAreaElementAttributes,
 } from "@/_definitions/attributes/area";
 import { HTMLElementAttributeReferrerPolicy } from "@/_definitions/attributes/referrer_policy";
+import { AREA } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Area({});
+  const mock = NewArea({});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("AREA");
+  expect(mock.tagName).toEqual(AREA);
 });
 
 test("construction with attributes", () => {
-  const mock = Area({
+  const mock = NewArea({
     id: "bar",
     class: "foo bar baz",
     shape: "circle",

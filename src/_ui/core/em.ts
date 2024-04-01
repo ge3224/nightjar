@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Em(
+export default function NewEm(
   children: string | Node | (string | Node)[],
   attributes: HTMLElementAttributes
 ): HTMLElement {

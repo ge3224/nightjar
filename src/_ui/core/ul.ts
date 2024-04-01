@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Ul(
+export default function NewUl(
   children: HTMLLIElement | HTMLLIElement[],
   attributes: HTMLElementAttributes
 ): HTMLUListElement {

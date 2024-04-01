@@ -5,6 +5,8 @@
  * License: MIT
  */
 
+import { BASE, LINK, META, NOSCRIPT, SCRIPT, STYLE, TITLE } from "../node_names";
+
 /**
  * Indicates whether a node is a member of the metadata content category.
  *
@@ -12,13 +14,13 @@
  */
 export function isMetadataContent(node: Node): boolean {
   const nodeNames = [
-    "BASE",
-    "LINK",
-    "META",
-    "NOSCRIPT",
-    "SCRIPT",
-    "STYLE",
-    "TITLE",
+    BASE,
+    LINK,
+    META,
+    NOSCRIPT,
+    SCRIPT,
+    STYLE,
+    TITLE,
   ];
 
   return nodeNames.includes(node.nodeName);

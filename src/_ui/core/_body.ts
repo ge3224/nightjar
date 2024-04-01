@@ -1,3 +1,4 @@
-export default function Body(): HTMLElement {
+export default function NewBody(): HTMLElement {
   return document.createElement("body");
 }
+

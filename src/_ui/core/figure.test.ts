@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Figure from "./figure";
+import NewFigure from "./figure";
+import { FIGURE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Figure("foo", {});
+  const mock = NewFigure("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("FIGURE");
+  expect(mock.tagName).toEqual(FIGURE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -21,13 +22,13 @@ test("construction with a child node", () => {
     document.createElement("figcaption"),
   ];
 
-  const mockParent = Figure(mockChildren, {});
+  const mockParent = NewFigure(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(4);
 });
 
 test("construction with attributes", () => {
-  const mock = Figure("foo", {
+  const mock = NewFigure("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

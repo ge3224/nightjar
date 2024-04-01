@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
  */
-export default function Tbody(
+export default function NewTbody(
   children: HTMLTableRowElement | Array<HTMLTableRowElement>,
   attributes: HTMLElementAttributes
 ): HTMLTableSectionElement {

@@ -1,3 +1,3 @@
-export default function Link(): HTMLElement {
+export default function NewLink(): HTMLElement {
   return document.createElement("link");
 }

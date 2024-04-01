@@ -1,3 +1,3 @@
-export default function Meta(): HTMLElement {
+export default function NewMeta(): HTMLElement {
   return document.createElement("meta");
 }

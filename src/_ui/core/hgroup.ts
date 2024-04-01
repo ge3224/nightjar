@@ -7,6 +7,7 @@
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
+import { H1, H2, H3, H4, H5, H6, P } from "@/_lib/node_names";
 
 /**
  * Returns a constructor for the HTML <hgroup> element.
@@ -14,7 +15,7 @@ import { NewHTMLElement } from "@/_definitions/constructors";
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup)
  */
 
-export default function Hgroup(
+export default function NewHgroup(
   children: Node | Array<Node> | null = null,
   attributes: HTMLElementAttributes = {}
 ): NewHTMLElement {
@@ -40,7 +41,7 @@ export default function Hgroup(
     if (!children) return hgroup;
 
     // TODO: Zero or more <p> elements, followed by one h1, h2, h3, h4, h5, or h6 element, followed by zero or more <p> elements.
-    const permittedContent = ["P", "H1", "H2", "H3", "H4", "H5", "H6"];
+    const permittedContent = [P, H1, H2, H3, H4, H5, H6];
 
     if (!Array.isArray(children)) {
       if (

@@ -12,7 +12,7 @@ import { HTMLBaseElementAttributes } from "@/_definitions/attributes/base";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
  */
-export default function Base(
+export default function NewBase(
   attributes: HTMLBaseElementAttributes
 ): HTMLBaseElement {
   const base = document.createElement("base");

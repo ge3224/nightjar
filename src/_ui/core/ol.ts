@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Ol(
+export default function NewOl(
   children: HTMLLIElement | HTMLLIElement[],
   attributes: HTMLElementAttributes
 ): HTMLOListElement {

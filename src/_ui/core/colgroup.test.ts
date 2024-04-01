@@ -9,19 +9,20 @@
 
 import { expect, test } from "vitest";
 import { HTMLCanvasElementAttributes } from "@/_definitions/attributes/canvas";
-import Colgroup from "./colgroup";
+import NewColgroup from "./colgroup";
+import { COLGROUP } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Colgroup(null, {});
+  const mock = NewColgroup(null, {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("COLGROUP");
+  expect(mock.tagName).toEqual(COLGROUP);
 });
 
 test("construction with attributes", () => {
-  const mock = Colgroup(null, {
+  const mock = NewColgroup(null, {
     id: "bar",
     class: "foo bar baz",
     span: 150,
@@ -33,7 +34,7 @@ test("construction with attributes", () => {
 });
 
 test("construction with a single permitted child.", () => {
-  const mock = Colgroup(document.createElement("col"), {});
+  const mock = NewColgroup(document.createElement("col"), {});
   expect(mock.childNodes.length).toBe(1);
 });
 
@@ -44,13 +45,13 @@ test("construction with multiple permitted children", () => {
     document.createElement("col"),
   ];
 
-  const mock = Colgroup(children, {});
+  const mock = NewColgroup(children, {});
   expect(mock.childNodes.length).toBe(children.length);
 });
 
 test("construction with a single unpermitted child", () => {
   // @ts-ignore: testing invalid input
-  const mock = Colgroup(document.createElement("span"), {});
+  const mock = NewColgroup(document.createElement("span"), {});
   expect(mock.childNodes.length).toBe(0);
 });
 
@@ -63,12 +64,12 @@ test("construction with multiple permitted and unpermitted children", () => {
   ];
 
   //@ts-ignore: testing invalid input
-  const mock = Colgroup(children, {});
+  const mock = NewColgroup(children, {});
   expect(mock.childNodes.length).toBe(2);
 });
 
 test("construction with span attributes and a child", () => {
-  const mock = Colgroup(document.createElement("col"), { span: 150 });
+  const mock = NewColgroup(document.createElement("col"), { span: 150 });
   expect(mock.childNodes.length).toBe(0);
 });
 
@@ -79,6 +80,6 @@ test("construction with the span attribute and children", () => {
     document.createElement("col"),
   ];
 
-  const mock = Colgroup(children, { span: 150 });
+  const mock = NewColgroup(children, { span: 150 });
   expect(mock.childNodes.length).toBe(0);
 });

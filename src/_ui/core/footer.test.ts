@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Footer from "./footer";
+import NewFooter from "./footer";
+import { FOOTER } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Footer("foo", {});
+  const mock = NewFooter("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("FOOTER");
+  expect(mock.tagName).toEqual(FOOTER);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -22,13 +23,13 @@ test("construction with a child node", () => {
     document.createElement("footer"), // prohibited flow content
   ];
 
-  const mockParent = Footer(mockChildren, {});
+  const mockParent = NewFooter(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Footer("foo", {
+  const mock = NewFooter("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Cite from "./cite";
+import NewCite from "./cite";
+import { CITE } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Cite("foo", {});
+  const mock = NewCite("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("CITE");
+  expect(mock.tagName).toEqual(CITE);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -19,13 +20,13 @@ test("construction with a child node", () => {
     document.createElement("div"), // not phrasing content
   ];
 
-  const mockParent = Cite(mockChildren, {});
+  const mockParent = NewCite(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(2);
 });
 
 test("construction with attributes", () => {
-  const mock = Cite("foo", {
+  const mock = NewCite("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

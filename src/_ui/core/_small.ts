@@ -1,3 +1,3 @@
-export default function Small(): HTMLElement {
+export default function NewSmall(): HTMLElement {
   return document.createElement("small");
 }

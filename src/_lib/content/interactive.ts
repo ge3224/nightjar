@@ -5,6 +5,8 @@
  * License: MIT
  */
 
+import { A, AUDIO, BUTTON, DETAILS, EMBED, IFRAME, IMG, INPUT, LABEL, OBJECT, SELECT, TEXTAREA, VIDEO } from "../node_names";
+
 /**
  * Indicates if the given node is a member of the interactive content category.
  *
@@ -12,39 +14,39 @@
  */
 export function isInteractiveContent(node: Node): boolean {
   const nodeNames = [
-    "BUTTON",
-    "DETAILS",
-    "EMBED",
-    "IFRAME",
-    "LABEL",
-    "SELECT",
-    "TEXTAREA",
+    BUTTON,
+    DETAILS,
+    EMBED,
+    IFRAME,
+    LABEL,
+    SELECT,
+    TEXTAREA,
   ];
 
   if (nodeNames.includes(node.nodeName)) return true;
 
   switch (node.nodeName) {
-    case "A":
+    case A:
       return (node as HTMLAnchorElement).getAttribute("href") === null
         ? false
         : true;
-    case "AUDIO":
+    case AUDIO:
       return (node as HTMLAudioElement).getAttribute("controls") === null
         ? false
         : true;
-    case "IMG":
+    case IMG:
       return (node as HTMLImageElement).getAttribute("usemap") === null
         ? false
         : true;
-    case "INPUT":
+    case INPUT:
       return (node as HTMLInputElement).getAttribute("type") === null
         ? false
         : true;
-    case "OBJECT":
+    case OBJECT:
       return (node as HTMLObjectElement).getAttribute("usemap") === null
         ? false
         : true;
-    case "VIDEO":
+    case VIDEO:
       return (node as HTMLVideoElement).getAttribute("controls") === null
         ? false
         : true;

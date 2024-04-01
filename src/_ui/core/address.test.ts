@@ -9,15 +9,16 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Address from "./address";
+import NewAddress from "./address";
+import { ADDRESS } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Address("foo", {});
+  const mock = NewAddress("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("ADDRESS");
+  expect(mock.tagName).toEqual(ADDRESS);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -27,12 +28,12 @@ test("construction with a child node", () => {
   let mockChildren: Array<string | Node>;
 
   mockChild = "foo";
-  mockParent = Address(mockChild, {});
+  mockParent = NewAddress(mockChild, {});
 
   expect(mockParent.textContent).toBe("foo");
 
   mockChild = document.createElement("p");
-  mockParent = Address(mockChild, {});
+  mockParent = NewAddress(mockChild, {});
 
   expect(mockParent.childNodes.length).toBe(1);
 
@@ -112,7 +113,7 @@ test("construction with a child node", () => {
   ];
 
   mockChildren.forEach((child) => {
-    mockParent = Address(child, {});
+    mockParent = NewAddress(child, {});
     if (typeof child === "string") {
       expect(mockParent.textContent).toBe(child);
     } else {
@@ -120,13 +121,13 @@ test("construction with a child node", () => {
     }
   });
 
-  mockParent = Address(mockChildren, {});
+  mockParent = NewAddress(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(mockChildren.length);
 });
 
 test("construction with attributes", () => {
-  const mock = Address("foo", {
+  const mock = NewAddress("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

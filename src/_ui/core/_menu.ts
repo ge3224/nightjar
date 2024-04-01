@@ -1,3 +1,3 @@
-export default function Menu(): HTMLElement {
+export default function NewMenu(): HTMLElement {
   return document.createElement("menu");
 }

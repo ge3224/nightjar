@@ -1,3 +1,3 @@
-export default function Meter(): HTMLElement {
+export default function NewMeter(): HTMLElement {
   return document.createElement("meter");
 }

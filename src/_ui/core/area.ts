@@ -12,7 +12,7 @@ import { HTMLAreaElementAttributes } from "@/_definitions/attributes/area";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
  */
-export default function Area(
+export default function NewArea(
   attributes: HTMLAreaElementAttributes
 ): HTMLAreaElement {
   const area = document.createElement("area");

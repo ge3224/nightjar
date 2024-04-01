@@ -1,3 +1,3 @@
-export default function Script(): HTMLElement {
+export default function NewScript(): HTMLElement {
   return document.createElement("script");
 }

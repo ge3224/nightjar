@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Ul from "./ul";
+import NewUl from "./ul";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { LI, UL } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Ul(document.createElement("li"), {});
+  const mock = NewUl(document.createElement("li"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("UL");
+  expect(mock.tagName).toEqual(UL);
 });
 
 test("construction with multiple child nodes", () => {
@@ -18,15 +19,15 @@ test("construction with multiple child nodes", () => {
     return li;
   });
 
-  const mockParent = Ul(mockChildren, {});
+  const mockParent = NewUl(mockChildren, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
-  expect(mockParent.firstElementChild?.tagName).toBe("LI");
+  expect(mockParent.firstElementChild?.tagName).toBe(LI);
   expect(mockParent.firstElementChild?.textContent).toEqual("foo");
 });
 
 test("construction with attributes", () => {
-  const mock = Ul(document.createElement("li"), {
+  const mock = NewUl(document.createElement("li"), {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

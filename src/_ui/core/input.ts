@@ -1,6 +1,6 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 
-export default function Input(
+export default function NewInput(
   attributes: HTMLElementAttributes
 ): HTMLInputElement {
   const input = document.createElement("input");

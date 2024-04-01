@@ -1,3 +1,3 @@
-export default function Track(): HTMLElement {
+export default function NewTrack(): HTMLElement {
   return document.createElement("track");
 }

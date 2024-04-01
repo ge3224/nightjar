@@ -1,14 +1,15 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Tbody from "./tbody";
+import NewTbody from "./tbody";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { TBODY } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Tbody(document.createElement("tr"), {});
+  const mock = NewTbody(document.createElement("tr"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("TBODY");
+  expect(mock.tagName).toEqual(TBODY);
 });
 
 test("construct with children", () => {
@@ -20,17 +21,17 @@ test("construct with children", () => {
   let mockParent: HTMLTableSectionElement;
 
   allowedChildrenTypes.forEach((mockChild) => {
-    mockParent = Tbody(mockChild, {});
+    mockParent = NewTbody(mockChild, {});
     expect(mockParent.firstElementChild).not.toBeNull();
   });
 
-  mockParent = Tbody(allowedChildrenTypes, {});
+  mockParent = NewTbody(allowedChildrenTypes, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
 });
 
 test("construction with attributes", () => {
-  const mock = Tbody(document.createElement("tr"), {
+  const mock = NewTbody(document.createElement("tr"), {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

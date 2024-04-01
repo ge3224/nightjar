@@ -6,7 +6,7 @@ import { isPhrasingContent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
  */
-export default function Abbr(
+export default function NewAbbr(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {

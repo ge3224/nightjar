@@ -1,3 +1,3 @@
-export default function Var(): HTMLElement {
+export default function NewVar(): HTMLElement {
   return document.createElement("var");
 }

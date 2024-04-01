@@ -14,7 +14,7 @@ import { isTransparent } from "@/_lib/content";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
  */
-export default function Ins(
+export default function NewIns(
   children: string | Node | Array<string | Node> | null = null,
   attributes: HTMLModElementAttributes = {}
 ): NewHTMLModElement {

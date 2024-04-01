@@ -8,16 +8,17 @@
  */
 
 import { expect, test } from "vitest";
-import Ins from "./ins";
+import NewIns from "./ins";
+import { INS } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Ins()();
+  const mock = NewIns()();
 
   expect(mock).not.toBeNull();
 
-  expect(mock.tagName).toEqual("INS");
+  expect(mock.tagName).toEqual(INS);
 });
 
 test("construction with attributes", () => {
@@ -27,7 +28,7 @@ test("construction with attributes", () => {
     datetime: "1970-01-01",
     cite: "https://foo.bar.baz",
   };
-  const mock = Ins(null, attributes)();
+  const mock = NewIns(null, attributes)();
 
   expect(mock.getAttribute("id")).toBe(attributes.id);
   expect(mock.getAttribute("class")).toBe(attributes.class);
@@ -40,12 +41,12 @@ test("construction with transparent content", () => {
   let content: string | Node | Array<string | Node>;
 
   content = document.createElement("a");
-  element = Ins(content)();
+  element = NewIns(content)();
 
   expect(element.childNodes.length).toBe(1);
 
   content = ["foo", document.createElement("a"), document.createElement("ins")];
-  element = Ins(content)();
+  element = NewIns(content)();
 
   expect(element.childNodes.length).toBe(content.length);
 });
@@ -55,7 +56,7 @@ test("construction with non-transparent content", () => {
   let content: string | Node | Array<string | Node>;
 
   content = document.createElement("style");
-  element = Ins(content)();
+  element = NewIns(content)();
 
   expect(element.childNodes.length).toBe(0);
 
@@ -64,6 +65,6 @@ test("construction with non-transparent content", () => {
     document.createElement("p"),
     document.createElement("div"),
   ];
-  element = Ins(content)();
+  element = NewIns(content)();
   expect(element.childNodes.length).toBe(0);
 });

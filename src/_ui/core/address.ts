@@ -11,13 +11,14 @@ import {
   isHeadingContent,
   isSectioningContent,
 } from "@/_lib/content";
+import { ADDRESS, FOOTER, HEADER } from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <address> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
  */
-export default function Address(
+export default function NewAddress(
   children: string | Node | Array<string | Node>,
   attributes: HTMLElementAttributes
 ): HTMLElement {
@@ -47,9 +48,9 @@ export default function Address(
       isFlowContent(child) &&
       !isHeadingContent(child) &&
       !isSectioningContent(child) &&
-      child.nodeName !== "ADDRESS" &&
-      child.nodeName !== "HEADER" &&
-      child.nodeName !== "FOOTER"
+      child.nodeName !== ADDRESS &&
+      child.nodeName !== HEADER &&
+      child.nodeName !== FOOTER
     ) {
       address.appendChild(child);
     }

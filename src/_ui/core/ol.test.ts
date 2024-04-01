@@ -1,17 +1,18 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import Ol from "./ol";
 import {
   HTMLElementAttributes,
   NumberingTypeAttribute,
 } from "@/_definitions/attributes";
+import NewOl from "./ol";
+import { LI, OL } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Ol(document.createElement("li"), {});
+  const mock = NewOl(document.createElement("li"), {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("OL");
+  expect(mock.tagName).toEqual(OL);
 });
 
 test("construction with multiple child nodes", () => {
@@ -21,10 +22,10 @@ test("construction with multiple child nodes", () => {
     return li;
   });
 
-  const mockParent = Ol(mockChildren, {});
+  const mockParent = NewOl(mockChildren, {});
 
   expect(mockParent.firstElementChild).not.toBeNull();
-  expect(mockParent.firstElementChild?.tagName).toBe("LI");
+  expect(mockParent.firstElementChild?.tagName).toBe(LI);
   expect(mockParent.firstElementChild?.textContent).toEqual("foo");
 });
 
@@ -35,7 +36,7 @@ test("construction with attributes", () => {
     return li;
   });
 
-  const mock = Ol(mockChildren, {
+  const mock = NewOl(mockChildren, {
     id: "bar",
     class: "foo bar baz",
     reversed: true,

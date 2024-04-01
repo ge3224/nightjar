@@ -2,13 +2,14 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Header from "./header";
+import NewHeader from "./header";
+import { HEADER } from "@/_lib/node_names";
 
 test("basic construction", () => {
-  const mock = Header("foo", {});
+  const mock = NewHeader("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("HEADER");
+  expect(mock.tagName).toEqual(HEADER);
   expect(mock.textContent).toBe("foo");
 });
 
@@ -22,13 +23,13 @@ test("construction with a child node", () => {
     document.createElement("footer"), // prohibited flow content
   ];
 
-  const mockParent = Header(mockChildren, {});
+  const mockParent = NewHeader(mockChildren, {});
 
   expect(mockParent.childNodes.length).toBe(3);
 });
 
 test("construction with attributes", () => {
-  const mock = Header("foo", {
+  const mock = NewHeader("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);

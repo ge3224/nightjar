@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
  */
-export default function Hr(attributes: HTMLElementAttributes): HTMLElement {
+export default function NewHr(attributes: HTMLElementAttributes): HTMLElement {
   const hr = document.createElement("hr");
 
   Object.entries(attributes).forEach(([key, value]) => {

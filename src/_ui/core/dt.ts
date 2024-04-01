@@ -12,13 +12,14 @@ import {
   isFlowContent,
   isSectioningContent,
 } from "@/_lib/content";
+import { FOOTER, HEADER } from "@/_lib/node_names";
 
 /**
  * Returns a constructor for the HTML <dt> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
  */
-export default function Dt(
+export default function NewDt(
   children: string | Node | Array<string | Node> | null = null,
   attributes: HTMLElementAttributes = {}
 ): NewHTMLElement {
@@ -66,7 +67,7 @@ function permittedContent(
   const permitted = (input: Node): boolean => {
     if (!isFlowContent(input)) return false;
 
-    const prohibited = ["HEADER", "FOOTER"];
+    const prohibited = [HEADER, FOOTER];
     if (prohibited.includes(input.nodeName)) return false;
 
     if (isSectioningContent(input)) return false;

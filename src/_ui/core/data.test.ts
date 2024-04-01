@@ -8,19 +8,20 @@
  */
 
 import { expect, test } from "vitest";
-import Data from "./data";
+import NewData from "./data";
+import { DATA } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Data("foo", {});
+  const mock = NewData("foo", {});
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DATA");
+  expect(mock.tagName).toEqual(DATA);
 });
 
 test("construction with attributes", () => {
-  const mock = Data("foo", {
+  const mock = NewData("foo", {
     id: "foo",
     value: "bar",
   });
@@ -33,27 +34,27 @@ test("construction with permitted children", () => {
   let permitted: string | Node | Array<string | Node>;
 
   permitted = "foo";
-  expect(Data(permitted, {}).textContent).toBe(permitted);
+  expect(NewData(permitted, {}).textContent).toBe(permitted);
 
   permitted = document.createElement("span");
-  expect(Data(permitted, {}).childNodes.length).toBe(1);
+  expect(NewData(permitted, {}).childNodes.length).toBe(1);
 
   permitted = [
     document.createElement("span"),
     document.createElement("strong"),
   ];
-  expect(Data(permitted, {}).childNodes.length).toBe(2);
+  expect(NewData(permitted, {}).childNodes.length).toBe(2);
 });
 
 test("construction with unpermitted children", () => {
   let prohibited: string | Node | Array<string | Node>;
 
   prohibited = document.createElement("style");
-  expect(Data(prohibited, {}).childNodes.length).toBe(0);
+  expect(NewData(prohibited, {}).childNodes.length).toBe(0);
 
   prohibited = [
     document.createElement("style"),
     document.createElement("html"),
   ];
-  expect(Data(prohibited, {}).childNodes.length).toBe(0);
+  expect(NewData(prohibited, {}).childNodes.length).toBe(0);
 });

@@ -9,21 +9,22 @@
 
 import { expect, test } from "vitest";
 import { HTMLElementAttributes } from "@/_definitions/attributes";
-import Dfn from "./dfn";
+import NewDfn from "./dfn";
 import { isPhrasingContent } from "@/_lib/content";
+import { DFN } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = Dfn("foo");
+  const mock = NewDfn("foo");
 
   expect(mock).not.toBeNull();
-  expect(mock.tagName).toEqual("DFN");
+  expect(mock.tagName).toEqual(DFN);
   expect(mock.textContent).toBe("foo");
 });
 
 test("construction with attributes", () => {
-  const mock = Dfn("foo", {
+  const mock = NewDfn("foo", {
     id: "bar",
     class: "foo bar baz",
   } as HTMLElementAttributes);
@@ -37,12 +38,12 @@ test("construction with permitted phrasing content", () => {
   let mock: HTMLElement;
 
   content = "foo";
-  mock = Dfn(content);
+  mock = NewDfn(content);
 
   expect(mock.childNodes.length).toBe(1);
 
   content = document.createElement("span");
-  mock = Dfn(content);
+  mock = NewDfn(content);
 
   expect(mock.childNodes.length).toBe(1);
 
@@ -53,7 +54,7 @@ test("construction with permitted phrasing content", () => {
     document.createElement("span"),
     document.createElement("em"),
   ];
-  mock = Dfn(content);
+  mock = NewDfn(content);
 
   expect(mock.childNodes.length).toBe(content.length);
 });
@@ -66,11 +67,11 @@ test("construction with prohibited phrasing content", () => {
 
   expect(isPhrasingContent(content)).toBe(true);
 
-  mock = Dfn(content);
+  mock = NewDfn(content);
 
   content = [document.createElement("dfn"), document.createElement("dfn")];
 
-  mock = Dfn(content);
+  mock = NewDfn(content);
 
   expect(mock.childNodes.length).toBe(0);
 });

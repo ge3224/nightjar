@@ -5,7 +5,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
  */
-export default function Thead(
+export default function NewThead(
   children: HTMLTableRowElement | Array<HTMLTableRowElement>,
   attributes: HTMLElementAttributes
 ): HTMLTableSectionElement {
