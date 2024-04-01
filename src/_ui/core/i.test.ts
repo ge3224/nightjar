@@ -8,12 +8,12 @@
  */
 
 import { expect, test } from "vitest";
-import I from "./i";
+import NewI from "./i";
 
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const mock = I()();
+  const mock = NewI()();
 
   expect(mock).not.toBeNull();
 
@@ -21,7 +21,7 @@ test("basic construction", () => {
 });
 
 test("construction with attributes", () => {
-  const mock = I(null, {
+  const mock = NewI(null, {
     id: "bar",
     class: "foo bar baz",
   })();
@@ -38,7 +38,7 @@ test("construction with a child node", () => {
     document.createElement("style"), // not phrasing content
   ];
 
-  const mockParent = I(mockChildren, {})();
+  const mockParent = NewI(mockChildren, {})();
 
   expect(mockParent.childNodes.length).toBe(3);
 });

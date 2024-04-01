@@ -8,6 +8,7 @@
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import { isPhrasingContent } from "@/_lib/content";
+import { I } from "@/_lib/node_names";
 
 /**
  * Returns a constructor for the HTML <i> element.
@@ -15,12 +16,12 @@ import { isPhrasingContent } from "@/_lib/content";
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
  */
 
-export default function I(
-  children: string | Node | Array<string | Node> | null = null,
+export default function NewI(
+  children?: string | Node | Array<string | Node> | undefined,
   attributes: HTMLElementAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
-    const i = document.createElement("i");
+    const i = document.createElement(I);
 
     Object.entries(attributes).forEach(([key, value]) => {
       switch (key) {
