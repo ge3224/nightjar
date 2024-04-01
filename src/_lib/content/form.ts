@@ -5,7 +5,18 @@
  * License: MIT
  */
 
-import { BUTTON, FIELDSET, INPUT, LABEL, METER, OBJECT, OUTPUT, PROGRESS, SELECT, TEXTAREA } from "../node_names";
+import {
+  BUTTON,
+  FIELDSET,
+  INPUT,
+  LABEL,
+  METER,
+  OBJECT,
+  OUTPUT,
+  PROGRESS,
+  SELECT,
+  TEXTAREA,
+} from "../node_names";
 
 /**
  * Indicates if the given node is a member of the form-associated content category.

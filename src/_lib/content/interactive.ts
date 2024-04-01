@@ -5,7 +5,21 @@
  * License: MIT
  */
 
-import { A, AUDIO, BUTTON, DETAILS, EMBED, IFRAME, IMG, INPUT, LABEL, OBJECT, SELECT, TEXTAREA, VIDEO } from "../node_names";
+import {
+  A,
+  AUDIO,
+  BUTTON,
+  DETAILS,
+  EMBED,
+  IFRAME,
+  IMG,
+  INPUT,
+  LABEL,
+  OBJECT,
+  SELECT,
+  TEXTAREA,
+  VIDEO,
+} from "../node_names";
 
 /**
  * Indicates if the given node is a member of the interactive content category.
@@ -13,15 +27,7 @@ import { A, AUDIO, BUTTON, DETAILS, EMBED, IFRAME, IMG, INPUT, LABEL, OBJECT, SE
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#interactive_content)
  */
 export function isInteractiveContent(node: Node): boolean {
-  const nodeNames = [
-    BUTTON,
-    DETAILS,
-    EMBED,
-    IFRAME,
-    LABEL,
-    SELECT,
-    TEXTAREA,
-  ];
+  const nodeNames = [BUTTON, DETAILS, EMBED, IFRAME, LABEL, SELECT, TEXTAREA];
 
   if (nodeNames.includes(node.nodeName)) return true;
 

@@ -12,8 +12,8 @@ export default function NewTable(
     | HTMLTableSectionElement
     | HTMLTableRowElement
     | Array<
-      HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
-    >,
+        HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
+      >,
   attributes: HTMLElementAttributes
 ): HTMLTableElement {
   const table = document.createElement("table");

@@ -45,9 +45,9 @@ export default function NewDetails(
 
   Array.isArray(children)
     ? children.forEach((child) => {
-      // TODO: summary must be the first child
-      append(child);
-    })
+        // TODO: summary must be the first child
+        append(child);
+      })
     : append(children);
 
   return details;

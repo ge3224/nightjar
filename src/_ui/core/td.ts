@@ -1,5 +1,22 @@
 import { HTMLTableCellElementAttributes } from "@/_definitions/attributes";
-import { ARTICLE, ASIDE, BLOCKQUOTE, DIV, FOOTER, FORM, HEADER, HR, LI, MAIN, NAV, OL, P, SECTION, TABLE, UL } from "@/_lib/node_names";
+import {
+  ARTICLE,
+  ASIDE,
+  BLOCKQUOTE,
+  DIV,
+  FOOTER,
+  FORM,
+  HEADER,
+  HR,
+  LI,
+  MAIN,
+  NAV,
+  OL,
+  P,
+  SECTION,
+  TABLE,
+  UL,
+} from "@/_lib/node_names";
 
 /**
  * A constructor for the HTML <td> element.
