@@ -10,6 +10,7 @@
  */
 
 export * from "./anchor";
+export * from "./audio";
 export * from "./area";
 export * from "./base";
 export * from "./blockquote";

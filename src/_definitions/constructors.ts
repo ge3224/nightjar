@@ -11,6 +11,11 @@
 export type NewHTMLAnchorElement = () => HTMLAnchorElement;
 
 /**
+ * Defines a constructor for an HTMLAudioElement.
+ */
+export type NewHTMLAudioElement = () => HTMLAudioElement;
+
+/**
  * Defines a constructor for an HTMLElement.
  */
 export type NewHTMLElement = () => HTMLElement;

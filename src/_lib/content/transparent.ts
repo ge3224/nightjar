@@ -63,7 +63,9 @@ import {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#transparent_content_model)
  */
-export function isTransparent(node: Node): boolean {
+export function isTransparent(input: string | Node): boolean {
+  if (typeof input === "string") return true;
+
   const nodeNames = [
     A,
     ABBR,
@@ -117,5 +119,5 @@ export function isTransparent(node: Node): boolean {
     VIDEO,
   ];
 
-  return nodeNames.includes(node.nodeName);
+  return nodeNames.includes(input.nodeName);
 }
