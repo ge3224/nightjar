@@ -21,6 +21,21 @@ export type NewHTMLEmbedElement = () => HTMLEmbedElement;
 export type NewHTMLFieldSetElement = () => HTMLFieldSetElement;
 
 /**
+ * Defines a constructor for an HTMLHeadingElement.
+ */
+export type NewHTMLHeadingElement = () => HTMLHeadingElement;
+
+/**
  * Defines a constructor for an HTMLModElement.
  */
 export type NewHTMLModElement = () => HTMLModElement;
+
+/**
+ * Defines a constructor for an HTMLLabelElement;
+ */
+export type NewHTMLLabelElement = () => HTMLLabelElement;
+
+/**
+ * Defines a constructor for an HTMLLegendElement;
+ */
+export type NewHTMLLegendElement = () => HTMLLegendElement;
