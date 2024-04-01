@@ -31,11 +31,6 @@ export type NewHTMLFieldSetElement = () => HTMLFieldSetElement;
 export type NewHTMLHeadingElement = () => HTMLHeadingElement;
 
 /**
- * Defines a constructor for an HTMLModElement.
- */
-export type NewHTMLModElement = () => HTMLModElement;
-
-/**
  * Defines a constructor for an HTMLLabelElement;
  */
 export type NewHTMLLabelElement = () => HTMLLabelElement;
@@ -44,3 +39,13 @@ export type NewHTMLLabelElement = () => HTMLLabelElement;
  * Defines a constructor for an HTMLLegendElement;
  */
 export type NewHTMLLegendElement = () => HTMLLegendElement;
+
+/**
+ * Defines a constructor for an HTMLModElement.
+ */
+export type NewHTMLModElement = () => HTMLModElement;
+
+/**
+ * Defines a constructor for an HTMLParagraphElement.
+ */
+export type NewHTMLParagraphElement = () => HTMLParagraphElement;
