@@ -11,6 +11,11 @@
 export type NewHTMLElement = () => HTMLElement;
 
 /**
+ * Defines a constructor for the HTML Embed element.
+ */
+export type NewHTMLEmbedElement = () => HTMLEmbedElement;
+
+/**
  * Defines a constructor for the HTML Fieldset element.
  */
 export type NewHTMLFieldSetElement = () => HTMLFieldSetElement;

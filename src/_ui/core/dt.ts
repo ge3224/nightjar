@@ -6,6 +6,7 @@
  */
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { NewHTMLElement } from "@/_definitions/constructors";
 import {
   isDescendantOfHeader,
   isFlowContent,
@@ -20,7 +21,7 @@ import {
 export default function Dt(
   children: string | Node | Array<string | Node> | null = null,
   attributes: HTMLElementAttributes = {}
-): Function {
+): NewHTMLElement {
   return (): HTMLElement => {
     const dt = document.createElement("dt");
 

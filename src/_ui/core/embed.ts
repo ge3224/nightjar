@@ -6,6 +6,7 @@
  */
 
 import { HTMLEmbedElementAttributes } from "@/_definitions/attributes/embed";
+import { NewHTMLEmbedElement } from "@/_definitions/constructors";
 
 /**
  * Returns a constructor for the HTML <embed> element.
@@ -14,7 +15,7 @@ import { HTMLEmbedElementAttributes } from "@/_definitions/attributes/embed";
  */
 export default function Embed(
   attributes: HTMLEmbedElementAttributes = {}
-): Function {
+): NewHTMLEmbedElement {
   return (): HTMLEmbedElement => {
     const embed = document.createElement("embed");
 
