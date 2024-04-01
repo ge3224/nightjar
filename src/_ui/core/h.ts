@@ -55,5 +55,5 @@ export default function NewH(
       : append(children);
 
     return h as HTMLHeadingElement;
-  }
+  };
 }
