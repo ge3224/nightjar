@@ -6,16 +6,21 @@
  */
 
 /**
- * Defines a constructor for an HTML element.
+ * Defines a constructor for an HTMLElement.
  */
 export type NewHTMLElement = () => HTMLElement;
 
 /**
- * Defines a constructor for the HTML Embed element.
+ * Defines a constructor for an HTMLEmbedElement.
  */
 export type NewHTMLEmbedElement = () => HTMLEmbedElement;
 
 /**
- * Defines a constructor for the HTML Fieldset element.
+ * Defines a constructor for an HTMLFieldSetElement.
  */
 export type NewHTMLFieldSetElement = () => HTMLFieldSetElement;
+
+/**
+ * Defines a constructor for an HTMLModElement.
+ */
+export type NewHTMLModElement = () => HTMLModElement;
