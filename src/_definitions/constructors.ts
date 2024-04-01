@@ -56,6 +56,11 @@ export type NewHTMLMapElement = () => HTMLMapElement;
 export type NewHTMLMenuElement = () => HTMLMenuElement;
 
 /**
+ * Defines a constructor for an HTMLMeterElement.
+ */
+export type NewHTMLMeterElement = () => HTMLMeterElement;
+
+/**
  * Defines a constructor for an HTMLModElement.
  */
 export type NewHTMLModElement = () => HTMLModElement;

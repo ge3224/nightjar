@@ -8,10 +8,10 @@
  *
  */
 
-// @vitest-environment happy-dom
-
 import { expect, test } from "vitest";
 import { isEmbeddedContent } from "./embedded";
+
+// @vitest-environment happy-dom
 
 test("isHeadingContent helper function", () => {
   const valid = [
