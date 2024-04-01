@@ -6,6 +6,11 @@
  */
 
 /**
+ * Defines a constructor for an HTMLAnchorElement.
+ */
+export type NewHTMLAnchorElement = () => HTMLAnchorElement;
+
+/**
  * Defines a constructor for an HTMLElement.
  */
 export type NewHTMLElement = () => HTMLElement;
