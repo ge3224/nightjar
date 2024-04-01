@@ -11,8 +11,8 @@ export default function Table(
     | HTMLTableSectionElement
     | HTMLTableRowElement
     | Array<
-        HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
-      >,
+      HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
+    >,
   attributes: HTMLElementAttributes
 ): HTMLTableElement {
   const table = document.createElement("table");
@@ -23,16 +23,12 @@ export default function Table(
     children.forEach((child) => {
       if (allowedChildrenTypes.includes(child.nodeName)) {
         table.appendChild(child);
-      } else {
-        childWarning(child);
       }
     });
   } else if (children instanceof Node) {
     const child = children;
     if (allowedChildrenTypes.includes(child.nodeName)) {
       table.appendChild(child);
-    } else {
-      childWarning(child);
     }
   }
 
@@ -53,8 +49,4 @@ export default function Table(
   });
 
   return table;
-}
-
-function childWarning(child: Node) {
-  console.warn(`Warning: unallowed node type: '${child.nodeName}'`);
 }
