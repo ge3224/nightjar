@@ -66,6 +66,11 @@ export type NewHTMLMeterElement = () => HTMLMeterElement;
 export type NewHTMLModElement = () => HTMLModElement;
 
 /**
+ * Defines a constructor for an HTMLObjectElement.
+ */
+export type NewHTMLObjectElement = () => HTMLObjectElement;
+
+/**
  * Defines a constructor for an HTMLParagraphElement.
  */
 export type NewHTMLParagraphElement = () => HTMLParagraphElement;
