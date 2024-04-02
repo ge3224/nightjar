@@ -9,7 +9,7 @@
 
 import { test, assert } from "vitest"; // Destructure test and assert from vitest
 import NewMenu from "./menu";
-import { MENU } from "@/_lib/node_names";
+import { LI, MENU, SCRIPT } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
@@ -33,8 +33,8 @@ test("Construction with attributes test for NewMenu", () => {
 
 test("Construction with children test for NewMenu", () => {
   // Test case: Testing construction with children only
-  const child1 = document.createElement("LI");
-  const child2 = document.createElement("SCRIPT");
+  const child1 = document.createElement(LI);
+  const child2 = document.createElement(SCRIPT);
   const menu = NewMenu([child1, child2])();
   assert.equal(menu.tagName, MENU);
   assert.equal(menu.childNodes.length, 2);
