@@ -8,7 +8,7 @@
  */
 
 import { test, assert } from "vitest"; // Destructure test and assert from vitest
-import { DEL, OBJECT, OPTGROUP, OPTION, P, PARAM } from "@/_lib/node_names";
+import { OPTGROUP, OPTION, P } from "@/_lib/node_names";
 import NewOptgroup from "./optgroup";
 
 // @vitest-environment happy-dom
