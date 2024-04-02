@@ -1,9 +1,9 @@
-// @vitest-environment happy-dom
-
 import { expect, test } from "vitest";
 import { HTMLOptionElementAttributes } from "@/_definitions/attributes";
 import NewOption from "./option";
 import { OPTION } from "@/_lib/node_names";
+
+// @vitest-environment happy-dom
 
 test("basic construction", () => {
   const mock = NewOption("foo", {});
