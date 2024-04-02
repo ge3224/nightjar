@@ -71,6 +71,11 @@ export type NewHTMLModElement = () => HTMLModElement;
 export type NewHTMLObjectElement = () => HTMLObjectElement;
 
 /**
+ * Defines a constructor for an HTMLOptGroupElement.
+ */
+export type NewHTMLOptGroupElement = () => HTMLOptGroupElement;
+
+/**
  * Defines a constructor for an HTMLParagraphElement.
  */
 export type NewHTMLParagraphElement = () => HTMLParagraphElement;
