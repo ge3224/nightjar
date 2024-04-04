@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 // /**
 //  * Indicates whether input elements can by default have their values automatically completed by the browser.
@@ -92,7 +92,7 @@ export enum FormAttributesTarget {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
  */
-export interface HTMLFormElementAttributes extends HTMLElementAttributes {
+export interface HTMLFormElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * Space-separated character encodings the server accepts. The browser uses them in the order
    * in which they are listed.

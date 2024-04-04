@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLMenuElement } from "@/_definitions/constructors";
 import { LI, MENU, SCRIPT, TEMPLATE } from "@/_lib/node_names";
 
@@ -16,7 +16,7 @@ import { LI, MENU, SCRIPT, TEMPLATE } from "@/_lib/node_names";
  */
 export default function NewMenu(
   children?: Node | Array<Node> | undefined,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): NewHTMLMenuElement {
   return (): HTMLMenuElement => {
     const menu = document.createElement(MENU) as HTMLMenuElement;

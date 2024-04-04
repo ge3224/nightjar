@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLLegendElement } from "@/_definitions/constructors";
 import { isHeadingContent, isPhrasingContent } from "@/_lib/content";
 import { HGROUP, LEGEND } from "@/_lib/node_names";
@@ -17,7 +17,7 @@ import { HGROUP, LEGEND } from "@/_lib/node_names";
  */
 export default function NewLegend(
   children: string | Node | Array<string | Node> | null = null,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): NewHTMLLegendElement {
   return (): HTMLLegendElement => {
     const legend = document.createElement(LEGEND);

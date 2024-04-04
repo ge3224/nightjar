@@ -1,8 +1,8 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewLi(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLLIElement {
   const li = document.createElement("li");
 

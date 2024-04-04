@@ -1,10 +1,34 @@
 /**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ *
+ * Type definitions for various attributes common to most if not all HTML
+ * elements.
+ */
+
+/**
+ * Represents the possible types for HTML attribute values.
+ * Attribute values can be strings, numbers, or booleans.
+ */
+export type AttributeValue = string | number | boolean;
+
+/**
+ * Represents a collection of HTML element attributes.
+ * Each attribute is represented as a key-value pair, where
+ * the key is the attribute name (string) and the value is
+ * the attribute value, which can be a string, number, or boolean.
+ */
+export type HTMLElementAttributes = { [key: string]: AttributeValue };
+
+/**
  * Attributes common to all HTML elements; they can be used on all elements,
  * though they may have no effect on some elements.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes)
  */
-export interface HTMLElementAttributes {
+export interface HTMLElementGlobalAttributes {
   /**
    * Provides a hint for generating a keyboard shortcut for the current
    * element. This attribute consists of a space-separated list of characters.

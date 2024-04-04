@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Set of numbering types for the 'type' attribute of the Order List HTML element.
@@ -18,7 +18,7 @@ export enum NumberingTypeAttribute {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
  */
-export interface HTMLOListElementAttributes extends HTMLElementAttributes {
+export interface HTMLOListElementAttributes extends HTMLElementGlobalAttributes {
   reversed?: boolean;
   start?: number;
   type?: NumberingTypeAttribute;

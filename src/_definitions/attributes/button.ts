@@ -3,7 +3,7 @@ import {
   FormAttributeMethod,
   FormAttributesTarget,
 } from "./form";
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 import { PopoverTargetAction } from "./popover";
 
 /**
@@ -34,7 +34,7 @@ export enum ButtonAttributeType {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
  */
-export interface HTMLButtonElementAttributes extends HTMLElementAttributes {
+export interface HTMLButtonElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * This Boolean attribute prevents the user from interacting with the button:
    * it cannot be pressed or focused.

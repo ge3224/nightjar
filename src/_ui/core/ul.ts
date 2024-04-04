@@ -1,8 +1,8 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewUl(
   children: HTMLLIElement | HTMLLIElement[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLUListElement {
   const ul = document.createElement("ul");
 

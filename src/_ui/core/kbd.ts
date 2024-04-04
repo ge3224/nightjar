@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import { isPhrasingContent } from "@/_lib/content";
 
@@ -16,7 +16,7 @@ import { isPhrasingContent } from "@/_lib/content";
  */
 export default function NewKbd(
   children: string | Node | Array<string | Node> | null = null,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
     const kbd = document.createElement("kbd");

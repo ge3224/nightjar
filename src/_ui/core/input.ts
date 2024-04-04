@@ -1,7 +1,7 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewInput(
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLInputElement {
   const input = document.createElement("input");
 

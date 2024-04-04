@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { CAPTION, TBODY, TFOOT, THEAD, TR } from "@/_lib/node_names";
 
 /**
@@ -12,9 +12,9 @@ export default function NewTable(
     | HTMLTableSectionElement
     | HTMLTableRowElement
     | Array<
-        HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
-      >,
-  attributes: HTMLElementAttributes
+      HTMLTableCaptionElement | HTMLTableSectionElement | HTMLTableRowElement
+    >,
+  attributes: HTMLElementGlobalAttributes
 ): HTMLTableElement {
   const table = document.createElement("table");
 

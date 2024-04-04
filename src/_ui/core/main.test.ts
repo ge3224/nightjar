@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import NewMain from "./main";
 import { MAIN } from "@/_lib/node_names";
 
@@ -30,7 +30,7 @@ test("construction with attributes", () => {
   const mock = NewMain("foo", {
     id: "bar",
     class: "foo bar baz",
-  } as HTMLElementAttributes);
+  } as HTMLElementGlobalAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

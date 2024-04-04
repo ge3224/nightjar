@@ -1,8 +1,8 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewStrong(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLElement {
   const strong = document.createElement("strong");
 

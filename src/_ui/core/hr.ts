@@ -1,11 +1,11 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 /**
  * A constructor for the HTML <hr> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
  */
-export default function NewHr(attributes: HTMLElementAttributes): HTMLElement {
+export default function NewHr(attributes: HTMLElementGlobalAttributes): HTMLElement {
   const hr = document.createElement("hr");
 
   Object.entries(attributes).forEach(([key, value]) => {

@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTML <base> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base#attributes)
  */
-export interface HTMLBaseElementAttributes extends HTMLElementAttributes {
+export interface HTMLBaseElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * The base URL to be used throughout the document for relative URLs.
    * Absolute and relative URLs are allowed. data: and javascript: URLs are not

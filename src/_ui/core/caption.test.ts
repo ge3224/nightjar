@@ -1,7 +1,7 @@
 // @vitest-environment happy-dom
 
 import { expect, test } from "vitest";
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import NewCaption from "./caption";
 import { CAPTION } from "@/_lib/node_names";
 
@@ -27,7 +27,7 @@ test("construction with permitted children", () => {
 });
 
 test("construction with attributes", () => {
-  const mockAttributes: HTMLElementAttributes = {};
+  const mockAttributes: HTMLElementGlobalAttributes = {};
 
   const mock = NewCaption("foo", mockAttributes);
 

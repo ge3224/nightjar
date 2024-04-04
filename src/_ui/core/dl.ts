@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { DD, DIV, DT, SCRIPT, TEMPLATE } from "@/_lib/node_names";
 
 /**
@@ -15,7 +15,7 @@ import { DD, DIV, DT, SCRIPT, TEMPLATE } from "@/_lib/node_names";
  */
 export default function NewDl(
   children: Node | Array<Node> | null = null,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): HTMLDListElement {
   const dl = document.createElement("dl");
 

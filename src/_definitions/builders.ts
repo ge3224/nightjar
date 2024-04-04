@@ -1,11 +1,11 @@
-import { HTMLElementAttributes } from "./attributes";
+import { HTMLElementGlobalAttributes } from "./attributes";
 
 /**
  * Interface for the paragraph element builder object.
  */
 export interface ParagraphBuilder {
   attributes: (
-    attributes: HTMLElementAttributes
+    attributes: HTMLElementGlobalAttributes
   ) => ParagraphBuilder;
   children: (
     ...children: Array<string | Node>

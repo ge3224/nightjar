@@ -1,8 +1,8 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewOl(
   children: HTMLLIElement | HTMLLIElement[],
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLOListElement {
   const ol = document.createElement("ol");
 

@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  *
@@ -17,7 +17,7 @@ export enum HTMLAnchorElementAttributeTarget {
  *
  * [MDN Reference]()
  */
-export interface HTMLAnchorElementAttributes extends HTMLElementAttributes {
+export interface HTMLAnchorElementAttributes extends HTMLElementGlobalAttributes {
   download?: string;
   href?: string;
   hreflang?: string;

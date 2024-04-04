@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { isHeadingContent, isPhrasingContent } from "@/_lib/content";
 
 /**
@@ -8,7 +8,7 @@ import { isHeadingContent, isPhrasingContent } from "@/_lib/content";
  */
 export default function NewSummary(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLElement {
   const summary = document.createElement("summary");
 

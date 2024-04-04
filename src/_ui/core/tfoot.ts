@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 
 /**
  * A constructor for the HTML <tfoot> element.
@@ -7,7 +7,7 @@ import { HTMLElementAttributes } from "@/_definitions/attributes";
  */
 export default function NewTfoot(
   children: HTMLTableRowElement | Array<HTMLTableRowElement>,
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLTableSectionElement {
   const tfoot = document.createElement("tfoot");
 

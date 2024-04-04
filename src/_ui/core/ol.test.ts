@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import {
-  HTMLElementAttributes,
+  HTMLElementGlobalAttributes,
   NumberingTypeAttribute,
 } from "@/_definitions/attributes";
 import NewOl from "./ol";
@@ -42,7 +42,7 @@ test("construction with attributes", () => {
     reversed: true,
     start: 4,
     type: NumberingTypeAttribute.lowercaseLetters,
-  } as HTMLElementAttributes);
+  } as HTMLElementGlobalAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

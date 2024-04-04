@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTML <data> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data#attributes)
  */
-export interface HTMLDataElementAttribues extends HTMLElementAttributes {
+export interface HTMLDataElementAttribues extends HTMLElementGlobalAttributes {
   /**
    * This attribute specifies the machine-readable translation of the content of the element.
    */

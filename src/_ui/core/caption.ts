@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 
 /**
@@ -8,7 +8,7 @@ import { isFlowContent } from "@/_lib/content";
  */
 export default function NewCaption(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLTableCaptionElement {
   const caption = document.createElement("caption");
 

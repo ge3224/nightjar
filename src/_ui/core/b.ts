@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import { isPhrasingContent } from "@/_lib/content";
 import { B } from "@/_lib/node_names";
@@ -17,7 +17,7 @@ import { B } from "@/_lib/node_names";
  */
 export default function NewB(
   children?: string | Node | Array<string | Node> | undefined,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
     const b = document.createElement(B);

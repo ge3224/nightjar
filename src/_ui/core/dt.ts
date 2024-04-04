@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import {
   isDescendantOfHeader,
@@ -21,7 +21,7 @@ import { FOOTER, HEADER } from "@/_lib/node_names";
  */
 export default function NewDt(
   children: string | Node | Array<string | Node> | null = null,
-  attributes: HTMLElementAttributes = {}
+  attributes: HTMLElementGlobalAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
     const dt = document.createElement("dt");

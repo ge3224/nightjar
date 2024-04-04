@@ -1,6 +1,6 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
-export interface HTMLOutputElementAttributes extends HTMLElementAttributes {
+export interface HTMLOutputElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * A space-separated list of other elements' ids, indicating that those
    * elements contributed input values to (or otherwise affected) the

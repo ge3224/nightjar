@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTML <meter> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter#attributes)
  */
-export interface HTMLMeterElementAttributes extends HTMLElementAttributes {
+export interface HTMLMeterElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * The current numeric value. This must be between the minimum and maximum
    * values (min attribute and max attribute) if they are specified. If

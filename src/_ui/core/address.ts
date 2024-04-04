@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import {
   isFlowContent,
   isHeadingContent,
@@ -20,7 +20,7 @@ import { ADDRESS, FOOTER, HEADER } from "@/_lib/node_names";
  */
 export default function NewAddress(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLElement {
   const address = document.createElement("address");
 

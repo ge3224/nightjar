@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTML <embed> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed#attributes)
  */
-export interface HTMLEmbedElementAttributes extends HTMLElementAttributes {
+export interface HTMLEmbedElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * The displayed height of the resource, in CSS pixels. This must be an
    * absolute value; percentages are not allowed.

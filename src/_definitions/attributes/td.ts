@@ -1,11 +1,11 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTML <td> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td#attributes)
  */
-export interface HTMLTableCellElementAttributes extends HTMLElementAttributes {
+export interface HTMLTableCellElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * Contains a non-negative integer value that indicates how many columns the
    * data cell spans or extends.

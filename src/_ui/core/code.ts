@@ -1,4 +1,4 @@
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
 
 /**
@@ -8,7 +8,7 @@ import { isPhrasingContent } from "@/_lib/content";
  */
 export default function NewCode(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementAttributes
+  attributes: HTMLElementGlobalAttributes
 ): HTMLElement {
   const code = document.createElement("code");
 

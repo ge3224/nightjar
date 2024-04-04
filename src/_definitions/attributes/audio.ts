@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Dfefines attributes specific to the HTML <audio> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#attributes)
  */
-export interface HTMLAudioElementAttributes extends HTMLElementAttributes {
+export interface HTMLAudioElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * A Boolean attribute: if specified, the audio will automatically begin
    * playback as soon as it can do so, without waiting for the entire audio

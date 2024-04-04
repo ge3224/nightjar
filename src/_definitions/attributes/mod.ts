@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
 /**
  * Defines attributes specific to the HTMLModElement type
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del#attributes)
  */
-export interface HTMLModElementAttributes extends HTMLElementAttributes {
+export interface HTMLModElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * A URI for a resource that explains the change (for example, meeting minutes).
    */

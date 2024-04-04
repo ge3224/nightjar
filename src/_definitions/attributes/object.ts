@@ -1,6 +1,6 @@
-import { HTMLElementAttributes } from "./global";
+import { HTMLElementGlobalAttributes } from "./global";
 
-export interface HTMLObjectElementAttributes extends HTMLElementAttributes {
+export interface HTMLObjectElementAttributes extends HTMLElementGlobalAttributes {
   /**
    * The address of the resource as a valid URL. At least one of data and type
    * must be defined.

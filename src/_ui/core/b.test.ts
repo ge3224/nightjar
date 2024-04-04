@@ -8,7 +8,7 @@
  */
 
 import { expect, test } from "vitest";
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
 import NewB from "./b";
 import { B } from "@/_lib/node_names";
 
@@ -38,7 +38,7 @@ test("construction with attributes", () => {
   const mock = NewB("foo", {
     id: "bar",
     class: "foo bar baz",
-  } as HTMLElementAttributes)();
+  } as HTMLElementGlobalAttributes)();
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

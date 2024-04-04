@@ -5,38 +5,15 @@
  * License: MIT
  */
 
-import { HTMLElementAttributes } from "@/_definitions/attributes";
+import {
+  HTMLElementAttributes,
+  HTMLElementGlobalAttributes,
+} from "@/_definitions/attributes";
 import { ParagraphBuilder } from "@/_definitions/builders";
 import { isPhrasingContent } from "@/_lib/content";
+import { setElementAttributes } from "@/_lib/html_elements";
 import { P } from "@/_lib/node_names";
 
-/**
- * Helper function to set attributes on an HTML paragraph element.
- * @param element The HTML paragraph element to set attributes on.
- * @param attributes An object containing attributes to set on the element.
- * @returns The modified HTML paragraph element with the specified attributes.
- */
-const setElementAttributes = (
-  element: HTMLParagraphElement,
-  attributes: HTMLElementAttributes
-): HTMLParagraphElement => {
-  Object.entries(attributes).forEach(([key, value]) => {
-    switch (key) {
-      case "autofocus":
-        element.autofocus = value;
-        break;
-      case "inert":
-        element.inert = value;
-        break;
-      default:
-        element.setAttribute(
-          key.toLowerCase(),
-          typeof value === "number" ? value.toString() : value
-        );
-    }
-  });
-  return element;
-};
 
 /**
  * Helper function to append children to an HTML element.
@@ -67,11 +44,11 @@ const appendChildren = (
  * @returns A builder object with methods to set attributes, append children, and build the final paragraph element.
  */
 const p = (
-  attributes: HTMLElementAttributes = {},
+  attributes: HTMLElementGlobalAttributes = {},
   ...children: Array<string | Node>
 ): ParagraphBuilder => {
   const paragraph = document.createElement(P) as HTMLParagraphElement;
-  setElementAttributes(paragraph, attributes);
+  attributes as HTMLElementAttributes;
   appendChildren(paragraph, children);
 
   const builder: ParagraphBuilder = {
@@ -80,8 +57,8 @@ const p = (
      * @param newAttributes An object containing attributes to set on the paragraph element.
      * @returns The builder object for method chaining.
      */
-    attributes(newAttributes: HTMLElementAttributes) {
-      setElementAttributes(paragraph, newAttributes);
+    attributes(newAttributes: HTMLElementGlobalAttributes) {
+      setElementAttributes(paragraph, newAttributes as HTMLElementAttributes);
       return builder;
     },
     /**
