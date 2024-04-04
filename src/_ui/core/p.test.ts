@@ -57,7 +57,8 @@ test("construction with numeric attributes", () => {
   assert.equal(paragraph.getAttribute("tabindex"), "3");
 });
 
-// TODO
+// TODO: define event attributes
+//
 // test("construction with event attributes", () => {
 //   const onClick = () => {
 //     console.log("Paragraph clicked");
@@ -69,21 +70,25 @@ test("construction with numeric attributes", () => {
 // });
 
 test("construction with nested elements", () => {
-  const nestedParagraph = p().children("Nested paragraph").build();
-  const paragraph = p().children(nestedParagraph).build();
+  const nestedContent = [
+    "Nested text content",
+    document.createElement(SPAN),
+    document.createElement(EM)
+  ];
 
-  assert.equal(paragraph.childNodes.length, 1);
-  assert.equal(paragraph.childNodes[0].nodeName, P);
-  assert.equal(paragraph.childNodes[0].textContent, "Nested paragraph");
+  const result = p().children(...nestedContent).build();
+
+  assert.equal(result.tagName, P);
+  assert.equal(result.childNodes.length, 3);
+
+  // Check the nested phrasing content
+  assert.equal(result.childNodes[0].textContent, "Nested text content");
+  assert.equal(result.childNodes[1].nodeName, SPAN);
+  assert.equal(result.childNodes[2].nodeName, EM);
 });
 
-test("construction with empty attributes and children", () => {
-  const paragraph = p().attributes({}).children().build();
-
-  assert.equal(paragraph.childNodes.length, 0);
-});
-
-// TODO
+// TODO: account for null and undefined arguments being passed to p functions
+//
 // test("construction with null or undefined attributes and children", () => {
 //   const paragraphWithNullAttributes = p(null).build();
 //   const paragraphWithUndefinedAttributes = p(undefined).build();

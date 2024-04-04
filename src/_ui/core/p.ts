@@ -7,6 +7,7 @@
 
 import { HTMLElementAttributes } from "@/_definitions/attributes";
 import { ParagraphBuilder } from "@/_definitions/builders";
+import { isPhrasingContent } from "@/_lib/content";
 import { P } from "@/_lib/node_names";
 
 /**
@@ -51,7 +52,7 @@ const appendChildren = (
     children.forEach((child) => {
       if (typeof child === "string") {
         parent.appendChild(document.createTextNode(child));
-      } else {
+      } else if (isPhrasingContent(child)) {
         parent.appendChild(child);
       }
     });
