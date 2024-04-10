@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 
 /**
@@ -15,7 +15,7 @@ import { isFlowContent } from "@/_lib/content";
  */
 export default function NewDd(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLElement {
   const dd = document.createElement("dd");
   Object.entries(attributes).forEach(([key, value]) => {

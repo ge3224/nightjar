@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 import { HTMLElementAttributeReferrerPolicy } from "./referrer_policy";
 
 /**
@@ -87,7 +87,7 @@ export enum ImageAttributeLoading {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
  */
-export interface HTMLImageElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLImageElementAttributes extends GlobalAttributes {
   /**
    * Defines text that can replace the image in the page.
    *

@@ -5,19 +5,19 @@ import { EM, P, SPAN } from "@/_lib/node_names";
 // @vitest-environment happy-dom
 
 test("basic construction", () => {
-  const paragraph = p().build();
+  const paragraph = p().create();
 
   assert.equal(paragraph.tagName, P);
 });
 
 test("construction with attributes", () => {
-  const paragraph = p().attributes({ id: "foo" }).build();
+  const paragraph = p().attributes({ id: "foo" }).create();
 
   assert.equal(paragraph.id, "foo");
 });
 
 test("construction with basic contents", () => {
-  const paragraph = p().children("foo").build();
+  const paragraph = p().children("foo").create();
 
   assert.equal(paragraph.textContent, "foo");
 });
@@ -31,7 +31,7 @@ test("construction with multiple child nodes", () => {
   const baz = document.createElement("em");
   baz.textContent = "baz";
 
-  const paragraph = p().children(foo, bar, baz).build();
+  const paragraph = p().children(foo, bar, baz).create();
 
   assert.equal(paragraph.childNodes.length, 3);
 
@@ -45,14 +45,14 @@ test("construction with multiple child nodes", () => {
 });
 
 test("construction with boolean attributes", () => {
-  const paragraph = p().attributes({ autofocus: true, inert: false }).build();
+  const paragraph = p().attributes({ autofocus: true, inert: false }).create();
 
   assert.isTrue(paragraph.autofocus);
   assert.isFalse(paragraph.inert);
 });
 
 test("construction with numeric attributes", () => {
-  const paragraph = p().attributes({ tabindex: 3 }).build();
+  const paragraph = p().attributes({ tabindex: 3 }).create();
 
   assert.equal(paragraph.getAttribute("tabindex"), "3");
 });
@@ -73,10 +73,12 @@ test("construction with nested elements", () => {
   const nestedContent = [
     "Nested text content",
     document.createElement(SPAN),
-    document.createElement(EM)
+    document.createElement(EM),
   ];
 
-  const result = p().children(...nestedContent).build();
+  const result = p()
+    .children(...nestedContent)
+    .create();
 
   assert.equal(result.tagName, P);
   assert.equal(result.childNodes.length, 3);

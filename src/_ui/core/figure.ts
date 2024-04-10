@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 import { FIGCAPTION } from "@/_lib/node_names";
 
@@ -9,7 +9,7 @@ import { FIGCAPTION } from "@/_lib/node_names";
  */
 export default function NewFigure(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLElement {
   const figure = document.createElement("figure");
 

@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import NewTbody from "./tbody";
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { TBODY } from "@/_lib/node_names";
 
 test("basic construction", () => {
@@ -34,7 +34,7 @@ test("construction with attributes", () => {
   const mock = NewTbody(document.createElement("tr"), {
     id: "bar",
     class: "foo bar baz",
-  } as HTMLElementGlobalAttributes);
+  } as GlobalAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

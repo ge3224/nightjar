@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
 
 /**
@@ -8,7 +8,7 @@ import { isPhrasingContent } from "@/_lib/content";
  */
 export default function NewAbbr(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLElement {
   const abbr = document.createElement("abbr");
 

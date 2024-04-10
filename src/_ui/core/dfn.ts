@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
 import { DFN } from "@/_lib/node_names";
 
@@ -16,7 +16,7 @@ import { DFN } from "@/_lib/node_names";
  */
 export default function NewDfn(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes = {}
+  attributes: GlobalAttributes = {}
 ): HTMLElement {
   const dfn = document.createElement("dfn");
 

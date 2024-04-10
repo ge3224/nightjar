@@ -1,11 +1,11 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML TextArea element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attributes)
  */
-export interface HTMLTextAreaElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLTextAreaElementAttributes extends GlobalAttributes {
   /**
    * This attribute indicates whether the value of the control can be
    * automatically completed by the browser.

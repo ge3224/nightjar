@@ -1,6 +1,6 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
-export interface HTMLDialogElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLDialogElementAttributes extends GlobalAttributes {
   /**
    * Indicates that the dialog box is active and is available for interaction.
    */

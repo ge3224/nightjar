@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import { H1, H2, H3, H4, H5, H6, P } from "@/_lib/node_names";
 
@@ -17,7 +17,7 @@ import { H1, H2, H3, H4, H5, H6, P } from "@/_lib/node_names";
 
 export default function NewHgroup(
   children: Node | Array<Node> | null = null,
-  attributes: HTMLElementGlobalAttributes = {}
+  attributes: GlobalAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
     const hgroup = document.createElement("hgroup");

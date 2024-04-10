@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 
 /**
  * A constructor for the HTML <thead> element.
@@ -7,7 +7,7 @@ import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
  */
 export default function NewThead(
   children: HTMLTableRowElement | Array<HTMLTableRowElement>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLTableSectionElement {
   const thead = document.createElement("thead");
 

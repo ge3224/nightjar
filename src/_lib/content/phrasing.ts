@@ -5,6 +5,7 @@
  * License: MIT
  */
 
+import { ChildAppender } from "@/_definitions/child_appender";
 import {
   ABBR,
   AUDIO,
@@ -118,3 +119,23 @@ export function isPhrasingContent(node: Node): boolean {
   // TODO: Handle conditional elements, see MDN reference.
   return nodeNames.includes(node.nodeName);
 }
+
+/**
+ * Appends phrasing content to an HTML element.
+ * Phrasing content can be either a string or a Node that is allowed as a child of a <span> element.
+ * @param {HTMLElement} element - The HTML element to which the phrasing content will be appended.
+ * @param {string | Node} child - The phrasing content to append, which can be a string or a Node.
+ * @returns {void}
+ */
+export const appendPhrasingContent = <T extends HTMLElement>(
+  element: T,
+  child: string | Node
+): void => {
+  if (typeof child === "string") {
+    // If the child is a string, create a TextNode and append it to the element.
+    element.appendChild(document.createTextNode(child));
+  } else if (isPhrasingContent(child)) {
+    // If the child is a phrasing content node, append it to the element.
+    element.appendChild(child);
+  }
+};

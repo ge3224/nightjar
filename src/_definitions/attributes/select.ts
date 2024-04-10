@@ -1,11 +1,11 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML Select element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#attributes)
  */
-export interface HTMLSelectElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLSelectElementAttributes extends GlobalAttributes {
   /**
    * A string providing a hint for a user agent's autocomplete feature.
    *

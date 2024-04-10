@@ -1,6 +1,6 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
-export interface HTMLOptGroupElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLOptGroupElementAttributes extends GlobalAttributes {
   /**
    * If this Boolean attribute is set, none of the items in this option group
    * is selectable. Often browsers grey out such control and it won't receive

@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isFlowContent } from "@/_lib/content";
 import { FOOTER, HEADER } from "@/_lib/node_names";
 
@@ -9,7 +9,7 @@ import { FOOTER, HEADER } from "@/_lib/node_names";
  */
 export default function NewHeader(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLElement {
   const header = document.createElement("header");
 

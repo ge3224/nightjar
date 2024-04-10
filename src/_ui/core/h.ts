@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLHeadingElement } from "@/_definitions/constructors";
 
 /**
@@ -16,7 +16,7 @@ import { NewHTMLHeadingElement } from "@/_definitions/constructors";
 export default function NewH(
   level: number,
   children?: string | Node | Node[] | undefined,
-  attributes: HTMLElementGlobalAttributes = {}
+  attributes: GlobalAttributes = {}
 ): NewHTMLHeadingElement {
   return (): HTMLHeadingElement => {
     if (level < 1 || level > 6) {

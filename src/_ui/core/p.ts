@@ -5,81 +5,95 @@
  * License: MIT
  */
 
-import {
-  HTMLElementAttributes,
-  HTMLElementGlobalAttributes,
-} from "@/_definitions/attributes";
-import { ParagraphBuilder } from "@/_definitions/builders";
-import { isPhrasingContent } from "@/_lib/content";
-import { setElementAttributes } from "@/_lib/html_elements";
+import { ElementAttributes, GlobalAttributes } from "@/_definitions/attributes";
+import { ElementCreator } from "@/_definitions/element_creator";
 import { P } from "@/_lib/node_names";
-
-
-/**
- * Helper function to append children to an HTML element.
- * @param parent The parent HTML element to which children will be appended.
- * @param children An array of children (either strings or DOM nodes) to append to the parent element.
- * @returns The modified parent HTML element with the appended children.
- */
-const appendChildren = (
-  parent: HTMLElement,
-  children?: Array<string | Node>
-): HTMLParagraphElement => {
-  if (children) {
-    children.forEach((child) => {
-      if (typeof child === "string") {
-        parent.appendChild(document.createTextNode(child));
-      } else if (isPhrasingContent(child)) {
-        parent.appendChild(child);
-      }
-    });
-  }
-  return parent as HTMLParagraphElement;
-};
+import { appendPhrasingContent } from "@/_lib/content";
+import { setElementAttributes } from "@/_lib/attributes";
 
 /**
- * Function to create a new paragraph element builder.
- * @param attributes An optional object containing attributes to set on the paragraph element.
- * @param children Optional children (strings or DOM nodes) to append to the paragraph element.
- * @returns A builder object with methods to set attributes, append children, and build the final paragraph element.
+ * Creates a paragraph element with specified attributes and children.
+ * @returns {ElementCreator<HTMLParagraphElement, GlobalAttributes>} An
+ * ElementCreator object allowing further customization and creation of the
+ * paragraph element.
  */
-const p = (
-  attributes: HTMLElementGlobalAttributes = {},
-  ...children: Array<string | Node>
-): ParagraphBuilder => {
-  const paragraph = document.createElement(P) as HTMLParagraphElement;
-  attributes as HTMLElementAttributes;
-  appendChildren(paragraph, children);
+export default function p(): ElementCreator<
+  HTMLParagraphElement,
+  GlobalAttributes
+> {
+  /**
+   * Array containing functions to set attributes for the paragraph element.
+   * @type {Array<(element: HTMLParagraphElement) => void>}
+   */
+  const attributeSetters: Array<(element: HTMLParagraphElement) => void> = [];
 
-  const builder: ParagraphBuilder = {
+  /**
+   * Array containing functions to append children to the paragraph element.
+   * @type {Array<(element: HTMLParagraphElement) => void>}
+   */
+  const childAppenders: Array<(element: HTMLParagraphElement) => void> = [];
+
+  /**
+   * An ElementCreator object providing methods to set attributes, append
+   * children, and create the paragraph element.
+   * @type {ElementCreator<HTMLParagraphElement, GlobalAttributes>}
+   */
+  const creator: ElementCreator<HTMLParagraphElement, GlobalAttributes> = {
     /**
-     * Method to set attributes on the paragraph element.
-     * @param newAttributes An object containing attributes to set on the paragraph element.
-     * @returns The builder object for method chaining.
+     * Sets attributes for the paragraph element.
+     * @param {ElementAttributes<GlobalAttributes>} attributes - The attributes to set.
+     * @returns {ElementCreator<HTMLParagraphElement, GlobalAttributes>} The
+     * ElementCreator object for chaining.
      */
-    attributes(newAttributes: HTMLElementGlobalAttributes) {
-      setElementAttributes(paragraph, newAttributes as HTMLElementAttributes);
-      return builder;
+    attributes: (
+      attributes: ElementAttributes<GlobalAttributes>
+    ): ElementCreator<HTMLParagraphElement, GlobalAttributes> => {
+      /**
+       * Function to set attributes for the paragraph element.
+       * @param {HTMLParagraphElement} element - The paragraph element to set attributes on.
+       * @returns {void}
+       */
+      const attributeSetter = (element: HTMLParagraphElement): void => {
+        setElementAttributes(element, attributes);
+      };
+      attributeSetters.push(attributeSetter);
+      return creator;
     },
     /**
-     * Method to append children to the paragraph element.
-     * @param newChildren Additional children (strings or DOM nodes) to append to the paragraph element.
-     * @returns The builder object for method chaining.
+     * Sets children for the paragraph element.
+     * @param {...Array<string | Node>} children - The children to append.
+     * @returns {ElementCreator<HTMLParagraphElement, GlobalAttributes>} The
+     * ElementCreator object for chaining.
      */
-    children(...newChildren: Array<string | Node>) {
-      appendChildren(paragraph, newChildren);
-      return builder;
+    children: (
+      ...children: Array<string | Node>
+    ): ElementCreator<HTMLParagraphElement, GlobalAttributes> => {
+      /**
+       * Function to append children to the paragraph element.
+       * @param {HTMLParagraphElement} element - The paragraph element to append children to.
+       * @returns {void}
+       */
+      const childAppender = (element: HTMLParagraphElement): void => {
+        children.forEach((child) => appendPhrasingContent(element, child));
+      };
+      childAppenders.push(childAppender);
+      return creator;
     },
     /**
-     * Method to build and return the final HTML paragraph element.
-     * @returns The final HTML paragraph element with all specified attributes and children.
+     * Creates the paragraph element with specified attributes and children.
+     * @returns {HTMLParagraphElement} The created paragraph element.
      */
-    build() {
+    create: (): HTMLParagraphElement => {
+      const paragraph = document.createElement(P) as HTMLParagraphElement;
+      attributeSetters.forEach((applyAttributes) => {
+        applyAttributes(paragraph);
+      });
+      childAppenders.forEach((childAppender) => {
+        childAppender(paragraph);
+      });
       return paragraph;
     },
   };
 
-  return builder;
-};
-
-export default p;
+  return creator;
+}

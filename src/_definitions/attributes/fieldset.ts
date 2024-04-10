@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML <fieldset> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset#attributes)
  */
-export interface HTMLFieldSetElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLFieldSetElementAttributes extends GlobalAttributes {
   /**
    * If this Boolean attribute is set, all form controls that are descendants
    * of the <fieldset>, are disabled, meaning they are not editable and won't

@@ -3,7 +3,7 @@ import {
   FormAttributeMethod,
   FormAttributesTarget,
 } from "./form";
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 import { PopoverTargetAction } from "./popover";
 
 /**
@@ -170,7 +170,7 @@ export enum InputAttributeType {
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
  */
-export interface HTMLInputElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLInputElementAttributes extends GlobalAttributes {
   /**
    * Valid for the file input type only, the accept attribute defines which file types are
    * selectable in a file upload control.

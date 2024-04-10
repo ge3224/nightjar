@@ -1,11 +1,11 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML Option element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#attributes)
  */
-export interface HTMLOptionElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLOptionElementAttributes extends GlobalAttributes {
   /**
    * If this Boolean attribute is set, this option is not checkable.
    *
