@@ -1,3 +1,12 @@
+/**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ *
+ * Unit test for the _ui/core/p module
+ */
+
 import { assert, test } from "vitest";
 import p from "./p";
 import { EM, P, SPAN } from "@/_lib/node_names";
