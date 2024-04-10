@@ -5,54 +5,99 @@
  * License: MIT
  */
 
-import { GlobalAttributes } from "@/_definitions/attributes";
-import { NewHTMLElement } from "@/_definitions/constructors";
-import { isPhrasingContent } from "@/_lib/content";
+import { ElementAttributes, GlobalAttributes } from "@/_definitions/attributes";
+import { ElementCreator } from "@/_definitions/element_creator";
+import { setElementAttributes } from "@/_lib/attributes";
+import { appendPhrasingContent } from "@/_lib/content";
 import { I } from "@/_lib/node_names";
 
 /**
- * Returns a constructor for the HTML <i> element.
+ * Creates an idiomatic text element with specified attributes and children.
  *
- * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
+ * For more information about the <p> element, refer to the MDN documentation:
+ * {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i}
+ *
+ * @returns {ElementCreator<HTMLElement, GlobalAttributes>} An ElementCreator
+ * object that facilitates further customization and creation of the idiomatic
+ * text element.
  */
+export default function i(): ElementCreator<
+  HTMLElement,
+  GlobalAttributes
+> {
+  /**
+   * Array containing functions to set attributes for the idiomatic text element.
+   * @type {Array<(element: HTMLElement) => void>}
+   */
+  const attributeSetters: Array<(element: HTMLElement) => void> = [];
 
-export default function NewI(
-  children?: string | Node | Array<string | Node> | undefined,
-  attributes: GlobalAttributes = {}
-): NewHTMLElement {
-  return (): HTMLElement => {
-    const i = document.createElement(I);
+  /**
+   * Array containing functions to append children to the idiomatic text element.
+   * @type {Array<(element: HTMLElement) => void>}
+   */
+  const childAppenders: Array<(element: HTMLElement) => void> = [];
 
-    Object.entries(attributes).forEach(([key, value]) => {
-      switch (key) {
-        case "autofocus":
-          i.autofocus = value;
-          return;
-        case "inert":
-          i.inert = value;
-          return;
-        default:
-          i.setAttribute(
-            key.toLowerCase(),
-            typeof value === "number" ? value.toString() : value
-          );
-      }
-    });
-
-    if (!children) return i;
-
-    const append = (child: string | Node) => {
-      if (typeof child === "string") {
-        i.appendChild(document.createTextNode(child));
-      } else if (child instanceof Node && isPhrasingContent(child)) {
-        i.appendChild(child);
-      }
-    };
-
-    Array.isArray(children)
-      ? children.forEach((child) => append(child))
-      : append(children);
-
-    return i;
+  /**
+   * An ElementCreator object providing methods to set attributes, append
+   * children, and create the idiomatic text element.
+   * @type {ElementCreator<HTMLElement, GlobalAttributes>}
+   */
+  const creator: ElementCreator<HTMLElement, GlobalAttributes> = {
+    /**
+     * Sets attributes for the idiomatic text element.
+     * @param {ElementAttributes<GlobalAttributes>} attributes - The attributes to set.
+     * @returns {ElementCreator<HTMLElement, GlobalAttributes>} The
+     * ElementCreator object for chaining.
+     */
+    attributes: (
+      attributes: ElementAttributes<GlobalAttributes>
+    ): ElementCreator<HTMLElement, GlobalAttributes> => {
+      /**
+       * Function to set attributes for the idiomatic text element.
+       * @param {HTMLElement} element - The idiomatic text element to set attributes on.
+       * @returns {void}
+       */
+      const attributeSetter = (element: HTMLElement): void => {
+        setElementAttributes(element, attributes);
+      };
+      attributeSetters.push(attributeSetter);
+      return creator;
+    },
+    /**
+     * Sets children for the idiomatic text element.
+     * @param {...Array<string | Node>} children - The children to append.
+     * @returns {ElementCreator<HTMLElement, GlobalAttributes>} The
+     * ElementCreator object for chaining.
+     */
+    children: (
+      ...children: Array<string | Node>
+    ): ElementCreator<HTMLElement, GlobalAttributes> => {
+      /**
+       * Function to append children to the idiomatic text element.
+       * @param {HTMLElement} element - The idiomatic text element to append children to.
+       * @returns {void}
+       */
+      const childAppender = (element: HTMLElement): void => {
+        children.forEach((child) => appendPhrasingContent(element, child));
+      };
+      childAppenders.push(childAppender);
+      return creator;
+    },
+    /**
+     * Creates the idiomatic text element with specified attributes and children.
+     * @returns {HTMLElement} The created idiomatic text element.
+     */
+    create: (): HTMLElement => {
+      const idiomaticText = document.createElement(I) as HTMLElement;
+      attributeSetters.forEach((applyAttributes) => {
+        applyAttributes(idiomaticText);
+      });
+      childAppenders.forEach((childAppender) => {
+        childAppender(idiomaticText);
+      });
+      return idiomaticText;
+    },
   };
+
+  return creator;
 }

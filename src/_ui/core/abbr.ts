@@ -1,8 +1,15 @@
+/**
+ * Project: Nightjar
+ * Author: Jacob Benison
+ * Copyright: (C) 2024 Jacob Benison
+ * License: MIT
+ */
+
+import { ABBR } from "@/_lib/node_names";
 import { ElementAttributes, GlobalAttributes } from "@/_definitions/attributes";
 import { ElementCreator } from "@/_definitions/element_creator";
-import { setElementAttributes } from "@/_lib/attributes";
 import { appendPhrasingContent } from "@/_lib/content";
-import { ABBR } from "@/_lib/node_names";
+import { setElementAttributes } from "@/_lib/attributes";
 
 
 /**
