@@ -13,9 +13,12 @@ import { setElementAttributes } from "@/_lib/attributes";
 
 /**
  * Creates a paragraph element with specified attributes and children.
- * @returns {ElementCreator<HTMLParagraphElement, GlobalAttributes>} An
- * ElementCreator object allowing further customization and creation of the
- * paragraph element.
+ *
+ * For more information about the <p> element, refer to the MDN documentation:
+ * {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p}
+ *
+ * @returns {ElementCreator<HTMLParagraphElement, GlobalAttributes>} An ElementCreator
+ * object that facilitates further customization and creation of the paragraph element.
  */
 export default function p(): ElementCreator<
   HTMLParagraphElement,
