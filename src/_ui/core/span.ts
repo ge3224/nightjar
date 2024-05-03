@@ -1,8 +1,8 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewSpan(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLSpanElement {
   const span = document.createElement("span");
 

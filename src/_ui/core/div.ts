@@ -1,9 +1,9 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 // import appendChildren from "@/_lib/append_children";
 
 export default function NewDiv(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLDivElement {
   const div = document.createElement("div");
   // appendChildren(div, children);

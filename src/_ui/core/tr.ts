@@ -1,4 +1,4 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { TD, TH } from "@/_lib/node_names";
 
 /**
@@ -8,7 +8,7 @@ import { TD, TH } from "@/_lib/node_names";
  */
 export default function NewTr(
   children: HTMLTableCellElement | Array<HTMLTableCellElement>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLTableRowElement {
   const tr = document.createElement("tr");
 

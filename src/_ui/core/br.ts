@@ -1,11 +1,11 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 
 /**
  * A constructor for the HTML <br> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
  */
-export default function NewBr(attributes: HTMLElementGlobalAttributes): HTMLElement {
+export default function NewBr(attributes: GlobalAttributes): HTMLElement {
   const br = document.createElement("br");
 
   Object.entries(attributes).forEach(([key, value]) => {

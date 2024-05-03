@@ -1,11 +1,11 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML <iframe> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attributes)
  */
-export interface HTMLIFrameElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLIFrameElementAttributes extends GlobalAttributes {
   /**
    * Specifies a Permissions Policy for the <iframe>. The policy defines what
    * features are available to the <iframe> (for example, access to the

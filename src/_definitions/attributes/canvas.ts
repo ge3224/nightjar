@@ -5,14 +5,14 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
 /**
  * Defines attributes specific to the HTML <canvas> element.
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
  */
-export interface HTMLCanvasElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLCanvasElementAttributes extends GlobalAttributes {
   /**
    * The height of the coordinate space in CSS pixels.
    */

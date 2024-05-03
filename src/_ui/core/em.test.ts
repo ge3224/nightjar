@@ -2,7 +2,7 @@
 
 import { expect, test } from "vitest";
 import NewEm from "./em";
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { EM, SPAN } from "@/_lib/node_names";
 
 test("basic construction", () => {
@@ -30,7 +30,7 @@ test("construction with attributes", () => {
   const mock = NewEm("foo", {
     id: "bar",
     class: "foo bar baz",
-  } as HTMLElementGlobalAttributes);
+  } as GlobalAttributes);
 
   expect(mock.getAttribute("id")).toBe("bar");
   expect(mock.getAttribute("class")).toBe("foo bar baz");

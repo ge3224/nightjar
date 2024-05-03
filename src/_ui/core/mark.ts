@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { NewHTMLElement } from "@/_definitions/constructors";
 import { isPhrasingContent } from "@/_lib/content";
 
@@ -16,7 +16,7 @@ import { isPhrasingContent } from "@/_lib/content";
  */
 export default function NewMark(
   children?: string | Node | Array<string | Node> | undefined,
-  attributes: HTMLElementGlobalAttributes = {}
+  attributes: GlobalAttributes = {}
 ): NewHTMLElement {
   return (): HTMLElement => {
     const mark = document.createElement("mark");

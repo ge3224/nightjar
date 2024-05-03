@@ -1,6 +1,6 @@
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 
-export interface HTMLDetailsElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLDetailsElementAttributes extends GlobalAttributes {
   /**
    * This Boolean attribute indicates whether the details — that is, the
    * contents of the <details> element — are currently visible. The details are

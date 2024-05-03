@@ -7,39 +7,37 @@
  * Unit tests for the _ui/core/i module
  */
 
-import { expect, test } from "vitest";
-import NewI from "./i";
+import { assert, test } from "vitest";
+import i from "./i";
 import { I } from "@/_lib/node_names";
 
 // @vitest-environment happy-dom
 
-test("basic construction", () => {
-  const mock = NewI()();
-
-  expect(mock).not.toBeNull();
-
-  expect(mock.tagName).toEqual(I);
+test("i should create an idiomatic text element", () => {
+  const idiomaticText = i().create();
+  assert.equal(idiomaticText.tagName, I);
 });
 
-test("construction with attributes", () => {
-  const mock = NewI(undefined, {
-    id: "bar",
-    class: "foo bar baz",
-  })();
-
-  expect(mock.getAttribute("id")).toBe("bar");
-  expect(mock.getAttribute("class")).toBe("foo bar baz");
+test("i should set attributes for the idiomatic text element", () => {
+  const idiomaticText = i()
+    .attributes({ class: "italic-text", title: "Italic Text" })
+    .create();
+  assert.equal(idiomaticText.getAttribute("class"), "italic-text");
+  assert.equal(idiomaticText.getAttribute("title"), "Italic Text");
 });
 
-test("construction with a child node", () => {
-  const mockChildren = [
-    document.createElement("em"),
-    document.createElement("br"),
-    document.createElement("abbr"),
-    document.createElement("style"), // not phrasing content
-  ];
+test("i should set children for the idiomatic text element", () => {
+  const idiomaticText = i().children("This is ", "italic", " text.").create();
+  assert.equal(idiomaticText.innerHTML, "This is italic text.");
+});
 
-  const mockParent = NewI(mockChildren, {})();
-
-  expect(mockParent.childNodes.length).toBe(3);
+test("i should set attributes and children for the idiomatic text element", () => {
+  const idiomaticText = i()
+    .attributes({ class: "italic-text", title: "Italic Text" })
+    .children("This is ", "italic", " text.")
+    .create();
+  assert.equal(idiomaticText.tagName, "I");
+  assert.equal(idiomaticText.getAttribute("class"), "italic-text");
+  assert.equal(idiomaticText.getAttribute("title"), "Italic Text");
+  assert.equal(idiomaticText.innerHTML, "This is italic text.");
 });

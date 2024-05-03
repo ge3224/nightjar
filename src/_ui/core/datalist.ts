@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 import { isPhrasingContent } from "@/_lib/content";
 import { OPTION } from "@/_lib/node_names";
 
@@ -16,7 +16,7 @@ import { OPTION } from "@/_lib/node_names";
  */
 export default function NewDatalist(
   children: string | Node | Array<string | Node>,
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLDataListElement {
   const datalist = document.createElement("datalist");
 

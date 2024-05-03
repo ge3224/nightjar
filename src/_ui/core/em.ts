@@ -1,8 +1,8 @@
-import { HTMLElementGlobalAttributes } from "@/_definitions/attributes";
+import { GlobalAttributes } from "@/_definitions/attributes";
 
 export default function NewEm(
   children: string | Node | (string | Node)[],
-  attributes: HTMLElementGlobalAttributes
+  attributes: GlobalAttributes
 ): HTMLElement {
   const em = document.createElement("em");
 

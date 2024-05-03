@@ -5,7 +5,7 @@
  * License: MIT
  */
 
-import { HTMLElementGlobalAttributes } from "./global";
+import { GlobalAttributes } from ".";
 import { HTMLElementAttributeReferrerPolicy } from "./referrer_policy";
 
 /**
@@ -13,7 +13,7 @@ import { HTMLElementAttributeReferrerPolicy } from "./referrer_policy";
  *
  * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area#attributes)
  */
-export interface HTMLAreaElementAttributes extends HTMLElementGlobalAttributes {
+export interface HTMLAreaElementAttributes extends GlobalAttributes {
   /**
    * A text string alternative to display on browsers that do not display
    * images.
